@@ -26,7 +26,7 @@ Code for principle neuron model in (1) NEURON and (2) NetPyNE simulation environ
     
 ## If NEURON model
 ### Run simulation
-    Enter: ragp.py
+    Enter: python3 -i ragp.py -or- ipython ragp.py
 ### Output
     Plot of voltage (mV) v. time (ms)
     
