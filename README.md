@@ -7,8 +7,8 @@ https://senselab.med.yale.edu/ModelDB/ShowModel?model=3800
 Code for principle neuron model in (1) NEURON and (2) NetPyNE simulation environemts with graphical output
 
 # Contents
-  NetPyNE: init.py, cfg.py, netParams.py,'example_plot_netpyne.png'
-  NEURON: ragp.py
+  NetPyNE: init.py, cfg.py, netParams.py,'example_plot_netpyne.png'\
+  NEURON: ragp.py\
   NMOD: ‘mod’ folder containing ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod
  (alt: Files: .py...; Folders: mod, figures)
 
@@ -24,13 +24,13 @@ Code for principle neuron model in (1) NEURON and (2) NetPyNE simulation environ
 ## Compile mod files 
     Enter: nrnivmodl mod
     
-## NEURON model
+## If NEURON model
 ### Run simulation
     Enter: ragp.py
 ### Output
     Plot of voltage (mV) v. time (ms)
     
-## NetPyNE model
+## If NetPyNE model
 ### Install NetPyNE
     Enter: pip3 install netpyne
 ### Run simulation
