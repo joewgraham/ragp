@@ -1,40 +1,44 @@
-# Intrinsic Cardiac Nervous System principal neuron model -  NEURON and NetPyNE
+# Intrinsic Cardiac Nervous System Principal Neuron Model -  NEURON and NetPyNE
 
 mod files are from:
 https://senselab.med.yale.edu/ModelDB/ShowModel?model=3800
 
 # Description: 
-Code for principle neuron model in (1) NEURON and (2) NetPyNE simulation environemts with graphical output
+Code for Principle Neuron model in either NEURON or NetPyNE simulation environments
 
 # Contents
-  NEURON: ragp.py\
-  NetPyNE: init.py, cfg.py, netParams.py,'example_plot_netpyne.png'\
-  NMOD: ‘mod’ folder containing ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod\
- (alt: Files: .py...; Folders: mod, figures)\
+  Code:\
+    NEURON: ragp.py\
+    NetPyNE: init.py, cfg.py, netParams.py\
+  NMOD:\
+    ‘mod’ folder with ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod\
+  Figures:\
+    'images' folder with example plots (example_plot_netpyne.png) and dir for saved output figures
 
 # Usage
-## Clone repository
-
 ## Open a new Terminal window
 
-## Install NEURON
-    Enter: pip3 install neuron (also installs NMOD compiler)
-    Enter: which nrnivmodl (indicates successful installation of NMOD compiler and points to local compiler)
+## Clone repository
 
-## Compile mod files 
-    Enter: nrnivmodl mod
+## Install NEURON
+    pip3 install neuron  
+    which nrnivmodl 
+  -- Indicates successful installation of NMOD compiler and points to local compiler
+  
+## Compile mod files
+    nrnivmodl mod
     
 ## If NEURON model
-### Run simulation
-    Enter: python3 -i ragp.py -or- ipython ragp.py
+### Run a simulation
+    python3 -i ragp.py
 ### Output
-    Plot of voltage (mV) v. time (ms)
+   Plot of voltage (mV) v. time (ms)
     
 ## If NetPyNE model
 ### Install NetPyNE
-    Enter: pip3 install netpyne
-### Run simulation
-    Enter: python3 -i init.py -or- ipython init.py 
+    pip3 install netpyne
+### Run a simulation
+    python3 -i init.py
 ### Output
-    Plot of voltage (mV) v. time (s) is generated and saved as ‘test_plot_netpyne.png’ 
+   Plot of voltage (mV) v. time (s), saved locally as ‘test_plot_netpyne.png’ 
 
