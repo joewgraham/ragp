@@ -7,13 +7,13 @@ https://senselab.med.yale.edu/ModelDB/ShowModel?model=3800
 Code for Principle Neuron model in either NEURON or NetPyNE simulation environments
 
 # Contents
-  Code:\
-    NEURON: ragp.py\
-    NetPyNE: init.py, cfg.py, netParams.py\
-  NMOD:\
-    ‘mod’ folder with ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod\
-  Figures:\
-    'images' folder with example plots (example_plot_netpyne.png) and dir for saved output figures
+## Code:\
+  NEURON: ragp.py\
+  NetPyNE: init.py, cfg.py, netParams.py\
+## NMOD:\
+  ‘mod’ folder with ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod\
+## Figures:\
+  'images' folder with example plots (example_plot_netpyne.png) and dir for saved output figures
 
 # Usage
 ## Open a new Terminal window
