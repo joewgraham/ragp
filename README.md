@@ -9,22 +9,19 @@ Code for Principle Neuron model in either NEURON or NetPyNE simulation environme
 # Contents
 ## Code:
   NEURON: ragp.py\
-  NetPyNE: init.py, cfg.py, netParams.py\
+  NetPyNE: init.py, cfg.py, netParams.py
 ## NMOD:
-  ‘mod’ folder with ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod\
+  ‘mod’ folder with ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod
 ## Figures:
   'images' folder with example plots (example_plot_netpyne.png) and dir for saved output figures
 
 # Usage
 ## Open a new Terminal window
-
 ## Clone repository
-
 ## Install NEURON
     pip3 install neuron  
-    which nrnivmodl 
-  -- Indicates successful installation of NMOD compiler and points to local compiler
-  
+### Confirm installation and location of NMOD compiler
+     which nrnivmodl 
 ## Compile mod files
     nrnivmodl mod
     
