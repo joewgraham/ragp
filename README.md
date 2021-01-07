@@ -39,4 +39,4 @@ Code for Principle Neuron model in either NEURON or NetPyNE simulation environme
 ### Run a simulation
     python3 -i init.py
 ### Output
-   Plot of voltage (mV) v. time (s), saved locally as ‘test_plot_netpyne.png’ 
+   Plot of voltage (mV) v. time (ms)
