@@ -1,14 +1,12 @@
 from neuron import h
 from neuron.units import ms, mV
+h.load_file('stdrun.hoc')
 
 soma = h.Section(name='soma')
-soma.L, soma.diam, soma.cm = 12.6157, 12.6157, 1
-soma.insert('hh')
-#hh.gnabar, hh.gkbar, hh.gl, hh.el = 0.12 , 0.036 , 0.0003 , -54.3 #NOTE: hh. throws an error
-soma(0.5).hh.gnabar # = 0.12
-soma(0.5).hh.gkbar # = 0.036
-soma(0.5).hh.gl #= 0.0003
-soma(0.5).hh.el #= -54.3
+soma.L, soma.diam, soma.cm = 30, 30, 1
+h.v_init = -45
+
+soma.insert('pas')
 
 # SET NSEG - setting hh.gnabar for all nseg
 # for seg in soma: print(seg)
