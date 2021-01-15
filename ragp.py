@@ -1,6 +1,8 @@
 from neuron import h
 from neuron.units import ms, mV
 h.load_file('stdrun.hoc')
+h.v_init = -45
+
 
 soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm = 30, 30, 1
