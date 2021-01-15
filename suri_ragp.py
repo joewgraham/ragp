@@ -1,6 +1,8 @@
 from neuron import h
 from neuron.units import ms, mV
 
+h.load_file('stdrun.hoc')
+h.v_init = -44.5*mV
 soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm = 30, 30, 1
 soma.insert('hh')
@@ -36,9 +38,9 @@ v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
 t = h.Vector().record(h._ref_t)                     # timestamp vector
 
 ## RUN SIMULATION
-h.load_file('stdrun.hoc')
+#h.load_file('stdrun.hoc')
 # initalize sim w/ resting potential
-h.finitialize(-65 * mV)
+#h.finitialize(-65 * mV)
 # continue sim thru 40 ms
 h.continuerun(40 * ms)
 
