@@ -2,7 +2,7 @@ from neuron import h
 from neuron.units import ms, mV
 
 soma = h.Section(name='soma')
-soma.L, soma.diam, soma.cm = 12.6157, 12.6157, 1
+soma.L, soma.diam, soma.cm = 30, 30, 1
 soma.insert('hh')
 #hh.gnabar, hh.gkbar, hh.gl, hh.el = 0.12 , 0.036 , 0.0003 , -54.3 #NOTE: hh. throws an error
 soma(0.5).hh.gnabar # = 0.12
@@ -49,8 +49,8 @@ plt.figure()
 plt.plot(t, v)
 plt.xlabel('t (ms)')
 plt.ylabel('v (mV)')
-plt.show()
-# SAVE figure
+# plt.show()
+
 
 
 ## MISC CODE
