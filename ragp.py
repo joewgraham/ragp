@@ -1,9 +1,16 @@
 from neuron import h
 from neuron.units import ms, mV
+h.load_file('stdrun.hoc')
 
 soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm = 30, 30, 1
-soma.insert('hh')
+
+# RMP, pas
+soma.insert('pas')
+soma.insert('RMP')
+
+
+#soma.insert('hh')
 #hh.gnabar, hh.gkbar, hh.gl, hh.el = 0.12 , 0.036 , 0.0003 , -54.3 #NOTE: hh. throws an error
 soma(0.5).hh.gnabar # = 0.12
 soma(0.5).hh.gkbar # = 0.036
