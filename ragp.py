@@ -8,16 +8,17 @@ soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm = 30, 30, 1
 
 # RMP, pas
-soma.insert('pas')
-soma.insert('RMP')
+soma.insert('hh')
+#soma.insert('pas')
+#soma.insert('RMP')
 
 ################# STOPPED 2020-01-15
 #soma.insert('hh')
 #hh.gnabar, hh.gkbar, hh.gl, hh.el = 0.12 , 0.036 , 0.0003 , -54.3 #NOTE: hh. throws an error
-soma(0.5).hh.gnabar # = 0.12
-soma(0.5).hh.gkbar # = 0.036
-soma(0.5).hh.gl #= 0.0003
-soma(0.5).hh.el #= -54.3
+soma(0.5).hh.gnabar  = 0.12
+soma(0.5).hh.gkbar  = 0.036
+soma(0.5).hh.gl = 0.0003
+soma(0.5).hh.el = -54.3
 
 # SET NSEG - setting hh.gnabar for all nseg
 # for seg in soma: print(seg)
@@ -58,7 +59,7 @@ plt.figure()
 plt.plot(t, v)
 plt.xlabel('t (ms)')
 plt.ylabel('v (mV)')
-# plt.show()
+plt.show()
 
 
 
