@@ -11,7 +11,7 @@ soma.L, soma.diam, soma.cm = 30, 30, 1
 soma.insert('pas')
 soma.insert('RMP')
 
-
+################# STOPPED 2020-01-15
 #soma.insert('hh')
 #hh.gnabar, hh.gkbar, hh.gl, hh.el = 0.12 , 0.036 , 0.0003 , -54.3 #NOTE: hh. throws an error
 soma(0.5).hh.gnabar # = 0.12
