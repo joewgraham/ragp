@@ -4,9 +4,13 @@ h.load_file('stdrun.hoc')
 
 soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm = 30, 30, 1
-h.v_init = -45
+v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
+h.v_init = -65
+
+
 
 soma.insert('pas')
+
 
 # SET NSEG - setting hh.gnabar for all nseg
 # for seg in soma: print(seg)
@@ -61,4 +65,4 @@ plt.show()
 #print("type(soma) = {}".format(type(soma)))
 #print("type(soma(0.5)) = {}".format(type(soma(0.5))))
 
-## inserting IClamp
+## inserting\gref IClamp
