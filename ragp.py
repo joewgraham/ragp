@@ -5,10 +5,10 @@ soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm = 12.6157, 12.6157, 1
 soma.insert('hh')
 #hh.gnabar, hh.gkbar, hh.gl, hh.el = 0.12 , 0.036 , 0.0003 , -54.3 #NOTE: hh. throws an error
-soma(0.5).hh.gnabar # = 0.12
-soma(0.5).hh.gkbar # = 0.036
-soma(0.5).hh.gl #= 0.0003
-soma(0.5).hh.el #= -54.3
+soma(0.5).hh.gnabar = 0.12  # changing from parameter value in mod file
+soma(0.5).hh.gkbar  = 0.036 #  
+soma(0.5).hh.gl = 0.0003
+soma(0.5).hh.el = -54.3
 
 # SET NSEG - setting hh.gnabar for all nseg
 # for seg in soma: print(seg)
@@ -36,7 +36,7 @@ v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
 t = h.Vector().record(h._ref_t)                     # timestamp vector
 
 ## RUN SIMULATION
-h.load_file('stdrun.hoc')
+h.load_file('stdrun.hoc') ## 
 # initalize sim w/ resting potential
 h.finitialize(-65 * mV)
 # continue sim thru 40 ms
