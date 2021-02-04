@@ -3,15 +3,16 @@ from neuron.units import ms, mV
 h.load_file('stdrun.hoc')
 h.v_init = -65
 
-
 soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm = 30, 30, 1
 
-# RMP, pas
-soma.insert('hh')
-#soma.insert('pas')
-#soma.insert('RMP')
+# pas
+soma.insert('pas')
 
+v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
+t = h.Vector().record(h._ref_t)                     # timestamp vector
+
+################################################################
 ################# STOPPED 2020-01-15
 #soma.insert('hh')
 #hh.gnabar, hh.gkbar, hh.gl, hh.el = 0.12 , 0.036 , 0.0003 , -54.3 #NOTE: hh. throws an error
@@ -25,8 +26,8 @@ soma(0.5).hh.el = -54.3
 #    seg.hh.gnabar
 # soma.nseg = 3
 
-mech = soma(0.5).hh
-#print(dir(mech))
+#mech = soma(0.5).hh
+##print(dir(mech))
 
 ## INSERT AN ICLAMP/STIMULUS
 iclamp = h.IClamp(soma(0.5))
@@ -46,19 +47,20 @@ v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
 t = h.Vector().record(h._ref_t)                     # timestamp vector
 
 ## RUN SIMULATION
-h.load_file('stdrun.hoc')
-# initalize sim w/ resting potential
-h.finitialize(-65 * mV)
-# continue sim thru 40 ms
-h.continuerun(40 * ms)
+## initalize sim w/ resting potential
+#h.finitialize(-65 * mV)
+## continue sim thru 40 ms
+#h.continuerun(40 * ms)
 
 # PLOT RESULTS
 import matplotlib.pyplot as plt
 
 plt.figure()
-plt.plot(t, v)
-plt.xlabel('t (ms)')
-plt.ylabel('v (mV)')
+plt.plot(v)
+#plt.plot(t, v)
+#plt.xlabel('t (ms)')
+#plt.ylabel('v (mV)')
+plt.ion()
 plt.show()
 
 
