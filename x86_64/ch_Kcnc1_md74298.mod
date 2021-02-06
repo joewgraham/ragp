@@ -1,0 +1,1 @@
+../mod/ch_Kcnc1_md74298.mod

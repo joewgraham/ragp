@@ -2,7 +2,7 @@
 :[$Revision: 1499 $]
 :[$Date: 2012-01-28 10:45:44 +0100 (Sat, 28 Jan 2012) $]
 :[$Author: rajnish $]
-:Comment : N-Type Voltage gated Calcium Channel
+:Comment :
 :Reference :Activation and inactivation properties of voltage-gated calcium currents in developing cat retinal ganglion cells. Neuroscience, 1998, 85, 239-47
 
 NEURON	{

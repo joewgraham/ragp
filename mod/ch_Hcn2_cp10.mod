@@ -2,7 +2,7 @@
 :[$Revision: 1499 $]
 :[$Date: 2012-01-28 10:45:44 +0100 (Sat, 28 Jan 2012) $]
 :[$Author: rajnish $]
-:Comment : Hyperpolarization Activated Potassium And Sodium Channel
+:Comment :
 :Reference :Cellular expression and functional characterization of four hyperpolarization-activated pacemaker channels in cardiac and neuronal tissues. Eur. J. Biochem., 2001, 268, 1646-52
 
 NEURON	{

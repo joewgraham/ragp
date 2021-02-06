@@ -2,7 +2,7 @@
 :[$Revision: 1499 $]
 :[$Date: 2012-01-28 10:45:44 +0100 (Sat, 28 Jan 2012) $]
 :[$Author: rajnish $]
-:Comment : L-type Calcium channel
+:Comment :
 :Reference :Multiple channel types contribute to the low-voltage-activated calcium current in hippocampal CA3 pyramidal neurons. J. Neurosci., 1996, 16, 5567-82
 
 NEURON	{
