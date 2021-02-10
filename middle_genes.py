@@ -20,16 +20,15 @@ soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.00001
 soma.insert('ch_Scn1a_cp35') #add channel suffix here
 soma(0.5).ch_Scn1a_cp35.gNabar = 0.00001 #0.00001
 
-soma.insert('ch_Hcn2_cp10') #add channel suffix here
-soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.10001
-soma.insert('ch_Hcn4_cp12') #add channel suffix here
-soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.00001 
-
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
 soma(0.5).ch_Kcnc1_md74298.gk = 0.015 
 soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
 soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.011
-     
+soma.insert('ch_Kcna1_') #add channel suffix here
+soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.011  
+
+#leak channel
+
 
 iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 65 #ms
