@@ -9,7 +9,6 @@ h.v_init = -65*mV
 soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm = 30, 30, 1
 
-<<<<<<< HEAD
 # pas
 soma.insert('pas')
 
@@ -22,13 +21,6 @@ t = h.Vector().record(h._ref_t)                     # timestamp vector
 #hh.gnabar, hh.gkbar, hh.gl, hh.el = 0.12 , 0.036 , 0.0003 , -54.3 #NOTE: hh. throws an error
 soma(0.5).hh.gnabar  = 0.12
 soma(0.5).hh.gkbar  = 0.036
-=======
-soma.insert('pas')
-soma.insert('hh')
-#hh.gnabar, hh.gkbar, hh.gl, hh.el = 0.12 , 0.036 , 0.0003 , -54.3 #NOTE: hh. throws an error
-soma(0.5).hh.gnabar = 0.12  # changing from parameter value in mod file
-soma(0.5).hh.gkbar  = 0.036 #  
->>>>>>> main
 soma(0.5).hh.gl = 0.0003
 soma(0.5).hh.el = -54.3
 
@@ -37,12 +29,9 @@ soma(0.5).hh.el = -54.3
 #    seg.hh.gnabar
 # soma.nseg = 3
 
-<<<<<<< HEAD
 #mech = soma(0.5).hh
 ##print(dir(mech))
 
-=======
->>>>>>> main
 ## INSERT AN ICLAMP/STIMULUS
 iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 2 #ms
