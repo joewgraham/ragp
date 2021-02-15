@@ -12,7 +12,7 @@ soma.cm = 0.8889
 # leak channel
 soma.insert('pas')
 #soma(0.5).pas.e = h.v_init
-soma(0.5).pas.g = 0.0001
+#soma(0.5).pas.g = 0.0001
 
 #soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 #soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 1e-2 #1e-4 #1e-3 #1e-2 #1e-1 #1
@@ -31,14 +31,14 @@ soma(0.5).ch_Kcnc1_md74298.gk = 0.015 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 #soma.insert('ch_Kcna1_md232813') #add channel suffix here
 #soma(0.5).ch_Kcna1_md232813.gkcnabar = 0.01 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 
-#soma.insert('iar') #add channel suffix here
-#soma(0.5).iar.shift = -6
-#soma(0.5).iar.ghbar = 0.0008
+soma.insert('iar') #add channel suffix here
+soma(0.5).iar.shift = -6
+soma(0.5).iar.ghbar = 0.0008
 
 iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 50 #ms
 iclamp.dur =  500 #ms
-iclamp.amp =2 #1.0 #5 #nA
+iclamp.amp = 2 #1.0 #5 #nA
 
 v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
 t = h.Vector().record(h._ref_t)                     # timestamp vector
@@ -58,18 +58,20 @@ plt.xlabel('t (ms)')
 plt.ylabel('v (mV)')
 plt.show()
 
-##### CFG --- merging NEURON w/ Netpyne organization, transitioning to netpyne ####
-cfg = specs.SimConfig()					# object of class SimConfig to store simulation configuration
-cfg.duration = 1.5*1e3 #1*1e3 						# Duration of the simulation, in ms
-cfg.dt = 0.02								# Internal integration timestep to use
-cfg.verbose = 1							# Show detailed messages 
-cfg.recordTraces = {'V_soma':{'sec':'soma','loc':0.5,'var':'v'}}  # Dict with traces to record
-cfg.recordStep = 0.02 			
-cfg.filename = 'model_output'  			# Set file output name for json file
-cfg.saveJson = True                     # save json file
-cfg.analysis['plotTraces'] = {'include': [0], 'saveFig': True} # Plot recorded traces for this list of cells
-cfg.hParams['celsius'] = 37
-cfg.hParams['v_init'] = h.v_init
+###### CFG --- merging NEURON w/ Netpyne organization, transitioning to netpyne ####
+#from netpyne import specs, sim
+#cfg = specs.SimConfig()					# object of class SimConfig to store simulation configuration
+#cfg.duration = 1.5*1e3 #1*1e3 						# Duration of the simulation, in ms
+#cfg.dt = 0.02								# Internal integration timestep to use
+#cfg.verbose = 1							# Show detailed messages 
+#cfg.recordTraces = {'V_soma':{'sec':'soma','loc':0.5,'var':'v'}}  # Dict with traces to record
+#cfg.recordStep = 0.02 			
+#cfg.filename = 'model_output'  			# Set file output name
+#cfg.saveJson = True
+#cfg.analysis['plotTraces'] = {'include': [0], 'saveFig': True} # Plot recorded traces for this list of cells
+#cfg.hParams['celsius'] = 37
+#cfg.hParams['v_init'] = -85.7 #-85.3
 
 ## Create network and run simulation
-sim.createSimulateAnalyze(netParams = netParams, simConfig = cfg)
+#sim.createSimulateAnalyze(netParams = netParams, simConfig = cfg)
+

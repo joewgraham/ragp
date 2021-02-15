@@ -16,10 +16,11 @@ PYRcell['secs']['soma']['mechs']['KDR'] = {'gDrbar': 0.031830989} 		#0.031830989
 PYRcell['secs']['soma']['mechs']['KAAR'] = {'gAbar': 0.005305165} 		#0.005305165
 PYRcell['secs']['soma']['mechs']['KAAR'] = {'gARbar': 0.002122066} 		#0.002122066
 PYRcell['secs']['soma']['mechs']['CaL'] = {'gcaLbar': 5.30516E-05}		#5.30516E-05
-PYRcell['secs']['soma']['mechs']['CaN'] = {'gcaNbar': 7.07355E-05}		#7.07355E-05
+PYRcell['secs']['soma']['mechs']['CaN'] = {'gcaNbar': 7.07355E-05}		#7.07355E-05#
 PYRcell['secs']['soma']['mechs']['AHP'] = {'gAHPbar': 0.005305165} 		#0.005305165
 PYRcell['secs']['soma']['mechs']['SynE'] = {'tauE': 30, 'gnE': 0.000424413, 'eSynE': -10} #0.000424413
 PYRcell['secs']['soma']['mechs']['cabuff'] = {'vshell': 2.8e-10,'Btot': 0.03,'Kbuff': 0.001,'cai0': 5e-5,'dia': 30}
+
 #ih
 PYRcell['secs']['soma']['mechs']['iar'] = {'ghbar': 0.0008}#(mho/cm2)
 PYRcell['secs']['soma']['mechs']['iar'] = {'shift': 0} #mV
@@ -37,7 +38,7 @@ for secName in PYRcell['secs']:
 netParams.popParams['ragp'] = {'cellType': 'PYR', 'numCells': 1}
 
 # Stimulation parameters
-netParams.stimSourceParams['iclamp'] = {'type': 'IClamp', 'amp': 000, 'dur': cfg.duration, 'delay': 0} #1000
+netParams.stimSourceParams['iclamp'] = {'type': 'IClamp', 'amp': 000, 'dur': cfg.duration, 'delay': 1000} #1000
 netParams.stimTargetParams['iclamp->PYR'] = {'source': 'iclamp', 'conds': {'cellType': 'PYR'}, 'sec': 'soma', 'loc': 0.5}
 
 
