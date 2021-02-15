@@ -20,6 +20,9 @@ PYRcell['secs']['soma']['mechs']['CaN'] = {'gcaNbar': 7.07355E-05}		#7.07355E-05
 PYRcell['secs']['soma']['mechs']['AHP'] = {'gAHPbar': 0.005305165} 		#0.005305165
 PYRcell['secs']['soma']['mechs']['SynE'] = {'tauE': 30, 'gnE': 0.000424413, 'eSynE': -10} #0.000424413
 PYRcell['secs']['soma']['mechs']['cabuff'] = {'vshell': 2.8e-10,'Btot': 0.03,'Kbuff': 0.001,'cai0': 5e-5,'dia': 30}
+#ih
+PYRcell['secs']['soma']['mechs']['iar'] = {'ghbar': 0.0008}#(mho/cm2)
+PYRcell['secs']['soma']['mechs']['iar'] = {'shift': 0} #mV
 
 netParams.cellParams['PYR'] = PYRcell
 

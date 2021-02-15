@@ -3,17 +3,26 @@ from neuron.units import ms, mV
 from netpyne import specs, sim
 import matplotlib.pyplot as plt
 import numpy as np
+global erev
+global h_inf
+global tau_h
+global stp
+
 
 h.load_file('stdrun.hoc')
-h.v_init = -65
+h.v_init = -44
 
 soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm = 30, 30, 1
 
 # RMP, pas
 soma.insert('pas')
-soma(0.5).pas.e = -70
+soma(0.5).pas.e = -44
 soma(0.5).pas.g = 1.8e-6
+
+
+
+
 v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
 
 def run():
