@@ -2,17 +2,17 @@ from neuron import h
 from neuron.units import ms, mV
 
 h.load_file('stdrun.hoc')
-h.v_init = -45*mV			#need to revisit - is it -44.5 mV?
+h.v_init = -60*mV			#need to revisit - is it -44.5 mV?
 
 soma = h.Section(name='soma')
 soma.L, soma.diam,soma.nseg = 30, 30, 1
-soma.cm = 0.889
+soma.cm = 1
 
 
 # leak channel
 soma.insert('pas')
-#soma(0.5).pas.e = h.v_init
-#soma(0.5).pas.g = 0.0001
+soma(0.5).pas.e = -72
+soma(0.5).pas.g = 0.001
 
 #soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 #soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 1e-2 #1e-4 #1e-3 #1e-2 #1e-1 #1
@@ -25,10 +25,10 @@ soma.insert('pas')
 #soma(0.5).ch_Scn1a_cp35.gNabar = 1e-1 #1e-4 #1e-3 #1e-2 #1e-1 #1
 
 soma.insert('Naf')
-soma(0.5).Naf.gNabar = 0.106103295 *2
+soma(0.5).Naf.gNabar = 0.106103295 *0.25
 
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
-soma(0.5).ch_Kcnc1_md74298.gk = 0.02 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
+soma(0.5).ch_Kcnc1_md74298.gk = 0.01 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 #soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
 #soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.001 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 #soma.insert('ch_Kcna1_md232813') #add channel suffix here
@@ -39,18 +39,17 @@ soma(0.5).ch_Kcnc1_md74298.gk = 0.02 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 #soma(0.5).iar.ghbar = 0.0008
 
 iclamp = h.IClamp(soma(0.5))
-iclamp.delay = 50 #ms
-iclamp.dur =  500 #ms
+iclamp.delay = 5 #ms
+iclamp.dur =  140 #ms
 iclamp.amp = 2 #1.0 #5 #nA
 
 v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
 t = h.Vector().record(h._ref_t)                     # timestamp vector
 
 ## RUN SIMULATION
-#h.finitialize(h.v_init)
 h.finitialize()
 # continue sim thru ?140 ms
-h.continuerun(500 * ms)
+h.continuerun(140 * ms)
 
 # PLOT RESULTS
 import matplotlib.pyplot as plt
