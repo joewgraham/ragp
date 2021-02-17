@@ -6,10 +6,10 @@ Remember to assign the voltage output from the NEURON simulation in line 12
 """
 import numpy as np
 import matplotlib.pyplot as plt
-
+from neuron import h
 
 ######## ASSIGN YOUR VOLTAGE VARIABLE HERE ########
-V = v # voltage output of simulation
+V = v # voltage output of simulation, or look up in Hodgkin and Huxley 1952 
 
 # Fast Sodium Parameters
 m_inf_Na = (0.091 * (V + 38) / (1-np.exp(-(V + 38)/5))) / (0.091 * (V + 38) / (1-np.exp(-(V + 38)/5)) + 0.062 * (V + 38) / (np.exp((V + 38)/5)-1))
@@ -31,7 +31,7 @@ fig.suptitle('tau_mNa')
 axs[1].set(ylabel='tau_mNA (1/mV)')
 
 axs[2].plot(t, h_inf_Na)
-fig.suptitle('h_inf_Na')
+fig.suptitle('≈≈')
 axs[2].set(ylabel='h_inf_Na (unitless)')
 
 axs[3].plot(t, tau_hNa)
@@ -44,3 +44,10 @@ axs[4].set(ylabel='m_inf_DR (unitless)')
 
 plt.xlabel('t (ms)')
 plt.show()
+
+from scipy.io import savemat
+import json
+
+### ADD SAVE TO FILE for above m, h PARAMS ###
+# mat file 
+# json file
