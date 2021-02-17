@@ -2,11 +2,11 @@ from neuron import h
 from neuron.units import ms, mV
 
 h.load_file('stdrun.hoc')
-h.v_init = -64*mV			#need to revisit - is it -44.5 mV?
+h.v_init = -45*mV			#need to revisit - is it -44.5 mV?
 
 soma = h.Section(name='soma')
 soma.L, soma.diam,soma.nseg = 30, 30, 1
-soma.cm = 0.8889
+soma.cm = 0.889
 
 
 # leak channel
@@ -21,19 +21,22 @@ soma.insert('pas')
 #soma.insert('ch_Cacna1i_cp42') #add channel suffix here
 #soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 1e-2 #1e-4 #1e-3 #1e-2 #1e-1 #1
 
-soma.insert('ch_Scn1a_cp35') #add channel suffix here
-soma(0.5).ch_Scn1a_cp35.gNabar = 1e-1 #1e-4 #1e-3 #1e-2 #1e-1 #1
+#soma.insert('ch_Scn1a_cp35') #add channel suffix here
+#soma(0.5).ch_Scn1a_cp35.gNabar = 1e-1 #1e-4 #1e-3 #1e-2 #1e-1 #1
+
+soma.insert('Naf')
+soma(0.5).Naf.gNabar = 0.106103295 *2
 
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
-soma(0.5).ch_Kcnc1_md74298.gk = 0.015 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
+soma(0.5).ch_Kcnc1_md74298.gk = 0.02 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 #soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
 #soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.001 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 #soma.insert('ch_Kcna1_md232813') #add channel suffix here
 #soma(0.5).ch_Kcna1_md232813.gkcnabar = 0.01 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 
-soma.insert('iar') #add channel suffix here
-soma(0.5).iar.shift = -6
-soma(0.5).iar.ghbar = 0.0008
+#soma.insert('iar') #add channel suffix here
+#soma(0.5).iar.shift = -6
+#soma(0.5).iar.ghbar = 0.0008
 
 iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 50 #ms
@@ -47,7 +50,7 @@ t = h.Vector().record(h._ref_t)                     # timestamp vector
 #h.finitialize(h.v_init)
 h.finitialize()
 # continue sim thru ?140 ms
-h.continuerun(1000 * ms)
+h.continuerun(500 * ms)
 
 # PLOT RESULTS
 import matplotlib.pyplot as plt
