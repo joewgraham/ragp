@@ -2,17 +2,16 @@ from neuron import h
 from neuron.units import ms, mV
 
 h.load_file('stdrun.hoc')
-h.v_init = -60*mV			#need to revisit - is it -44.5 mV?
+h.v_init = -61		
 
 soma = h.Section(name='soma')
-soma.L, soma.diam,soma.nseg = 30, 30, 1
-soma.cm = 1
-
+soma.L, soma.diam,soma.nseg, soma.cm = 30, 30, 1, 0.884194128
+soma.Ra = 123
 
 # leak channel
 soma.insert('pas')
-soma(0.5).pas.e = -72
-soma(0.5).pas.g = 0.001
+soma(0.5).pas.e = -43
+soma(0.5).pas.g = 1.768388
 
 #soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 #soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 1e-2 #1e-4 #1e-3 #1e-2 #1e-1 #1
@@ -25,29 +24,36 @@ soma(0.5).pas.g = 0.001
 #soma(0.5).ch_Scn1a_cp35.gNabar = 1e-1 #1e-4 #1e-3 #1e-2 #1e-1 #1
 
 soma.insert('Naf')
-soma(0.5).Naf.gNabar = 0.106103295 *0.25
+soma(0.5).Naf.gNabar = 0.106103295
 
-soma.insert('ch_Kcnc1_md74298') #add channel suffix here
-soma(0.5).ch_Kcnc1_md74298.gk = 0.01 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
+soma.insert('KDR')
+soma(0.5).KDR.gDrbar = 0.031830989
+
+#soma.insert('ch_Kcnc1_md74298') #add channel suffix here
+#soma(0.5).ch_Kcnc1_md74298.gk = 0.031830989 #0.01 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 #soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
 #soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.001 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 #soma.insert('ch_Kcna1_md232813') #add channel suffix here
 #soma(0.5).ch_Kcna1_md232813.gkcnabar = 0.01 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 
+soma.insert('SynE')
+soma(0.5).SynE.tauE = 30
+soma(0.5).SynE.gnE = 0.000424413
+soma(0.5).SynE.eSynE= -10
 #soma.insert('iar') #add channel suffix here
 #soma(0.5).iar.shift = -6
 #soma(0.5).iar.ghbar = 0.0008
 
 iclamp = h.IClamp(soma(0.5))
-iclamp.delay = 5 #ms
+iclamp.delay = 0 #ms
 iclamp.dur =  140 #ms
-iclamp.amp = 2 #1.0 #5 #nA
+iclamp.amp = 0 #1.0 #5 #nA
 
 v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
 t = h.Vector().record(h._ref_t)                     # timestamp vector
 
 ## RUN SIMULATION
-h.finitialize()
+h.finitialize(h.v_init)
 # continue sim thru ?140 ms
 h.continuerun(140 * ms)
 

@@ -6,8 +6,10 @@ Remember to assign the voltage output from the NEURON simulation in line 12
 """
 import numpy as np
 import matplotlib.pyplot as plt
+from neuron import h
 
-
+v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
+t = h.Vector().record(h._ref_t)                     # timestamp vector
 ######## ASSIGN YOUR VOLTAGE VARIABLE HERE ########
 V = v # voltage output of simulation
 
