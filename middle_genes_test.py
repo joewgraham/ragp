@@ -2,7 +2,7 @@ from neuron import h
 from neuron.units import ms, mV
 
 h.load_file('stdrun.hoc')
-h.v_init = -61		
+h.v_init = -60		
 
 soma = h.Section(name='soma')
 soma.L, soma.diam,soma.nseg, soma.cm = 30, 30, 1, 0.884194128
@@ -11,7 +11,7 @@ soma.Ra = 123
 # leak channel
 soma.insert('pas')
 soma(0.5).pas.e = -43
-soma(0.5).pas.g = 0.01 #1.768388
+soma(0.5).pas.g = 0.001 #1.768388
 
 #soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 #soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 1e-2 #1e-4 #1e-3 #1e-2 #1e-1 #1

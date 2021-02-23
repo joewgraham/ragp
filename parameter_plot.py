@@ -8,8 +8,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 from neuron import h
 
-v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
-t = h.Vector().record(h._ref_t)                     # timestamp vector
+
+### IF NETPYNE
+t = sim.allSimData['t']
+v =  sim.allSimData['V_soma']['cell_0']
+#if NEURON
+#v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
+#t = h.Vector().record(h._ref_t)                     # timestamp vector
 ######## ASSIGN YOUR VOLTAGE VARIABLE HERE ########
 V = v # voltage output of simulation
 

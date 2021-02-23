@@ -1,4 +1,5 @@
 from netpyne import specs, sim
+import json
 
 # Simulation options
 cfg = specs.SimConfig()       # object of class cfg to store simulation configuration
@@ -13,5 +14,8 @@ cfg.recordTraces = {'V_soma':{'sec':'soma','loc':0.5,'var':'v'}}
 cfg.recordStep = 0.000025           # Step size in SEC to save data (eg. V traces, LFP, etc)
 cfg.filename = 'ragpv1'         # Set file output name
 cfg.savePickle = True        # Save params, network and sim output to pickle file
+cfg.saveJson = True
+cfg.saveMat = True
 
-cfg.analysis['plotTraces'] = {'include': [0, 1, 2], 'saveFig': False}  # Plot recorded traces for this list of cells
+
+cfg.analysis['plotTraces'] = {'include': [0, 1, 2], 'saveFig': True}  # Plot recorded traces for this list of cells
