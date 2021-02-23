@@ -11,7 +11,7 @@ soma.Ra = 123
 # leak channel
 soma.insert('pas')
 soma(0.5).pas.e = -43
-soma(0.5).pas.g = 1.768388
+soma(0.5).pas.g = 0.01 #1.768388
 
 #soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 #soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 1e-2 #1e-4 #1e-3 #1e-2 #1e-1 #1
