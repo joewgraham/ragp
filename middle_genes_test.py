@@ -19,7 +19,6 @@ soma(0.5).pas.g = 1.768388
 #soma(0.5).ch_Cacna1c_cp3.gLbar = 1e-2 #1e-4 #1e-3 #1e-2 #1e-1 #1
 #soma.insert('ch_Cacna1i_cp42') #add channel suffix here
 #soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 1e-2 #1e-4 #1e-3 #1e-2 #1e-1 #1
-
 #soma.insert('ch_Scn1a_cp35') #add channel suffix here
 #soma(0.5).ch_Scn1a_cp35.gNabar = 1e-1 #1e-4 #1e-3 #1e-2 #1e-1 #1
 
@@ -44,10 +43,10 @@ soma(0.5).SynE.eSynE= -10
 #soma(0.5).iar.shift = -6
 #soma(0.5).iar.ghbar = 0.0008
 
-iclamp = h.IClamp(soma(0.5))
-iclamp.delay = 0 #ms
-iclamp.dur =  140 #ms
-iclamp.amp = 0 #1.0 #5 #nA
+#IClamp = h.IClamp(soma(0.5))
+#IClamp.delay = 0 #ms
+#IClamp.dur =  140 #ms
+#IClamp.amp = 0 #1.0 #5 #nA
 
 v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
 t = h.Vector().record(h._ref_t)                     # timestamp vector

@@ -1,6 +1,5 @@
 from netpyne import specs, sim
 
-
 # Simulation options
 cfg = specs.SimConfig()       # object of class cfg to store simulation configuration
 
