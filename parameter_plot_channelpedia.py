@@ -13,8 +13,8 @@ import matplotlib.pyplot as plt
 #t = np.linspace(0,100,100)
 
 ######## ASSIGN YOUR VOLTAGE VARIABLE HERE ########
-V = v # voltage output of simulation
-# t = time # time output of simulation
+V = np.array(v) # voltage output of simulation
+t = np.array(t)# time output of simulation
 
 # Fast Sodium Parameters
 m_Alpha = (0.182 * (V + 35)) / (1 - (np.exp(-(V + 35) / 9)))
