@@ -30,7 +30,7 @@ m_inf_DR = (0.01 * (V + 45) / (1 - np.exp(-(V + 45) / 5))) / (0.01 * (V + 45) / 
 tau_m_DR = 1/(0.01 * (V + 45) / (1 - np.exp(-(V + 45) / 5)) + 0.17 * np.exp(-(V + 50) / 40))
 
 # Plot
-fig, axs = plt.subplots(5) #, sharex=True, sharey=True)
+fig, axs = plt.subplots(6) #, sharex=True, sharey=True)
 axs[0].plot(t, m_inf_Na)    # Insert time vector used here
 fig.suptitle('m_inf_Na')
 axs[0].set(ylabel='m_inf_Na (unitless)')
@@ -55,6 +55,6 @@ axs[5].plot(t, tau_m_DR)
 fig.suptitle('tau_m_DR')
 axs[5].set(ylabel='tau_m_DR (1/mV)')
 
-plt.xlabel('t (ms)')
+#plt.xlabel('t (ms)')
   
 plt.show()

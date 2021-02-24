@@ -81,4 +81,3 @@ plt.show()
 
 ## Create network and run simulation
 #sim.createSimulateAnalyze(netParams = netParams, simConfig = cfg)
-

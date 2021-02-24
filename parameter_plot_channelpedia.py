@@ -12,6 +12,10 @@ import matplotlib.pyplot as plt
 #v = np.linspace(0,100,100)
 #t = np.linspace(0,100,100)
 
+###### from running simulation in netpyne format ##########
+t = sim.allSimData['t']
+v = sim.allSimData['V_soma']['cell_0']
+
 ######## ASSIGN YOUR VOLTAGE VARIABLE HERE ########
 V = np.array(v) # voltage output of simulation
 t = np.array(t)# time output of simulation
