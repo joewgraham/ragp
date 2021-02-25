@@ -11,6 +11,3 @@ t = sim.allSimData['t']
 
 V=np.v
 t=np.v 
-
-for i in range(0, len(list_name)): 
-    list_name[i] = int(list_name[i])

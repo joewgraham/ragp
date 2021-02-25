@@ -32,46 +32,54 @@ tau_m_DR = 1/(0.01 * (V + 45) / (1 - np.exp(-(V + 45) / 5)) + 0.17 * np.exp(-(V 
 #### Plotting one variable at a time 
 # m_inf_Na
 plt.plot(V, m_inf_Na)
-plt.rcParams['font.size'] = '8'
+plt.rcParams['font.size'] = '6'
 plt.xlabel('mv')
 plt.ylabel('m_inf_Na')
 plt.show()
 
 # tau_mNA
-plt.plot(V, tau_mNA)
-plt.rcParams['font.size'] = '8'
+plt.plot(V, tau_mNa)
+plt.rcParams['font.size'] = '6'
 plt.xlabel('mv')
-plt.ylabel('tau_mNA')
+plt.ylabel('tau_mNa')
 plt.show()
 
 #h_inf_Na
 plt.plot(V, h_inf_Na)
-plt.rcParams['font.size'] = '8'
+plt.rcParams['font.size'] = '6'
 plt.xlabel('mv')
 plt.ylabel('h_inf_Na')
 plt.show()
 
 #tau_hNa
 plt.plot(V, tau_hNa)
-plt.rcParams['font.size'] = '8'
+plt.rcParams['font.size'] = '6'
 plt.xlabel('mv')
-plt.ylabel('h_inf_Na')
+plt.ylabel('tau_hNa')
 plt.show()
 
 #m_inf_DR
 plt.plot(V, m_inf_DR)
-plt.rcParams['font.size'] = '8'
+plt.rcParams['font.size'] = '6'
 plt.xlabel('mv')
 plt.ylabel('m_inf_DR')
 plt.show()
 
+
+
 #tau_m_DR
+plt.plot(V, m_inf_DR)
+plt.rcParams['font.size'] = '6'
+plt.xlabel('mv')
+plt.ylabel('m_inf_DR')
+plt.show()
+
+#tau_m_DR - corresponds to beta?
 plt.plot(V, tau_m_DR)
-plt.rcParams['font.size'] = '8'
+plt.rcParams['font.size'] = '6'
 plt.xlabel('mv')
 plt.ylabel('tau_m_DR')
 plt.show()
-
 
 ### DO NOT USE FOR NOW --- INCORRECT WAY OF LOOKING AT these params####
 # Plot

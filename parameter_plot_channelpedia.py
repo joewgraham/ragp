@@ -30,7 +30,50 @@ h_Tau = 1 / (((0.024 * (V + 50)) / (1 - (np.exp(-(V + 50) / 5)))) + ((0.0091 * (
 
 
 
-# Plot
+##Plot --- to automate/create routine
+#Na
+#m_inf_Na
+plt.plot(V, m_inf)
+plt.rcParams['font.size'] = '8'
+plt.xlabel('mv')
+plt.ylabel('m_inf_Na')
+plt.show()
+
+#m_Tau
+plt.plot(V, m_Tau)
+plt.rcParams['font.size'] = '8'
+plt.xlabel('mv')
+plt.ylabel('m_Tau')
+plt.show()
+
+#h_inf
+plt.plot(V, h_inf)
+plt.rcParams['font.size'] = '8'
+plt.xlabel('mv')
+plt.ylabel('h_inf')
+plt.show()
+
+#h_tau
+plt.plot(V, h_Tau)
+plt.rcParams['font.size'] = '8'
+plt.xlabel('mv')
+plt.ylabel('h_Tau')
+plt.show()
+
+#K 
+plt.plot(V, m_Alpha)
+plt.rcParams['font.size'] = '8'
+plt.xlabel('mv')
+plt.ylabel('m_Alpha')
+plt.show()
+
+plt.plot(V, m_Beta)
+plt.rcParams['font.size'] = '8'
+plt.xlabel('mv')
+plt.ylabel('m_Beta')
+plt.show()
+############################################################
+
 fig, axs = plt.subplots(6) #, sharex=True, sharey=True)
 plt.rcParams['font.size'] = '8'
 axs[0].plot(t, m_Alpha)    # Insert time vector used here

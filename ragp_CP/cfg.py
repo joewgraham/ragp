@@ -5,14 +5,14 @@ import json
 cfg = specs.SimConfig()       # object of class cfg to store simulation configuration
 
 cfg.hParams = {'celsius': 35, 'v_init': -61.656} #, 'clamp_resist': 0.001}
-cfg.duration = 1          # Duration of the simulation, in SEC
+cfg.duration = 1.5          # Duration of the simulation, in SEC
 cfg.dt = 0.000025                # Internal integration timestep to use
 cfg.verbose = False           # Show detailed messages 
 cfg.recordTraces = {'V_soma':{'sec':'soma','loc':0.5,'var':'v'}}
 
 
 cfg.recordStep = 0.000025           # Step size in SEC to save data (eg. V traces, LFP, etc)
-cfg.filename = 'ragpv1'         # Set file output name
+cfg.filename = 'ragp_CP'         # Set file output name
 cfg.savePickle = True        # Save params, network and sim output to pickle file
 cfg.saveJson = True
 cfg.saveMat = False

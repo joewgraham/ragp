@@ -2,7 +2,7 @@ from neuron import h
 from neuron.units import ms, mV
 
 h.load_file('stdrun.hoc')
-h.v_init = -44.5*mV			#need to revisit - is it -44.5 mV?
+h.v_init = -60*mV			#need to revisit - is it -44.5 mV?
 
 soma = h.Section(name='soma')
 soma.L, soma.diam,soma.nseg = 30, 30, 1
@@ -12,7 +12,7 @@ soma.cm = 0.889
 # leak channel
 soma.insert('pas')
 soma(0.5).pas.e = h.v_init
-soma(0.5).pas.g = 0.00001
+soma(0.5).pas.g = 0.01
 
 #soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 #soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 1e-2 #1e-4 #1e-3 #1e-2 #1e-1 #1
@@ -24,10 +24,10 @@ soma(0.5).pas.g = 0.00001
 soma.insert('ch_Scn1a_cp35') #add channel suffix here
 soma(0.5).ch_Scn1a_cp35.gNabar = 1e-1 #1e-4 #1e-3 #1e-2 #1e-1 #1
 
-#soma.insert('ch_Kcnc1_md74298') #add channel suffix here
-#soma(0.5).ch_Kcnc1_md74298.gk = 0.015 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
-soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
-soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.011 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
+soma.insert('ch_Kcnc1_md74298') #add channel suffix here
+soma(0.5).ch_Kcnc1_md74298.gk = 0.015 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
+#soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
+#soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.011 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 #soma.insert('ch_Kcna1_md232813') #add channel suffix here
 #soma(0.5).ch_Kcna1_md232813.gkcnabar = #0.011 #1e-5 #1e-4 #1e-3 #1e-2 #1e-1 #1
 

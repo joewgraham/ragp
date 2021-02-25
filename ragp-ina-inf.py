@@ -195,10 +195,13 @@ gSynE = Vy[:,4]
   
 #Plotting
 ##########
-fig = plt.figure
-#plt.plot(V,ninf)
-#plt.plot(V, hInf)
-#plt.xlabel('mV')
+#fig = plt.figure
+#plt.plot(tspan,V)
+#plt.xlabel('Time (s)')
+#pl.t(V, )
+#plt.xlabel('Membrane Voltage (mV)')
+#plt.grid()
+#plt.title("NP Model")
 #plt.show()
 #plt.savefig('Membrane_Voltage.png',dpi=300) 
 #plt.close()  
@@ -208,17 +211,14 @@ a = 1  # number of rows
 b = 6  # number of columns
 count = 1  # initialize plot counter
 fig = plt.figure(figsize=(40,4))
-#print (len(data))
+print (len(data))
 
 count=1
 myyaxis = ['Na-mi', 'Na-tm', 'Na-hi', 'Na-th', 'DR-mi', 'DR-tm' ]
-for i in range(1,6):
-    plt.rcParams.update({'font.size': 16}) 
-    plt.subplot(a,b,count)
-    plt.plot(data[:,0], data[:,i])
-    plt.xlabel('Time (ms)')
-    plt.ylabel(myyaxis[i])
-    count+=1
+
+plt.rcParams.update({'font.size': 10}) 
+plt.plot(V, data[:,1])
+ 
 plt.show()
 fig.savefig('mh-parameters.png')
 #plt.close()
