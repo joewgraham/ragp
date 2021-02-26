@@ -60,7 +60,7 @@ plt.xlabel('mv')
 plt.ylabel('h_Tau')
 plt.show()
 
-#K 
+
 plt.plot(V, m_Alpha)
 plt.rcParams['font.size'] = '8'
 plt.xlabel('mv')
