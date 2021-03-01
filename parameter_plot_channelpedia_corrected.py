@@ -151,5 +151,5 @@ plt.show()
 #fig.suptitle('Potassium, taun')
 #axs[5].set(ylabel='taun (ms)')
 
-plt.xlabel('t (ms)')
-plt.show()
+#plt.xlabel('t (ms)')
+#plt.show()
