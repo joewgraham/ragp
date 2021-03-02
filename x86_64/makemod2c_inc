@@ -1,0 +1,41 @@
+
+./ch_Cacna1i_cp42.c: ../mod/ch_Cacna1i_cp42.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\n"
+	(cd "../mod"; MODLUNIT=$(NRNUNITS) $(NOCMODL) ch_Cacna1i_cp42.mod -o "/Users/lakshmikc/Dropbox (SBG)/SPARC-2020/EP-Modeling/RAGP-Models/RAGP-PyN/Cell-405/x86_64")
+
+./ch_Cacna1i_cp42.o: ./ch_Cacna1i_cp42.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+
+./ch_Kcna1_md232813.c: ../mod/ch_Kcna1_md232813.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\n"
+	(cd "../mod"; MODLUNIT=$(NRNUNITS) $(NOCMODL) ch_Kcna1_md232813.mod -o "/Users/lakshmikc/Dropbox (SBG)/SPARC-2020/EP-Modeling/RAGP-Models/RAGP-PyN/Cell-405/x86_64")
+
+./ch_Kcna1_md232813.o: ./ch_Kcna1_md232813.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+
+./ch_Kcna1ab1_md80769.c: ../mod/ch_Kcna1ab1_md80769.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\n"
+	(cd "../mod"; MODLUNIT=$(NRNUNITS) $(NOCMODL) ch_Kcna1ab1_md80769.mod -o "/Users/lakshmikc/Dropbox (SBG)/SPARC-2020/EP-Modeling/RAGP-Models/RAGP-PyN/Cell-405/x86_64")
+
+./ch_Kcna1ab1_md80769.o: ./ch_Kcna1ab1_md80769.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+
+./ch_Kcnc1_md74298.c: ../mod/ch_Kcnc1_md74298.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\n"
+	(cd "../mod"; MODLUNIT=$(NRNUNITS) $(NOCMODL) ch_Kcnc1_md74298.mod -o "/Users/lakshmikc/Dropbox (SBG)/SPARC-2020/EP-Modeling/RAGP-Models/RAGP-PyN/Cell-405/x86_64")
+
+./ch_Kcnc1_md74298.o: ./ch_Kcnc1_md74298.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+
+./ch_Scn1a_cp35.c: ../mod/ch_Scn1a_cp35.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\n"
+	(cd "../mod"; MODLUNIT=$(NRNUNITS) $(NOCMODL) ch_Scn1a_cp35.mod -o "/Users/lakshmikc/Dropbox (SBG)/SPARC-2020/EP-Modeling/RAGP-Models/RAGP-PyN/Cell-405/x86_64")
+
+./ch_Scn1a_cp35.o: ./ch_Scn1a_cp35.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+
