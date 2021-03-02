@@ -5,7 +5,6 @@ from cfg import cfg
 from netParams import netParams
 import matplotlib.pyplot as plt
 plt.ion()
-plt.show()
 
 
 print("Starting sim ...")
@@ -21,3 +20,4 @@ for ax in fig0.axes:
     ax.set_title('')
 fig0.savefig('test_example_netpyne.png')
    
+
