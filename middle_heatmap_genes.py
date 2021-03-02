@@ -2,7 +2,7 @@ from neuron import h
 from neuron.units import ms, mV
 
 h.load_file('stdrun.hoc')
-h.v_init = -61*mV			#need to revisit - is it -44.5 mV?
+h.v_init = -61*mV			
 
 soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm, soma.nseg = 30, 30, 1, 1
