@@ -57,4 +57,9 @@ plt.ylabel('v (mV)')
 plt.show()
 
 
-import json
+#import json
+#savePickle = True        # Save params, network and sim output to pickle file
+#saveJson = True
+#saveMat = True
+#filename = 'model_params'
+
