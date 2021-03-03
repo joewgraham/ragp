@@ -1,4 +1,4 @@
-dTITLE Na channel from PN MATLAB/PYTHON model
+TITLE Na channel from PN MATLAB/PYTHON model
 
 NEURON {
 	SUFFIX Naf
