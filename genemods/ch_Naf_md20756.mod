@@ -13,7 +13,7 @@ UNITS {
 	(mA) = (milliamp) 
 } 
 NEURON { 
-	SUFFIX naf
+	SUFFIX ch_Naf_md20756
 	USEION na READ ena WRITE ina
 	RANGE gbar, ina
 }

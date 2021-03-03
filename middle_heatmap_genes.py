@@ -19,8 +19,24 @@ soma(0.5).ch_Cacna1c_cp3.gLbar = 0.0001
 soma.insert('ch_Cacna1i_cp42') #add channel suffix here
 soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001
 
-soma.insert('ch_Scn1a_cp35') #add channel suffix here
-soma(0.5).ch_Scn1a_cp35.gNabar = 0.015 #0.00001
+#soma.insert('ch_Scn1a_cp35') #add channel suffix here
+#soma(0.5).ch_Scn1a_cp35.gNabar = 0.015 #0.00001
+
+### Bereck 2019 ###
+#soma.insert('ch_Scn1a_md264834') #add channel suffix here
+#soma(0.5).ch_Scn1a_md264834.gNav11bar = 0.00001 #(S/cm2)
+### Zheng 2019 ###
+#soma.insert('ch_Scn1a_md256632') #add channel suffix here
+#soma(0.5).ch_Scn1a_md256632.gnabar = 0.008 #(S/cm2)
+### Traub 2003 ###
+soma.insert('ch_Scn1a_md256632') #add channel suffix here
+soma(0.5).ch_Scn1a_md256632.gnabar = 0.008 #(S/cm2)
+
+#ch_Naf_md20756
+### Rybak 1997 ###
+#ch_Naf_rybak
+
+
 
 #soma.insert('ch_Hcn2_cp10') #add channel suffix here
 #soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.0100
@@ -36,7 +52,7 @@ soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015
 iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 50 #ms
 iclamp.dur = 0.5 #ms
-iclamp.amp = 2 #nA
+iclamp.amp = 0.1 #nA
 
 
 v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
