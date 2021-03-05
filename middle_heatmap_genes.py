@@ -36,10 +36,10 @@ soma(0.5).ch_Scn1a_md264834.gNav11bar = 2.5# 0.00001 #(S/cm2)
 #soma(0.5).ch_Naf_rybak.gNabar=0.106103295 #(S/cm2) <0,1e9> 
 
 
-soma.insert('ch_Hcn2_cp10') #add channel suffix here
-soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.0100
-soma.insert('ch_Hcn4_cp12') #add channel suffix here
-soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
+#soma.insert('ch_Hcn2_cp10') #add channel suffix here
+#soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.010
+#soma.insert('ch_Hcn4_cp12') #add channel suffix here
+#soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
 
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
 soma(0.5).ch_Kcnc1_md74298.gk = 0.015 
@@ -51,7 +51,6 @@ iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 50 #ms
 iclamp.dur = 200 #ms
 tstop = 500
-#iclamp.tstop = 
 iclamp.amp = 0.1 #nA
 
 
@@ -71,7 +70,6 @@ plt.plot(t, v)
 plt.xlabel('t (ms)')
 plt.ylabel('v (mV)')
 plt.show()
-
 
 #import json
 #savePickle = True        # Save params, network and sim output to pickle file
