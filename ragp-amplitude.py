@@ -115,7 +115,7 @@ for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:
   
 #plt.savefig('PULSE_test2/%s.png' % (channel))
 #plt.savefig('PULSE_test/%s.png' % (channel))
-#plt.savefig('%s.png' % (channel))
+#plt.savefig('PULSE/%s.png' % (channel))
 plt.show()
 plt.close()  
 
