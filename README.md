@@ -8,7 +8,7 @@ Code for Principle Neuron model in either NEURON or NetPyNE simulation environme
 
 # Contents
 ## Code:
-  NEURON: ragp.py, extremes.py, middle_heatmap_genes.py (contains all ion channels currently used in models -- comment out prn)\
+  NEURON: ragp.py, middle_heatmap_genes.py (contains all ion channels currently used in models -- comment out prn), extremes.py (L heatmap)\
   NetPyNE: init.py, cfg.py, netParams.py\
   Analyis: ragp-amplitudes.py, parameter_plot_corrected.py
 ## NMOD:
