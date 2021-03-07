@@ -65,11 +65,11 @@ fig = plt.figure(figsize=(28,4))
 
 #EDIT ONLY THIS PART
 ########################################
-channel = "Hcn4"
+channel = "Scn1a"
 mylist1 = [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]  #Conductance values 
 
-for soma(0.5).ch_Hcn4_cp12.gHCN4bar in mylist1:
-    cond = soma(0.5).ch_Hcn4_cp12.gHCN4bar
+for soma(0.5).ch_Scn1a_cp35.gNabar in mylist1:
+    cond = soma(0.5).ch_Scn1a_cp35.gNabar
 #########################################   
 
     #plt.figure() 
@@ -102,8 +102,185 @@ plt.savefig('PLOTS/%s.png' % (channel))
 plt.show()
 plt.close()  
 
+
+a = 1  # number of rows
+b = 6  # number of columns
+c = 1  # initialize plot counter
+fig = plt.figure(figsize=(28,4))
+
+#EDIT ONLY THIS PART
+########################################
+channel = "Kcna1"
+mylist1 = [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]  #Conductance values 
+
+for soma(0.5).ch_Kcna1_md232813.gkcnabar in mylist1:
+    cond = soma(0.5).ch_Kcna1_md232813.gkcnabar
+#########################################  
     
+      #plt.figure() 
+    plt.subplot(a, b, c)
+    plt.rcParams.update({'font.size': 16}) 
+    plt.title('Conductance= {}'.format(cond))
+    mylist2 = [0.1,1,5]  #Current strength
+
+    for iclamp.amp in mylist2: 
+      
+        ## RUN SIMULATION
+        h.finitialize(h.v_init)
+        # continue sim thru 40 ms
+        h.continuerun(200 * ms)
+            
+        #f = "PULSE/%s-C-%s-I-%s.txt" % (channel,cond,iclamp.amp)
+        #with open(f, "w") as f:
+         #   csv.writer(f).writerows(zip(t, v))
+
+        plt.plot(t, v)
+       
+    plt.ylim((-70,70))
+       
+    plt.xlabel("Time (ms)")
+    plt.ylabel("Membrane Potential (mV)")    
+    plt.grid(True) 
+    c = c+1
+ 
+plt.savefig('PLOTS/%s.png' % (channel))
+plt.show()
+plt.close()  
+
+
+a = 1  # number of rows
+b = 6  # number of columns
+c = 1  # initialize plot counter
+fig = plt.figure(figsize=(28,4))
+
+#EDIT ONLY THIS PART
+########################################
+channel = "Kcna1ab1"
+mylist1 = [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]  #Conductance values 
+
+for soma(0.5).ch_Kcna1ab1_md80769.gbar in mylist1:
+    cond = soma(0.5).ch_Kcna1ab1_md80769.gbar
+#########################################  
     
+      #plt.figure() 
+    plt.subplot(a, b, c)
+    plt.rcParams.update({'font.size': 16}) 
+    plt.title('Conductance= {}'.format(cond))
+    mylist2 = [0.1,1,5]  #Current strength
+
+    for iclamp.amp in mylist2: 
+      
+        ## RUN SIMULATION
+        h.finitialize(h.v_init)
+        # continue sim thru 40 ms
+        h.continuerun(200 * ms)
+            
+        #f = "PULSE/%s-C-%s-I-%s.txt" % (channel,cond,iclamp.amp)
+        #with open(f, "w") as f:
+         #   csv.writer(f).writerows(zip(t, v))
+
+        plt.plot(t, v)
+       
+    plt.ylim((-70,70))
+       
+    plt.xlabel("Time (ms)")
+    plt.ylabel("Membrane Potential (mV)")    
+    plt.grid(True) 
+    c = c+1
+ 
+plt.savefig('PLOTS/%s.png' % (channel))
+plt.show()
+plt.close()  
+
+
+a = 1  # number of rows
+b = 6  # number of columns
+c = 1  # initialize plot counter
+fig = plt.figure(figsize=(28,4))
+
+#EDIT ONLY THIS PART
+########################################
+channel = "Kcnc1"
+mylist1 = [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]  #Conductance values 
+
+for soma(0.5).ch_Kcnc1_md74298.gk in mylist1:
+    cond = soma(0.5).ch_Kcnc1_md74298.gk
+#########################################  
+    
+      #plt.figure() 
+    plt.subplot(a, b, c)
+    plt.rcParams.update({'font.size': 16}) 
+    plt.title('Conductance= {}'.format(cond))
+    mylist2 = [0.1,1,5]  #Current strength
+
+    for iclamp.amp in mylist2: 
+      
+        ## RUN SIMULATION
+        h.finitialize(h.v_init)
+        # continue sim thru 40 ms
+        h.continuerun(200 * ms)
+            
+        #f = "PULSE/%s-C-%s-I-%s.txt" % (channel,cond,iclamp.amp)
+        #with open(f, "w") as f:
+         #   csv.writer(f).writerows(zip(t, v))
+
+        plt.plot(t, v)
+       
+    plt.ylim((-70,70))
+       
+    plt.xlabel("Time (ms)")
+    plt.ylabel("Membrane Potential (mV)")    
+    plt.grid(True) 
+    c = c+1
+ 
+plt.savefig('PLOTS/%s.png' % (channel))
+plt.show()
+plt.close()  
+
+
+a = 1  # number of rows
+b = 6  # number of columns
+c = 1  # initialize plot counter
+fig = plt.figure(figsize=(28,4))
+
+#EDIT ONLY THIS PART
+########################################
+channel = "Cacna1i"
+mylist1 = [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]  #Conductance values 
+
+for soma(0.5).ch_Cacna1i_cp42.gCav3_3bar in mylist1:
+    cond = soma(0.5).ch_Cacna1i_cp42.gCav3_3bar
+#########################################  
+    
+      #plt.figure() 
+    plt.subplot(a, b, c)
+    plt.rcParams.update({'font.size': 16}) 
+    plt.title('Conductance= {}'.format(cond))
+    mylist2 = [0.1,1,5]  #Current strength
+
+    for iclamp.amp in mylist2: 
+      
+        ## RUN SIMULATION
+        h.finitialize(h.v_init)
+        # continue sim thru 40 ms
+        h.continuerun(200 * ms)
+            
+        #f = "PULSE/%s-C-%s-I-%s.txt" % (channel,cond,iclamp.amp)
+        #with open(f, "w") as f:
+         #   csv.writer(f).writerows(zip(t, v))
+
+        plt.plot(t, v)
+       
+    plt.ylim((-70,70))
+       
+    plt.xlabel("Time (ms)")
+    plt.ylabel("Membrane Potential (mV)")    
+    plt.grid(True) 
+    c = c+1
+ 
+plt.savefig('PLOTS/%s.png' % (channel))
+plt.show()
+plt.close()  
 
 
 
