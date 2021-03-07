@@ -50,8 +50,8 @@ soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001 #0.01 adjusted for spiking
 #### ICLAMP ####
 iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 50 #ms
-iclamp.dur = 0.5 #ms  #200 if squarewave
-#istop = 500 # if squarewave
+iclamp.dur = 200 #0.5 #ms  #200 if squarewave
+istop = 500 # if squarewave
 iclamp.amp = 0.1 #nA
 
 
