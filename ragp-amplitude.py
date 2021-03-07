@@ -9,8 +9,7 @@ import matplotlib
 import csv
 
 h.load_file('stdrun.hoc')
-h.v_init = -61*mV			#need to revisit - is it -44.5 mV?i#
-
+h.v_init = -61*mV		
 
 soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm, soma.nseg = 30, 30, 1, 1
@@ -46,7 +45,7 @@ soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #0.011
 soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.00001
 soma.insert('ch_Cacna1c_cp3') #add channel suffix here
-soma(0.5).ch_Cacna1c_cp3.gLbar = 0.00001
+soma(0.5).ch_Cacna1c_cp3.gLbar = 0.00001 
 soma.insert('ch_Cacna1i_cp42') #add channel suffix here
 soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001
 
