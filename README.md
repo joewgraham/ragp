@@ -1,7 +1,7 @@
 # Intrinsic Cardiac Nervous System Principal Neuron Model -  NEURON and NetPyNE
 
 mod files are from:
-https://senselab.med.yale.edu/ModelDB/ShowModel?model=3800 and https://channelpedia.epfl.ch/
+https://senselab.med.yale.edu/ModelDB/ShowModel?model=3800, https://channelpedia.epfl.ch/
 
 # Description: 
 Code for Principle Neuron model in either NEURON or NetPyNE simulation environments
@@ -12,7 +12,7 @@ Code for Principle Neuron model in either NEURON or NetPyNE simulation environme
   NetPyNE: init.py, cfg.py, netParams.py\
   Analyis: ragp-amplitudes.py, parameter_plot_corrected.py, Na-K-.py
 ## NMOD:
-  ‘mod’ folder with ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod/
+  ‘mod’ folder with ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod\
   'genemods' folder with mod files for ion channels selected from transcriptomic data. Note not all are used in each single neuron model
 
 # Usage
@@ -35,7 +35,7 @@ Code for Principle Neuron model in either NEURON or NetPyNE simulation environme
 ### Run simulation analysis with multiple conductances and/or current (nA) values for any number of genemod files
     python -i ragp-amplitudes.py
 #### Output
-    n genes x m conductance values, plots of voltage (mV) v. time (ms)
+    m genes x n conductance values, plots of voltage (mV) v. time (ms)
 ### Run simulation analysis generating m, h, n tau and inf values for a given neuron model
     python3 -i plot_parameters_corrected.py
     
