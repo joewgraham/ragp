@@ -21,21 +21,22 @@ soma(0.5).pas.g = 1.8e-6
 
 #Channel conductances
 #=====================
-#soma.insert('ch_Scn1a_cp35') #add channel suffix here
-#soma(0.5).ch_Scn1a_cp35.gNabar = 0.00001
+### Berecki 2019 ###
+soma.insert('ch_Scn1a_md264834') #add channel suffix here
+soma(0.5).ch_Scn1a_md264834.gNav11bar = 0.00001 #(S/cm2)
 
-### Bereck 2019 ###
-#soma.insert('ch_Scn1a_md264834') #add channel suffix here
-#soma(0.5).ch_Scn1a_md264834.gNav11bar = 0.00001 #(S/cm2)
 ### Zheng 2019 ###
-soma.insert('ch_Scn1a_md256632') #add channel suffix here
-soma(0.5).ch_Scn1a_md256632.gnabar = 0.008 #(S/cm2)
+#soma.insert('ch_Scn1a_md256632') #add channel suffix here
+#soma(0.5).ch_Scn1a_md256632.gnabar = 0.008 #(S/cm2)
 ### Traub 2003 ###
 #soma.insert('ch_Naf_md20756') #add channel suffix here
 #soma(0.5).ch_Naf_md20756.gbar = 0	   #(mho/cm2)
 ### Rybak 1997 ###
 #soma.insert('ch_Naf_rybak') #add channel suffix here
 #soma(0.5).ch_Naf_rybak.gNabar=0.106103295 #(S/cm2) <0,1e9> 
+### CP35 ###
+#soma.insert('ch_Scn1a_cp35') #add channel suffix here
+#soma(0.5).ch_Scn1a_cp35.gNabar = 0.00001
 
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
 soma(0.5).ch_Kcnc1_md74298.gk = 0.015
@@ -70,18 +71,18 @@ tstop = 500
 ###############################################
 
 a = 1  # number of rows
-b = 1#6  # number of columns
+b = 4#1#6  # number of columns
 c = 1  # initialize plot counter
 fig = plt.figure(figsize=(28,4))
 
 
 #EDIT ONLY THIS PART
 ########################################
-channel = "Scn1a_md256632_Zheng"
+channel = "Scn1a_md264834_Berecki"
 #mylist1 = [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]  #Conductance values 
-mylist1 = [0.01]
-for soma(0.5).ch_Scn1a_md256632.gnabar in mylist1:
-    cond = soma(0.5).ch_Scn1a_md256632.gnabar 
+mylist1 = [1.0, 2.0, 2.5, 5] #Conductance values 
+for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:
+    cond = soma(0.5).ch_Scn1a_md264834.gNav11bar
 #########################################   
 
     #plt.figure() 
@@ -89,7 +90,7 @@ for soma(0.5).ch_Scn1a_md256632.gnabar in mylist1:
     plt.rcParams.update({'font.size': 10}) 
     plt.title('Conductance= {}'.format(cond))
     #mylist2 = [0.1,1,5]  #Current strength - corresponds to colors b, o, g (add key?)
-    mylist2 = [0.05, 0.1, 0.2]
+    mylist2 = [0.01, 0.05, 0.1]
     for iclamp.amp in mylist2: 
       
         ## RUN SIMULATION
@@ -97,25 +98,28 @@ for soma(0.5).ch_Scn1a_md256632.gnabar in mylist1:
         # continue sim thru *** ms
         h.continuerun(500 * ms)
             
-        #f = "PULSE/%s-C-%s-I-%s.txt" % (channel,cond,iclamp.amp)
+        #f = "PULSE_test/%s-C-%s-I-%s.txt" % (channel,cond,iclamp.amp)
         #with open(f, "w") as f:
-         #   csv.writer(f).writerows(zip(t, v))
-
+        #   csv.writer(f).writerows(zip(t, v))
+           
         plt.plot(t, v)
         plt.ylim((-70,70))
         plt.xlabel("time(ms)")
         plt.ylabel("membrane potential(mV)")  
-       
+        plt.legend(mylist2)
     #plt.ylim((-70,70))
     #plt.xlabel("time(ms)")
     #plt.ylabel("membrane potential(mV)")    
-    plt.grid(True) 
+    #plt.grid(True) 
     c = c+1
- 
+  
+#plt.savefig('PULSE_test2/%s.png' % (channel))
 #plt.savefig('PULSE_test/%s.png' % (channel))
-plt.savefig('%s.png' % (channel))
+#plt.savefig('%s.png' % (channel))
 plt.show()
 plt.close()  
+
+
 
     
     
