@@ -10,7 +10,7 @@ Code for Principle Neuron model in either NEURON or NetPyNE simulation environme
 ## Code:
   NEURON: ragp.py, extremes.py, middle_heatmap_genes.py (contains all ion channels currently used in models -- comment out prn)\
   NetPyNE: init.py, cfg.py, netParams.py\
-  Analyis: ragp-amplitudes.py, parameter_plot_corrected.py, Na-K-.py
+  Analyis: ragp-amplitudes.py, parameter_plot_corrected.py
 ## NMOD:
   ‘mod’ folder with ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod\
   'genemods' folder with mod files for ion channels selected from transcriptomic data. Note not all are used in each single neuron model
