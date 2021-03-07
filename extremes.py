@@ -16,7 +16,7 @@ soma(0.5).pas.g = 1.8e-6
 #soma(0.5).ch_Scn1a_cp35.gNabar = 0.015 #0.00001
 ### Berecki 2019 ###
 soma.insert('ch_Scn1a_md264834') #add channel suffix here
-soma(0.5).ch_Scn1a_md264834.gNav11bar = 2.5 #0.00001 #(S/cm2)
+soma(0.5).ch_Scn1a_md264834.gNav11bar = 2.0 #0.00001 #(S/cm2)
 ### Zheng 2019 ###
 #soma.insert('ch_Scn1a_md256632') #add channel suffix here
 #soma(0.5).ch_Scn1a_md256632.gnabar = 0.01 #(S/cm2)
