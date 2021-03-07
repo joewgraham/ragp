@@ -41,7 +41,7 @@ soma(0.5).ch_Scn1a_md264834.gNav11bar = 0.00001 #(S/cm2)
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
 soma(0.5).ch_Kcnc1_md74298.gk = 0.015
 soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
-soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.011
+soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #0.011
 
 soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.00001
@@ -51,9 +51,9 @@ soma.insert('ch_Cacna1i_cp42') #add channel suffix here
 soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001
 
 #soma.insert('ch_Hcn2_cp10') #add channel suffix here
-#soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.00001
+#soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.01
 #soma.insert('ch_Hcn4_cp12') #add channel suffix here
-#soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.00001
+#soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
 
 soma.psection()
 
@@ -70,10 +70,10 @@ tstop = 500
 #SAVE DATA FILE AND PLOT FOR EACH CONDUCTANCE - 
 ###############################################
 
-a = 1  # number of rows
-b = 4#1#6  # number of columns
-c = 1  # initialize plot counter
-fig = plt.figure(figsize=(28,4))
+#a = 1  # number of rows
+#b = 4 #6 #1 # number of columns
+#c = 1  # initialize plot counter
+#fig = plt.figure(figsize=(28,4))
 
 
 #EDIT ONLY THIS PART
@@ -81,6 +81,14 @@ fig = plt.figure(figsize=(28,4))
 channel = "Scn1a_md264834_Berecki"
 #mylist1 = [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]  #Conductance values 
 mylist1 = [1.0, 2.0, 2.5, 5] #Conductance values 
+
+#SAVE DATA FILE AND PLOT FOR EACH CONDUCTANCE - 
+###############################################
+a = 1 # number of rows
+b = len(mylist1)
+c = 1  # initialize plot counter
+fig = plt.figure(figsize=(28,4))
+
 for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:
     cond = soma(0.5).ch_Scn1a_md264834.gNav11bar
 #########################################   
@@ -118,11 +126,3 @@ for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:
 #plt.savefig('PULSE/%s.png' % (channel))
 plt.show()
 plt.close()  
-
-
-
-    
-    
-
-
-
