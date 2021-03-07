@@ -29,7 +29,7 @@ Code for Principle Neuron model in either NEURON or NetPyNE simulation environme
         
 ## If NEURON model
 ### Run a simulation
-    Variations of PN model: python3 -i extremes.py (alt: ipython -i extremes.py), python3 -i middle_genes_test.py
+    Variations of PN model: python3 -i extremes.py (alt: ipython -i extremes.py), python3 -i middle_heatmap_genes.py
 #### Output
     Plot of voltage (mV) v. time (ms)
 ### Run simulation analysis with multiple conductances and/or current (nA) values for any number of genemod files
