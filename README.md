@@ -8,11 +8,11 @@ Code for Principle Neuron model in either NEURON or NetPyNE simulation environme
 
 # Contents
 ## Code:
-  NEURON: ragp.py, extremes.py, middle_heatmap_genes.py (contains all ion channels currently used in models -- comment out prn), 
-  NetPyNE: init.py, cfg.py, netParams.py
-  Analyis: ragp-amplitudes.py, 
+  NEURON: ragp.py, extremes.py, middle_heatmap_genes.py (contains all ion channels currently used in models -- comment out prn)\
+  NetPyNE: init.py, cfg.py, netParams.py\
+  Analyis: ragp-amplitudes.py, parameter_plot_corrected.py, Na-K-.py
 ## NMOD:
-  ‘mod’ folder with ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod
+  ‘mod’ folder with ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod/
   'genemods' folder with mod files for ion channels selected from transcriptomic data. Note not all are used in each single neuron model
 
 # Usage
@@ -29,15 +29,15 @@ Code for Principle Neuron model in either NEURON or NetPyNE simulation environme
         
 ## If NEURON model
 ### Run a simulation
-    Variations of PN model: python3 -i ragp.py, python3 -i extremes.py, python3 -i middle_genes_test.py
+    Variations of PN model: python3 -i extremes.py (alt: ipython -i extremes.py), python3 -i middle_genes_test.py
 #### Output
     Plot of voltage (mV) v. time (ms)
-### Run a simulation with multiple conductances and/or current (nA) values for any number of genemod files
-    python -i ragpy-amplitudes.py
+### Run simulation analysis with multiple conductances and/or current (nA) values for any number of genemod files
+    python -i ragp-amplitudes.py
 #### Output
     n genes x m conductance values, plots of voltage (mV) v. time (ms)
-### Run a simulation generating m, h, n tau and inf values for a given neuron model
-    python3 -i XXXXXX.py
+### Run simulation analysis generating m, h, n tau and inf values for a given neuron model
+    python3 -i plot_parameters_corrected.py
     
 ## If NetPyNE model
 ### Install NetPyNE
