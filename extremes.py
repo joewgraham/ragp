@@ -52,7 +52,7 @@ iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 50 #ms
 iclamp.dur = 0.5 #ms  #200 if squarewave
 #istop = 500 # if squarewave
-iclamp.amp = 0.05 #nA
+iclamp.amp = 0.1 #nA
 
 
 v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
