@@ -31,7 +31,11 @@ soma(0.5).ch_Scn1a_md264834.gNav11bar = 2.0 #0.00001 #(S/cm2)
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
 soma(0.5).ch_Kcnc1_md74298.gk = 0.015 
 soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
+<<<<<<< HEAD
 soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #0.011
+=======
+soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015
+>>>>>>> NEURON-jessica
 
 #### Ca ####
 soma.insert('ch_Cacna1b_cp6') #add channel suffix here

@@ -14,10 +14,10 @@ soma(0.5).pas.g = 1.8e-6
 
 soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001
-soma.insert('ch_Cacna1c_cp3') #add channel suffix here
-soma(0.5).ch_Cacna1c_cp3.gLbar = 0.0001
-soma.insert('ch_Cacna1i_cp42') #add channel suffix here
-soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001
+#soma.insert('ch_Cacna1c_cp3') #add channel suffix here
+#soma(0.5).ch_Cacna1c_cp3.gLbar = 0.0001
+#soma.insert('ch_Cacna1i_cp42') #add channel suffix here
+#soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001
 
 #soma.insert('ch_Scn1a_cp35') #add channel suffix here
 #soma(0.5).ch_Scn1a_cp35.gNabar = 0.015 #0.00001
@@ -36,10 +36,10 @@ soma(0.5).ch_Scn1a_md264834.gNav11bar = 2 # 0.00001 #(S/cm2)
 #soma(0.5).ch_Naf_rybak.gNabar=0.106103295 #(S/cm2) <0,1e9> 
 
 
-soma.insert('ch_Hcn2_cp10') #add channel suffix here
-soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.010
-soma.insert('ch_Hcn4_cp12') #add channel suffix here
-soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
+#soma.insert('ch_Hcn2_cp10') #add channel suffix here
+#soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.010
+#soma.insert('ch_Hcn4_cp12') #add channel suffix here
+#soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
 
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
 soma(0.5).ch_Kcnc1_md74298.gk = 0.015 
@@ -51,12 +51,16 @@ iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 50 #ms
 iclamp.dur = 200 #ms #0.5
 tstop = 500
-iclamp.amp = 0.1 #0.05 #0.1 #1 #nA
-
+iclamp.amp = 0 #0.1 #0.05 #0.1 #1 #nA
+iclamp.i = 1
 
 v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
 t = h.Vector().record(h._ref_t)                     # timestamp vector
 
+# h.Vector().play(soma(0.5)._ref_v, t)
+# play the stimulus into soma(0.5)'s 
+#vdest = h.Vector().play(iclamp, iclamp.i) 
+h.Vector().play(iclamp, iclamp.i) 
 ## RUN SIMULATION
 h.finitialize(h.v_init)
 # continue sim thru 40 ms
@@ -78,4 +82,35 @@ plt.show()
 #saveJson = True
 #saveMat = True
 #filename = 'model_params'
+
+
+
+
+########### ramp input w/ vec play ###############
+#import numpy
+## driving stimulus - sin wave
+t = h.Vector(numpy.linspace(0, 2 * numpy.pi, 50))
+y = h.Vector(numpy.sin(t))
+
+## play the stimulus into soma(0.5)'s 
+## the last True means to interpolate; it's not the default, but unless
+## you know what you're doing, you probably want to pass True there
+y.play(soma(0.5)._ref_v, t, True)
+
+## setup a graph
+g = h.Graph()
+g.addvar("cell_L", soma(0.5)._ref_v)
+g.size(0, 6.28, -1, 1)
+h.graphList[0].append(g)
+
+## run the simulation
+h.finitialize(soma(0.5).pas.e)
+h.continuerun(6.28)
+
+
+
+
+
+
+########### sawtooth input w/ vec play #############
 
