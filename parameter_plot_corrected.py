@@ -65,8 +65,6 @@ plt.xlabel('mv')
 plt.ylabel('m_inf_DR')
 plt.show()
 
-
-
 #tau_m_DR - corresponds to beta
 plt.plot(V, tau_m_DR)
 plt.rcParams['font.size'] = '6'
