@@ -16,7 +16,7 @@ soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm, soma.nseg = 30, 30, 1, 1
 
 soma.insert('pas')
-soma(0.5).pas.e = h.v_init
+soma(0.5).pas.e = -65
 soma(0.5).pas.g = 1.8e-6
 
 #Channel conductances
@@ -41,21 +41,21 @@ soma(0.5).ch_Scn1a_md264834.gNav11bar = 0.00001 #(S/cm2)
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
 soma(0.5).ch_Kcnc1_md74298.gk = 0.015
 soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
-soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #0.011
+soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #0.011 #0.015 for cell_L generates single APs for Naf cond 1; when 0.011, spike train
 
 soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001 #0.00001
-soma.insert('ch_Cacna1c_cp3') #add channel suffix here
-soma(0.5).ch_Cacna1c_cp3.gLbar = 0.0001 #0.00001
-soma.insert('ch_Cacna1i_cp42') #add channel suffix here
-soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001
+#soma.insert('ch_Cacna1c_cp3') #add channel suffix here
+#soma(0.5).ch_Cacna1c_cp3.gLbar = 0.0001 #0.00001
+#soma.insert('ch_Cacna1i_cp42') #add channel suffix here
+#soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001
 
 #soma.insert('ch_Hcn2_cp10') #add channel suffix here
 #soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.01
 #soma.insert('ch_Hcn4_cp12') #add channel suffix here
 #soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
 
-soma.psection()
+#soma.psection()
 
 v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
 t = h.Vector().record(h._ref_t)                     # timestamp vector
@@ -78,9 +78,10 @@ tstop = 500
 
 #EDIT ONLY THIS PART
 ########################################
-channel = "Scn1a_md264834_Berecki"
+modelType = "cell_R" #"cell_Mid" # #"cell_R" #
+channel = modelType + "_" + "Scn1a_md264834_Berecki"
 #mylist1 = [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]  #Conductance values 
-mylist1 = [1.0, 2.0, 2.5, 5] #Conductance values 
+mylist1 = [1.0, 2.0] #Conductance values 
 
 #SAVE DATA FILE AND PLOT FOR EACH CONDUCTANCE - 
 ###############################################
@@ -96,7 +97,7 @@ for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:
     #plt.figure() 
     plt.subplot(a, b, c)
     plt.rcParams.update({'font.size': 10}) 
-    plt.title('Conductance= {}'.format(cond))
+    plt.title('Conductance= {}'.format(cond)) #_Scna1 #Kcna1ab1
     #mylist2 = [0.1,1,5]  #Current strength - corresponds to colors b, o, g (add key?)
     mylist2 = [0.01, 0.05, 0.1]
     for iclamp.amp in mylist2: 
@@ -109,8 +110,7 @@ for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:
         #f = "PULSE_test/%s-C-%s-I-%s.txt" % (channel,cond,iclamp.amp)
         #with open(f, "w") as f:
         #   csv.writer(f).writerows(zip(t, v))
-           
-        plt.plot(t, v)
+        plt.plot(t,v)
         plt.ylim((-70,70))
         plt.xlabel("time(ms)")
         plt.ylabel("membrane potential(mV)")  
@@ -123,6 +123,32 @@ for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:
   
 #plt.savefig('PULSE_test2/%s.png' % (channel))
 #plt.savefig('PULSE_test/%s.png' % (channel))
-#plt.savefig('PULSE/%s.png' % (channel))
+plt.savefig('PULSE/%s.png' % (channel))
 plt.show()
-plt.close()  
+#plt.close()  
+
+
+
+
+
+#import json
+# with open('data.json', 'w') as f:
+#    json.dump({'t': list(t), 'v': list(v)}, f, indent=4) #build a dictionary with keys t and v and store values as list
+
+### reading json
+##with open('data.json') as f:
+##    data = json.load(f)
+##tnew = data['t']
+##vnew = data['v']
+
+
+#import pickle
+
+#with open('data.p', 'wb') as f:
+#    pickle.dump({'t': t, 'v': v}, f)
+
+### reading pickle
+#with open('data.p', 'rb') as f:
+#    data = pickle.load(f)
+#tnewp = data['t']
+#vnewp = data['v']
