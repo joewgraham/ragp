@@ -10,11 +10,11 @@ from neuron import h
 
 
 ### IF NETPYNE
-t = sim.allSimData['t']
-v = sim.allSimData['V_soma']['cell_0']
+#t = sim.allSimData['t']
+#v = sim.allSimData['V_soma']['cell_0']
 #if NEURON
-#v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
-#t = h.Vector().record(h._ref_t)                     # timestamp vector
+v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
+t = h.Vector().record(h._ref_t)                     # timestamp vector
 V = v
 ######## ASSIGN YOUR VOLTAGE VARIABLE HERE ########
 V = np.array(v) # voltage output of simulation
