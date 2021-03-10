@@ -15,10 +15,10 @@ soma(0.5).pas.g = 1.8e-6
 
 soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001
-soma.insert('ch_Cacna1c_cp3') #add channel suffix here
-soma(0.5).ch_Cacna1c_cp3.gLbar = 0.0001
-soma.insert('ch_Cacna1i_cp42') #add channel suffix here
-soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001
+#soma.insert('ch_Cacna1c_cp3') #add channel suffix here
+#soma(0.5).ch_Cacna1c_cp3.gLbar = 0.0001
+#soma.insert('ch_Cacna1i_cp42') #add channel suffix here
+#soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001
 
 #soma.insert('ch_Scn1a_cp35') #add channel suffix here
 #soma(0.5).ch_Scn1a_cp35.gNabar = 0.015 #0.00001
@@ -37,10 +37,10 @@ soma(0.5).ch_Scn1a_md264834.gNav11bar = 0.00001 #(S/cm2)
 #soma(0.5).ch_Naf_rybak.gNabar=0.106103295 #(S/cm2) <0,1e9> 
 
 
-soma.insert('ch_Hcn2_cp10') #add channel suffix here
-soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.010
-soma.insert('ch_Hcn4_cp12') #add channel suffix here
-soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
+#soma.insert('ch_Hcn2_cp10') #add channel suffix here
+#soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.010
+#soma.insert('ch_Hcn4_cp12') #add channel suffix here
+#soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
 
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
 soma(0.5).ch_Kcnc1_md74298.gk = 0.015 
@@ -64,16 +64,17 @@ import matplotlib.pyplot as plt
 
 
 #### plot v2 ####
-model = "cell_L2" #"cell_Mid"
+model = "cell_R" #"cell_Mid"
 #plt.title('Conductance= {}'.format(cond)) 
-mylist1 = [1.0, 2.0, 2.5, 5.0] #Conductance values 
+#mylist1 = [1.0, 2.0, 2.5, 5.0] #Conductance values 
+mylist1 = [2.0]
 fname = model + str(mylist1)
 #SAVE DATA FILE AND PLOT FOR EACH CONDUCTANCE - 
 ###############################################
 a = 1 # number of rows
 b = len(mylist1)
 c = 1  # initialize plot counter
-fig = plt.figure(figsize=(28,4))
+fig = plt.figure(figsize=(6,4))
 
 for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:
     cond = soma(0.5).ch_Scn1a_md264834.gNav11bar
@@ -81,22 +82,22 @@ for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:
     plt.subplot(a, b, c)
     plt.rcParams.update({'font.size': 10}) 
     plt.title('Conductance= {}'.format(cond)) #_Scna1 #Kcna1ab1
-    amps = [0.01, 0.05, 0.1]
-    colors = ['red', 'blue', 'black']
+    amps = [0.03]
+    colors = 'red' #['red', 'blue', 'black']
     
     for amp, color in zip(amps, colors):
         iclamp.amp = amp
         h.finitialize(h.v_init * mV)
         h.continuerun(500* ms)
         plt.plot(t,v, color=color)
-        plt.ylim((-70,70))
+        plt.ylim((-80,70))
         plt.xlabel('t (ms)')
         plt.ylabel('v (mV)')
         plt.legend(amps)
     c = c+1
 
 
-plt.savefig('FIGSmodel/%s.png' % (fname))
+plt.savefig('FIGSmodel2/%s.png' % (fname))
 plt.show()
 
 
@@ -121,4 +122,3 @@ plt.show()
 #saveJson = True
 #saveMat = True
 #filename = 'model_params'
-
