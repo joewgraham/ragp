@@ -101,9 +101,6 @@ plt.savefig('FIGSmodel2/%s.png' % (fname))
 plt.show()
 
 
-
-
-
 ### RUN SIMULATION
 #h.finitialize(h.v_init)
 ## continue sim thru 40 ms
