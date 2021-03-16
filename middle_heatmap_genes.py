@@ -12,7 +12,7 @@ soma.insert('pas')
 soma(0.5).pas.e = -65
 soma(0.5).pas.g = 1.8e-6
 
-
+###### CALCIUM ######
 soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001
 #soma.insert('ch_Cacna1c_cp3') #add channel suffix here
@@ -20,12 +20,25 @@ soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001
 #soma.insert('ch_Cacna1i_cp42') #add channel suffix here
 #soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001
 
-#soma.insert('ch_Scn1a_cp35') #add channel suffix here
-#soma(0.5).ch_Scn1a_cp35.gNabar = 0.015 #0.00001
 
+#soma.insert('ch_Cacna1a_mdCav2_1')  #add channel suffix here  GHK
+#soma(0.5).ch_Cacna1a_mdCav2_1.GHK= ******* # GHK OR soma(0.5).ch_Cacna1a_mdCav2_1.g = *******
+soma.insert('ch_Cacna1a_cp5')  #add channel suffix here
+soma(0.5).ch_Cacna1a_gCav2_1.bar = 0.00001 #(S/cm2) 
+
+soma.insert('ch_Cacna1d_cp41') #add channel suffix here
+soma(0.5).ch_Cacna1d_cp41.gCav3_1bar = 0.00001 #(S/cm2) 
+
+#soma.insert('ch_Cacna1g_mdCav3_1')  #add channel suffix here
+#soma(0.5).ch_Cacna1g_mdCav3_1.GHK =  ******* # GHK or soma(0.5).ch_Cacna1g_._mdCav3_1.g = *****
+
+
+
+
+###### SODIUM ######
 ### Berecki 2019 ###
 soma.insert('ch_Scn1a_md264834') #add channel suffix here
-soma(0.5).ch_Scn1a_md264834.gNav11bar = 0.00001 #(S/cm2)
+soma(0.5).ch_Scn1a_md264834.gNav11bar = 1.0 #0.00001 #(S/cm2)
 ### Zheng 2019 ###
 #soma.insert('ch_Scn1a_md256632') #add channel suffix here
 #soma(0.5).ch_Scn1a_md256632.gnabar = 0.01 #(S/cm2)
@@ -36,17 +49,50 @@ soma(0.5).ch_Scn1a_md264834.gNav11bar = 0.00001 #(S/cm2)
 #soma.insert('ch_Naf_rybak') #add channel suffix here
 #soma(0.5).ch_Naf_rybak.gNabar=0.106103295 #(S/cm2) <0,1e9> 
 
-
+###### HCN ######
+#soma.insert('ch_Hcn1_md229585')  #add channel suffix here
+#soma(0.5).ch_Hcn1_md229585.gbar = 0.0001 #(mho/cm2)
 #soma.insert('ch_Hcn2_cp10') #add channel suffix here
 #soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.010
 #soma.insert('ch_Hcn4_cp12') #add channel suffix here
 #soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
 
+
+
+soma.insert('ch_Hcn3_***')  #add channel suffix here
+soma(0.5).ch_Hcn3_.*** =
+
+###### POTASSIUM ######
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
 soma(0.5).ch_Kcnc1_md74298.gk = 0.015 
 soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
 soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #0.011
-     
+
+soma.insert('ch_Kcnd1_***')  #add channel suffix here
+soma(0.5).ch_Kcnd1_.*** =
+
+
+soma.insert('ch_Kcns3_***') #add channel suffix here
+soma(0.5).ch_Kcns3_.*** =
+
+soma.insert('ch_Kcnn4_***') #add channel suffix here
+soma(0.5).ch_Kcnnn4_.*** =
+
+####################################################
+###### REG PROTEINS #####
+### use in NN only ###
+#soma.insert('ch_Kcnip1_***')  #add channel suffix here
+#soma(0.5).ch_Kcnip1_*** =
+
+#soma.insert('ch_Kcne1_***')  #add channel suffix here
+#soma(0.5).ch_Kcne1_.*** =
+
+#soma.insert('ch_Kcnrg_***')  #add channel suffix here
+#soma(0.5).ch_Kcnrg_.*** =
+
+#soma.insert('ch_Kcnj_***')  #add channel suffix here
+#soma(0.5).ch_Kcnj_.*** =
+
 
 iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 50 #ms
