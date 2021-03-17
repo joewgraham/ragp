@@ -69,8 +69,8 @@ soma(0.5).ch_Hcn1_cp9.gHCN1bar =  0.00001 #(S/cm2)
 soma.insert('ch_Hcn2_cp10') #add channel suffix here
 soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.010
 
-soma.insert('ch_Hcn3_***')  #add channel suffix here
-soma(0.5).ch_Hcn3_.*** =
+soma.insert('ch_Hcn3_cp11')  #add channel suffix here
+soma(0.5).ch_Hcn3_cp11.gHCN3bar = 0.00001 #(S/cm2) 
 
 soma.insert('ch_Hcn4_cp12') #add channel suffix here
 soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
