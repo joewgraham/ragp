@@ -24,7 +24,6 @@ soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001
 soma.insert('ch_Cacna1c_cp3') #add channel suffix here
 soma(0.5).ch_Cacna1c_cp3.gLbar = 0.0001
 
-
 soma.insert('ch_Cacna1d_md121060') #add channel suffix here
 soma(0.5).ch_Cacna1d_md121060.pmax = 4.25e-7	#(cm/s)
 soma.insert('ch_Cacna1d_cp41') #add channel suffix here
@@ -67,14 +66,14 @@ soma(0.5).ch_Hcn1_md229585.gbar = 0.0001 #(mho/cm2)
 soma.insert('ch_Hcn1_cp9')
 soma(0.5).ch_Hcn1_cp9.gHCN1bar =  0.00001 #(S/cm2) 
 
-#soma.insert('ch_Hcn2_cp10') #add channel suffix here
-#soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.010
+soma.insert('ch_Hcn2_cp10') #add channel suffix here
+soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.010
 
 soma.insert('ch_Hcn3_***')  #add channel suffix here
 soma(0.5).ch_Hcn3_.*** =
 
-#soma.insert('ch_Hcn4_cp12') #add channel suffix here
-#soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
+soma.insert('ch_Hcn4_cp12') #add channel suffix here
+soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
 
 
 
