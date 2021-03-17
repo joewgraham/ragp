@@ -8,7 +8,7 @@ plt.ion()
 
 
 print("Starting sim ...")
-sim.createSimulateAnalyze(netParams, cfg)
+#sim.createSimulateAnalyze(netParams, cfg)
 sim.createSimulateAnalyze(netParams=netParams, simConfig=cfg)
 print("Finished sim.")  
 
