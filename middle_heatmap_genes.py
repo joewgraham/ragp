@@ -82,18 +82,20 @@ soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
 ###### POTASSIUM ######
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
 soma(0.5).ch_Kcnc1_md74298.gk = 0.015 
+
 soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
 soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #0.011
 
-soma.insert('ch_Kcnd1_***')  #add channel suffix here
-soma(0.5).ch_Kcnd1_.*** =
+#Kcns3 -- comprised of Kcnb1 (heteromeric) + Kcnb2 -- Kcnb1 might be better proxy. No mod files avail for Kcns3
+soma.insert('ch__Kcnb1_cp23') #add channel suffix here
+soma(0.5).ch__Kcnb1_cp23.gKv2_1bar = 0.00001 #(S/cm2) 
+
+soma.insert('ch__Kcnb2_cp24') #add channel suffix here
+soma(0.5).ch__Kcnb2_cp24.gKv2_2bar = 0.00001 #(S/cm2) = 
 
 
-soma.insert('ch_Kcns3_***') #add channel suffix here
-soma(0.5).ch_Kcns3_.*** =
-
-soma.insert('ch_Kcnn4_***') #add channel suffix here
-soma(0.5).ch_Kcnnn4_.*** =
+soma.insert('ch_Kcnn4_md121060') #add channel suffix here.
+soma(0.5).ch_Kcnn4_md121060 =
 
 ####################################################
 ###### REG PROTEINS #####
