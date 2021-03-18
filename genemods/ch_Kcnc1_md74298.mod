@@ -30,6 +30,7 @@ NEURON {
 	USEION k READ ki,ek WRITE ik
 	RANGE gk
 	GLOBAL activate_Q10,Q10,gmaxQ10,rate_k,gmax_k,temp1,temp2,tempb
+	RANGE gkcnc
 }
 
 PARAMETER {
@@ -58,11 +59,13 @@ ASSIGNED {
 	ptau (ms)
 	rate_k
 	gmax_k
+	gkcnc (S/cm2)
 }
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	ik   = (gk*gmax_k)*p*(v-ek)
+	gkcnc = (gk*gmax_k)*p
 }
 
 UNITSOFF
