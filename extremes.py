@@ -86,7 +86,7 @@ h.finitialize(h.v_init)
 h.continuerun(tstop)
 
 # Debug
-gEdict = {'v':soma(0.5).v, 'ena':soma(0.5).ena, 'ek':soma(0.5).ek, 'eca':soma(0.5).eca, 'epas':soma(0.5).pas.e, 'gpas':soma(0.5).pas.g, 'gNa':soma(0.5).ch_Scn1a_md264834.gNav11, 'gKcnc':soma(0.5).ch_Kcnc1_md74298.gkcnc, 'gKcna':soma(0.5).ch_Kcna1ab1_md80769.gk,'gHcn2':soma(0.5).ch_Hcn2_cp10.gHCN2, 'gHcn4':soma(0.5).ch_Hcn4_cp12.gHCN4, 'gCa1b':soma(0.5).ch_Cacna1b_cp6.gCav2_2, 'gCa1c':soma(0.5).ch_Cacna1c_cp3.gL, 'gCan1i':soma(0.5).ch_Cacna1i_cp42.gCav3_3}
+gEdict = {'v':soma(0.5).v, 'ina':soma(0.5).ina, 'ik':soma(0.5).ik, 'ica':soma(0.5).ica, 'ena':soma(0.5).ena, 'ek':soma(0.5).ek, 'eca':soma(0.5).eca, 'epas':soma(0.5).pas.e, 'gpas':soma(0.5).pas.g, 'gNa':soma(0.5).ch_Scn1a_md264834.gNav11, 'gKcnc':soma(0.5).ch_Kcnc1_md74298.gkcnc, 'gKcna':soma(0.5).ch_Kcna1ab1_md80769.gk,'gHcn2':soma(0.5).ch_Hcn2_cp10.gHCN2, 'gHcn4':soma(0.5).ch_Hcn4_cp12.gHCN4, 'gCa1b':soma(0.5).ch_Cacna1b_cp6.gCav2_2, 'gCa1c':soma(0.5).ch_Cacna1c_cp3.gL, 'gCan1i':soma(0.5).ch_Cacna1i_cp42.gCav3_3}
 print(gEdict)
 
 file = open('gEdump.csv','w')
