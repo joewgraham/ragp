@@ -33,7 +33,7 @@ for secName in PYRcell['secs']:
 netParams.popParams['ragp'] = {'cellType': 'PYR', 'numCells': 1}
 
 # Stimulation parameters
-netParams.stimSourceParams['iclamp'] = {'type': 'IClamp', 'amp': 0, 'dur': 200, 'delay': 1} #amp 0.1; del 100
+netParams.stimSourceParams['iclamp'] = {'type': 'IClamp', 'amp': 0, 'dur': 0, 'delay': 1} #amp 0.1; del 100; dur 200
 netParams.stimTargetParams['iclamp->PYR'] = {'source': 'iclamp', 'conds': {'cellType': 'PYR'}, 'sec': 'soma', 'loc': 0.5}
 
 

@@ -4,6 +4,7 @@ from netpyne import specs, sim
 from cfg import cfg
 from netParams import netParams
 import matplotlib.pyplot as plt
+import csv
 plt.ion()
 
 
