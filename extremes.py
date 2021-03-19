@@ -11,6 +11,8 @@ h.v_init = -61*mV
 soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm, soma.nseg, soma.Ra = 30, 30, 1, 1, 35.4 #123
 
+
+
 soma.insert('pas')
 soma(0.5).pas.e = -65
 soma(0.5).pas.g = 1.8e-6
@@ -32,18 +34,21 @@ soma.insert('ch_Hcn4_cp12') #add channel suffix here
 soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
 
 soma.insert('ch_Kcnc1_md74298') # KDR Kv3.1
-soma(0.5).ch_Kcnc1_md74298.gk = 0.015 
 soma.insert('ch_Kcna1ab1_md80769') #KDR Kv 1.1
+soma(0.5).ek = -81.77879864959175*mV
+soma(0.5).ch_Kcnc1_md74298.gk = 0.015 
 soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #0.011
 
+
+h.ion_style("k_ion", 0, 1, 0, 0, 0,sec=soma) 
 ################################# STIMULUS ###########################################
      
 # Stimulus - iClamp
 iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 1*ms # 200 ms
-iclamp.dur = 200 #ms #0.5
+iclamp.dur = 0 #200 #ms #0.5
 iclamp.amp = 0 #0.05 #0.1 #1 #nA
-tstop = 5000*ms #500
+tstop = 0.025*ms #500; 5000 for ss exercise; 
 
 # Stimulus - AlphaSynapse - not for networks
 # asyn = h.AlphaSynapse(soma(0.5))
@@ -86,7 +91,7 @@ h.finitialize(h.v_init)
 h.continuerun(tstop)
 
 # Debug
-gEdict = {'v':soma(0.5).v, 'ina':soma(0.5).ina, 'ik':soma(0.5).ik, 'ica':soma(0.5).ica, 'ena':soma(0.5).ena, 'ek':soma(0.5).ek, 'eca':soma(0.5).eca, 'epas':soma(0.5).pas.e, 'gpas':soma(0.5).pas.g, 'gNa':soma(0.5).ch_Scn1a_md264834.gNav11, 'gKcnc':soma(0.5).ch_Kcnc1_md74298.gkcnc, 'gKcna':soma(0.5).ch_Kcna1ab1_md80769.gk,'gHcn2':soma(0.5).ch_Hcn2_cp10.gHCN2, 'gHcn4':soma(0.5).ch_Hcn4_cp12.gHCN4, 'gCa1b':soma(0.5).ch_Cacna1b_cp6.gCav2_2, 'gCa1c':soma(0.5).ch_Cacna1c_cp3.gL, 'gCan1i':soma(0.5).ch_Cacna1i_cp42.gCav3_3}
+gEdict = {'v':soma(0.5).v, 'ina':soma(0.5).ina, 'ik':soma(0.5).ik, 'ica':soma(0.5).ica, 'ipas':soma(0.5).pas.i, 'ena':soma(0.5).ena, 'ek':soma(0.5).ek, 'eca':soma(0.5).eca, 'epas':soma(0.5).pas.e, 'gpas':soma(0.5).pas.g, 'gNa':soma(0.5).ch_Scn1a_md264834.gNav11, 'gKcnc':soma(0.5).ch_Kcnc1_md74298.gkcnc, 'gKcna':soma(0.5).ch_Kcna1ab1_md80769.gk,'gHcn2':soma(0.5).ch_Hcn2_cp10.gHCN2, 'gHcn4':soma(0.5).ch_Hcn4_cp12.gHCN4, 'gCa1b':soma(0.5).ch_Cacna1b_cp6.gCav2_2, 'gCa1c':soma(0.5).ch_Cacna1c_cp3.gL, 'gCan1i':soma(0.5).ch_Cacna1i_cp42.gCav3_3}
 print(gEdict)
 
 file = open('gEdump.csv','w')
