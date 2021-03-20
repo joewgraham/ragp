@@ -11,8 +11,6 @@ h.v_init = -61*mV
 soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm, soma.nseg, soma.Ra = 30, 30, 1, 1, 35.4 #123
 
-
-
 soma.insert('pas')
 soma(0.5).pas.e = -65
 soma(0.5).pas.g = 1.8e-6
@@ -35,7 +33,7 @@ soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
 
 soma.insert('ch_Kcnc1_md74298') # KDR Kv3.1
 soma.insert('ch_Kcna1ab1_md80769') #KDR Kv 1.1
-soma(0.5).ek = -81.77879864959175*mV
+soma(0.5).ek = -81.77879864959175*mV #NetPyNE's ek
 soma(0.5).ch_Kcnc1_md74298.gk = 0.015 
 soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #0.011
 
