@@ -4,7 +4,7 @@ from netpyne import specs, sim
 # Simulation options
 cfg = specs.SimConfig()       # object of class cfg to store simulation configuration
 
-cfg.hParams = {'celsius': 35, 'v_init': -61, 'ek': 50} #, 'clamp_resist': 0.001}
+cfg.hParams = {'celsius': 35, 'v_init': -61} #, 'clamp_resist': 0.001}
 cfg.duration = 0.025          # 500;5000 for v_init; Duration of the simulation, in ms
 cfg.dt = 0.025                # Internal integration timestep to use
 cfg.verbose = False           # Show detailed messages 
