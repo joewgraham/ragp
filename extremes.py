@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 import csv
 
 h.load_file('stdrun.hoc')
-h.v_init = -61*mV			
+h.v_init = -61*mV	
+h.celsius = 35		
 
 soma = h.Section(name='soma')
 soma.L, soma.diam, soma.cm, soma.nseg, soma.Ra = 30, 30, 1, 1, 35.4 #123
