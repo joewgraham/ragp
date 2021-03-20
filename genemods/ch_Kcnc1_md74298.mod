@@ -27,7 +27,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
 	SUFFIX ch_Kcnc1_md74298
-	USEION k READ ki,ek WRITE ik
+	USEION k READ ek WRITE ik : READ ki
 	RANGE gk
 	GLOBAL activate_Q10,Q10,gmaxQ10,rate_k,gmax_k,temp1,temp2,tempb
 	RANGE gkcnc
