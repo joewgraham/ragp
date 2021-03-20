@@ -20,6 +20,12 @@ PYRcell['secs']['soma']['mechs']['ch_Hcn4_cp12'] = {'gHCN4bar': 0.001}
 PYRcell['secs']['soma']['mechs']['ch_Kcnc1_md74298'] = {'gk': 0.015} 		
 PYRcell['secs']['soma']['mechs']['ch_Kcna1ab1_md80769'] = {'gbar': 0.015} 
 
+# PYRcell['secs']['soma']['ions']['k']['e'] = -74
+PYRcell['secs']['soma']['ions'] = {'k': {'e': -74}}
+
+# sim.net.cells[0].secs.soma.hObj(0.5).ek = -74
+# h.ion_style("k_ion", 0, 1, 0, 0, 0,sec=soma) 
+
 netParams.cellParams['PYR'] = PYRcell
 
 print()
