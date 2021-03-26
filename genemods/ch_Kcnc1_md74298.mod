@@ -18,6 +18,22 @@ COMMENT
  using the quick Q10 approximation. 
 ENDCOMMENT
 
+
+COMMENT
+Edited by Suranjana Gupta (SG) on 20 March 2021
+READ ki has been removed
+Ek (NEURON) = ~-74 mV
+Ek(NetPyNE) = ~-81 mV
+This discrepancy has been resolved by removed READ ki
+
+Edited by Suranjana Gupta (SG) on 23 March 2021
+The RAGP model does not have any temp. altering mechanisms in place.
+These mod files have been tested in NEURON (default 6.3 degC), and the
+integrated working model is being ported to NetPyNE (default 35 degC).
+To avoid any temp-based discrepancies, 'celsius' has been replaced with 'squidtemp' = 6.3 (degC)
+ENDCOMMENT
+
+
 UNITS {
 	(mV) = (millivolt)
 	(mA) = (milliamp)
@@ -27,10 +43,11 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
 	SUFFIX ch_Kcnc1_md74298
-	USEION k READ ek WRITE ik : READ ki
+	USEION k READ ek WRITE ik 	: READ ki 		:removed by SG
 	RANGE gk
 	GLOBAL activate_Q10,Q10,gmaxQ10,rate_k,gmax_k,temp1,temp2,tempb
 	RANGE gkcnc
+	GLOBAL squidtemp
 }
 
 PARAMETER {
@@ -38,8 +55,8 @@ PARAMETER {
 	dt (ms)
 	gk   = 0.015 (mho/cm2)
 	ek
-	ki
-	celsius
+	:ki 					:removed by SG
+	:celsius 				:removed by SG
 
 	activate_Q10 = 1
 	Q10 = 1.700025939e+00
@@ -47,6 +64,8 @@ PARAMETER {
 	temp1 = 20.0 (degC)
 	temp2 = 30.0 (degC)
 	tempb = 32.0 (degC)
+
+	squidtemp = 6.3 (degC)
 }
 
 STATE {
@@ -59,6 +78,7 @@ ASSIGNED {
 	ptau (ms)
 	rate_k
 	gmax_k
+
 	gkcnc (S/cm2)
 }
 
@@ -73,8 +93,10 @@ UNITSOFF
 INITIAL {
 	LOCAL ktemp,ktempb,ktemp1,ktemp2
 	if (activate_Q10>0) {
-          rate_k = Q10^((celsius-tempb)/10)
-          gmax_k = gmaxQ10^((celsius-tempb)/10)
+          :rate_k = Q10^((celsius-tempb)/10) 			:removed by SG
+          rate_k = Q10^((squidtemp-tempb)/10)
+          :gmax_k = gmaxQ10^((celsius-tempb)/10)		:removed by SG
+          gmax_k = gmaxQ10^((squidtemp-tempb)/10)
 	}else{
 	  rate_k = 1.0
 	  gmax_k = 1.0
@@ -91,8 +113,9 @@ DERIVATIVE states {
 PROCEDURE settables(v) {:Computes rate and other constants at current v.
                         :Call once from HOC to initialize inf at resting v.
 			:Voltage shift (for temp effects) of -5.08
-	TABLE pinf, ptau DEPEND celsius FROM -100 TO 100 WITH 400
 
+	:TABLE pinf, ptau DEPEND celsius FROM -100 TO 100 WITH 400				:removed by SG
+	TABLE pinf, ptau DEPEND squidtemp FROM -100 TO 100 WITH 400
 	pinf = 1.0/(1.0+exp((v + -0.083699749)/ -9.0))
 	ptau = ((7.3/(exp((v + 32.9163003)/-14.0)+exp((v + 2.91630025)/16.0)))+1) / rate_k
 

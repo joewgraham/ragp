@@ -27,6 +27,16 @@ Contact: akemann@brain.riken.jp
 ENDCOMMENT
 
 
+COMMENT
+Edited by Suranjana Gupta (SG) on 23 March 2021
+The RAGP model does not have any temp. altering mechanisms in place.
+These mod files have been tested in NEURON (default 6.3 degC), and the
+integrated working model is being ported to NetPyNE (default 35 degC).
+To avoid any temp-based discrepancies, 'celsius' has been replaced with 6.3 (degC)
+(squid temp.)
+ENDCOMMENT
+
+
 NEURON {
 	SUFFIX ch_Kcna1ab1_md80769
 	USEION k READ ek WRITE ik
@@ -55,13 +65,13 @@ CONSTANT {
 	cka = -33.90877 (mV)
 
 	cb = 0.12889 (1/ms)
-      cvb = 45 (mV)
+    cvb = 45 (mV)
 	ckb = 12.42101 (mV)         
 }
 
 PARAMETER {
 	v (mV)
-	celsius (degC)
+	:celsius (degC)
 	
 	gbar = 0.011 (mho/cm2)   <0,1e9>
 }
@@ -81,7 +91,8 @@ ASSIGNED {
 STATE { n }
 
 INITIAL {
-	qt = q10^((celsius-22 (degC))/10 (degC))
+	:q10^((celsius-22 (degC))/10 (degC))		:removed by SG
+	qt = q10^((6.3-22 (degC))/10 (degC))	
 	rates(v)
 	n = ninf
 }
