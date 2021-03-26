@@ -13,10 +13,10 @@ soma(0.5).pas.e = -65
 soma(0.5).pas.g = 1.8e-6
 
 ###### CALCIUM ######
-soma.insert('ch_Cacna1a_md229585')  #add channel suffix here  GHK
-soma(0.5).ch_Cacna1a_md229585.pcabar =  2.2e-4 #(cm/s)
-soma.insert('ch_Cacna1a_cp5')  #add channel suffix here
-soma(0.5).ch_Cacna1a_gCav2_1.gbar = 0.00001 #(S/cm2) 
+#soma.insert('ch_Cacna1a_md229585')  #add channel suffix here  GHK
+#soma(0.5).ch_Cacna1a_md229585.pcabar =  2.2e-4 #(cm/s)
+#soma.insert('ch_Cacna1a_cp5')  #add channel suffix here
+#soma(0.5).ch_Cacna1a_gCav2_1.gbar = 0.00001 #(S/cm2) 
 
 soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001
@@ -24,24 +24,20 @@ soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001
 soma.insert('ch_Cacna1c_cp3') #add channel suffix here
 soma(0.5).ch_Cacna1c_cp3.gLbar = 0.0001
 
-soma.insert('ch_Cacna1d_md121060') #add channel suffix here
-soma(0.5).ch_Cacna1d_md121060.pmax = 4.25e-7	#(cm/s)
-soma.insert('ch_Cacna1d_cp41') #add channel suffix here
-soma(0.5).ch_Cacna1d_cp41.gCav3_1bar = 0.00001 #(S/cm2) 
+#soma.insert('ch_Cacna1d_md121060') #add channel suffix here
+#soma(0.5).ch_Cacna1d_md121060.pmax = 4.25e-7	#(cm/s)
+#soma.insert('ch_Cacna1d_cp41') #add channel suffix here
+#soma(0.5).ch_Cacna1d_cp41.gCav3_1bar = 0.00001 #(S/cm2) 
 
-soma.insert('ch_Cacna1g_cp41') #add channel suffix here
-soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 0.00001 #(S/cm2) 
-soma.insert('ch_Cacna1g_md229585')  #add channel suffix here
-soma(0.5).ch_Cacna1g_md229585.pcabar = 2.5e-4 #(cm/s)
+#soma.insert('ch_Cacna1g_cp41') #add channel suffix here
+#soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 0.00001 #(S/cm2) 
+#soma.insert('ch_Cacna1g_md229585')  #add channel suffix here
+#soma(0.5).ch_Cacna1g_md229585.pcabar = 2.5e-4 #(cm/s)
 
 soma.insert('ch_Cacna1i_cp42') #add channel suffix here
 soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001 #(S/cm2)
-soma.insert('ch_Cacna1i_md19920')
-soma(0.5).ch_Cacna1i_md19920.gbar = 0.008 #(mho/cm2)
-soma.insert('ch_Cacna1i_md229585')
-soma(0.5).ch_Cacna1i_md229585.pcabar = 0.0001 #cm/s 
-
-
+#soma.insert('ch_Cacna1i_md19920')
+#soma(0.5).ch_Cacna1i_md19920.gbar = 0.008 #(mho/cm2)
 
 
 
@@ -61,16 +57,16 @@ soma(0.5).ch_Scn1a_md264834.gNav11bar = 1.0 #0.00001 #(S/cm2)
 #soma(0.5).ch_Naf_rybak.gNabar=0.106103295 #(S/cm2) <0,1e9> 
 
 ###### HCN ######
-soma.insert('ch_Hcn1_md229585')  #add channel suffix here
-soma(0.5).ch_Hcn1_md229585.gbar = 0.0001 #(mho/cm2)
-soma.insert('ch_Hcn1_cp9')
-soma(0.5).ch_Hcn1_cp9.gHCN1bar =  0.00001 #(S/cm2) 
+#soma.insert('ch_Hcn1_md229585')  #add channel suffix here
+#soma(0.5).ch_Hcn1_md229585.gbar = 0.0001 #(mho/cm2)
+#soma.insert('ch_Hcn1_cp9')
+#soma(0.5).ch_Hcn1_cp9.gHCN1bar =  0.00001 #(S/cm2) 
 
 soma.insert('ch_Hcn2_cp10') #add channel suffix here
 soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.010
 
-soma.insert('ch_Hcn3_cp11')  #add channel suffix here
-soma(0.5).ch_Hcn3_cp11.gHCN3bar = 0.00001 #(S/cm2) 
+#soma.insert('ch_Hcn3_cp11')  #add channel suffix here
+#soma(0.5).ch_Hcn3_cp11.gHCN3bar = 0.00001 #(S/cm2) 
 
 soma.insert('ch_Hcn4_cp12') #add channel suffix here
 soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
@@ -86,16 +82,13 @@ soma(0.5).ch_Kcnc1_md74298.gk = 0.015
 soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
 soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #0.011
 
-#Kcns3 -- comprised of Kcnb1 (heteromeric) + Kcnb2 -- Kcnb1 might be better proxy. No mod files avail for Kcns3
-soma.insert('ch__Kcnb1_cp23') #add channel suffix here
-soma(0.5).ch__Kcnb1_cp23.gKv2_1bar = 0.00001 #(S/cm2) 
+##Kcns3 -- comprised of Kcnb1 (heteromeric) + Kcnb2 -- Kcnb1 might be better proxy. No mod files avail for Kcns3
+#soma.insert('ch_Kcnb1_cp23') #add channel suffix here
+#soma(0.5).ch_Kcnb1_cp23.gKv2_1bar = 0.00001 #(S/cm2) 
 
-soma.insert('ch__Kcnb2_cp24') #add channel suffix here
-soma(0.5).ch__Kcnb2_cp24.gKv2_2bar = 0.00001 #(S/cm2) = 
+#soma.insert('ch_Kcnb2_cp24') #add channel suffix here
+#soma(0.5).ch_Kcnb2_cp24.gKv2_2bar = 0.00001 #(S/cm2) = 
 
-
-soma.insert('ch_Kcnn4_md121060') #add channel suffix here.
-soma(0.5).ch_Kcnn4_md121060 =
 
 ####################################################
 ###### REG PROTEINS #####
@@ -130,7 +123,6 @@ import matplotlib.pyplot as plt
 
 #### plot v2 ####
 model = "cell_R" #"cell_Mid"
-#plt.title('Conductance= {}'.format(cond)) 
 #mylist1 = [1.0, 2.0, 2.5, 5.0] #Conductance values 
 mylist1 = [2.0]
 fname = model + str(mylist1)
@@ -146,9 +138,9 @@ for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:
     
     plt.subplot(a, b, c)
     plt.rcParams.update({'font.size': 10}) 
-    plt.title('Conductance= {}'.format(cond)) #_Scna1 #Kcna1ab1
-    amps = [0.03]
-    colors = 'red' #['red', 'blue', 'black']
+    plt.title('Nav1.1 Conductance= {}'.format(cond)) #_Scna1 #Kcna1ab1
+    amps = [0.01, 0.03, 0.1]
+    colors = ['red', 'blue', 'black']
     
     for amp, color in zip(amps, colors):
         iclamp.amp = amp
@@ -162,7 +154,7 @@ for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:
     c = c+1
 
 
-plt.savefig('FIGSmodel2/%s.png' % (fname))
+plt.savefig('FIGSmodel/%s.png' % (fname))
 plt.show()
 
 
