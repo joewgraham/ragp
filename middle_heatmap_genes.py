@@ -123,8 +123,8 @@ import matplotlib.pyplot as plt
 
 #### plot v2 ####
 model = "cell_R" #"cell_Mid"
-#mylist1 = [1.0, 2.0, 2.5, 5.0] #Conductance values 
-mylist1 = [2.0]
+mylist1 = [1.0, 2.0, 2.5, 5.0] #Conductance values 
+#mylist1 = [2.0]
 fname = model + str(mylist1)
 #SAVE DATA FILE AND PLOT FOR EACH CONDUCTANCE - 
 ###############################################
