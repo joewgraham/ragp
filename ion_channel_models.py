@@ -1,5 +1,7 @@
-## NOTE: this code contains optimized single values for conductances and current input and produces AP plots 
-# for each of 3 phenotypically distinct neuron models. 
+## NOTE: this code generates 3 figures, each a plot of voltage v time for the 3 phenotypically distinct neuron models
+# It uses optimized values for parameters ion channel conductances and IClamp input (nA) as proof-of-concept of the
+# modeling of single cells informed by transcriptomics
+ 
 
 from neuron import h
 from neuron.units import ms, mV
