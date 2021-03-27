@@ -1,7 +1,6 @@
-## NOTE: this code generates 3 figures, each a plot of voltage v time for the 3 phenotypically distinct neuron models
-# It uses optimized values for parameters ion channel conductances and IClamp input (nA) as proof-of-concept of the
-# modeling of single cells informed by transcriptomics
- 
+## NOTE: this code generates 3 figures, each a plot of voltage v. time for 3 phenotypically distinct neuron models.
+# It uses optimized values for params (ion channel conductances and IClamp input (nA)) for proof-of-concept of
+# modeling single-compartment cells informed by transcriptomics
 
 from neuron import h
 from neuron.units import ms, mV
@@ -37,7 +36,6 @@ for model in models:
         soma.insert('ch_Cacna1i_cp42') #add channel suffix here
         soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001 #(S/cm2) 
 
-        ## HCN ##
     elif model == 'cell_L':
         ## NA ##
         soma.insert('ch_Scn1a_md264834') # (Berecki et al., 2019)
@@ -112,7 +110,6 @@ for model in models:
             colors = ['blue']
         else:
             colors = ['red']
-        
         for amp, color in zip(amps, colors):
             iclamp.amp = amp
             h.finitialize(h.v_init * mV)
@@ -123,16 +120,6 @@ for model in models:
             plt.ylabel('v (mV)')
             plt.legend(amps)
         c = c+1
-    
+
 #plt.savefig('FIGSmodel/%s.png' % (fname))
 plt.show()
-
-
-    
-   
-
-
-
-
-
-
