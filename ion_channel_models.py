@@ -123,4 +123,3 @@ for model in models:
  
 plt.savefig('FIGSmodel/%s.png' % (fname))
 plt.show()
-print(fname)
