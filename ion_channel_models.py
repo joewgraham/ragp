@@ -120,6 +120,4 @@ for model in models:
             plt.ylabel('v (mV)')
             plt.legend(amps)
         c = c+1
- 
-plt.savefig('FIGSmodel/%s.png' % (fname))
 plt.show()
