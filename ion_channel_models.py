@@ -5,7 +5,7 @@ from neuron import h
 from neuron.units import ms, mV
 import matplotlib.pyplot as plt
 
-models = ['cell_Mid', 'cell_L', 'cell_R']
+models = ['cell_L', 'cell_Mid', 'cell_R']
 fig = plt.figure(figsize=(16,4))
 
 a = 1                                           # number of rows
@@ -94,20 +94,20 @@ for model in models:
 
     # PLOT RESULTS
     mylist1 = [1.0] #mylist1 = [1.0, 2.0, 2.5, 5.0] # conductance values 
-    fname = "models_" + str(mylist1)
+    fname = "models_" + str(len(models)) + "_" + str(mylist1)
 
     for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:
         cond = soma(0.5).ch_Scn1a_md264834.gNav11bar
         
         plt.subplot(a, b, c)
         plt.rcParams.update({'font.size': 10}) 
-        plt.title('Conductance Nav1.1= {}'.format(cond) + ', ' + model) 
+        plt.title(model + ', ' + 'Nav1.1 conductance = {}'.format(cond))
 
         amps = [0.1] #[0.01, 0.05, 0.1]
-        if model == 'cell_Mid': 
-            colors = ['m']
-        elif model == 'cell_L':
+        if model == 'cell_L': 
             colors = ['b']
+        elif model == 'cell_Mid':
+            colors = ['m']
         else: colors = ['r']
 
         for amp, color in zip(amps, colors):
@@ -123,3 +123,4 @@ for model in models:
  
 plt.savefig('FIGSmodel/%s.png' % (fname))
 plt.show()
+print(fname)
