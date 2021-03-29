@@ -1,5 +1,5 @@
 # NOTE: Code generates a figure w/ voltage v. time plots sub-plots for 3 phenotypically distinct single-compartment neuron models.
-# It uses optimized values for parameters including ion channel conductances and current input for demonstrative purposes.
+# It uses optimized values for parameters including ion channel conductances and current input for demo purposes.
 
 from neuron import h
 from neuron.units import ms, mV
@@ -26,7 +26,7 @@ for model in models:
     if model == 'cell_Mid':
         ## NA ##
         soma.insert('ch_Scn1a_md264834') #(Berecki et al., 2019)
-        soma(0.5).ch_Scn1a_md264834.gNav11bar = 0 #(S/cm2)
+        soma(0.5).ch_Scn1a_md264834.gNav11bar = 1.0 #(S/cm2)
 
         ## K ##
         soma.insert('ch_Kcnc1_md74298') 
