@@ -168,11 +168,3 @@ plt.show()
 #plt.xlabel('t (ms)')
 #plt.ylabel('v (mV)')
 #plt.show()
-
-
-#### add save params/model functionality - json, pkl, mat #### 
-#import json
-#savePickle = True        # Save params, network and sim output to pickle file
-#saveJson = True
-#saveMat = True
-#filename = 'model_params'
