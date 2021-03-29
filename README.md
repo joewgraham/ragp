@@ -21,9 +21,11 @@ n.b. - the latter serves as proof-of-principle for creating neuronal models in N
 ### Confirm installation and location of NMOD compiler
      which nrnivmodl 
 ## Compile mod files
-   PN: nrnivmodl mod
+  PN 
+    nrnivmodl mod
 ### or
-   RAGP: nrnivmodl genemods 
+  RAGP
+    nrnivmodl genemods 
         
 ## If NEURON model (RAGP)
 ### Run a simulation
