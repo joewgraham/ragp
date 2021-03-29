@@ -70,12 +70,11 @@ tstop = 500
 #iclamp.amp = 2 #nA
 
 
-
-
 #EDIT ONLY THIS PART
 ########################################
 modelType = "cell_Mid" #"cell_Mid" # #"cell_R" #
-#channel = modelType + "_" + "Scn1a_cp35"  
+channel = "Scn1a_cp35_Berecki"  
+channelName = 
 #mylist1 = [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]  #Conductance values 
 mylist1 = [1.0, 2.0, 2.5, 5.0]
 
@@ -91,7 +90,7 @@ for soma(0.5).ch_Scn1a_cp35.gNabar in mylist1:
     
     plt.subplot(a, b, c)
     plt.rcParams.update({'font.size': 10}) 
-    plt.title('Conductance= {}'.format(cond)) #_Scna1 #Kcna1ab1
+    plt.title('Conductance= {}'.format(cond)) 
     amps = [0.01, 0.05, 0.1]
     colors = ['red', 'blue', 'black']
     
@@ -189,3 +188,18 @@ plt.show()
 #    data = pickle.load(f)
 #tnewp = data['t']
 #vnewp = data['v']
+
+    #SAVE DATA FOR EACH IC CONDUCTANCE MODEL
+###############################################
+import json
+data = {}
+data['channel_data'] = []
+data['channel_data'].append({
+    'modelType' : modelType,
+    'channel' : channel,
+    'geneName' : geneName,
+    'conductances' : mylist1,
+    'iclamp_amp' : mylist2
+})
+with open('data.json', 'w') as json_file:
+    json.dump(data, json_file)
