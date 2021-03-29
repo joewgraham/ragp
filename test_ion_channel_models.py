@@ -42,7 +42,7 @@ channelName = "Berecki"
 soma.insert('ch_Kcnc1_md74298') #add channel suffix here
 soma(0.5).ch_Kcnc1_md74298.gk = 0.015
 soma.insert('ch_Kcna1ab1_md80769') #add channel suffix here
-soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.011 #0.011
+soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #0.011
 
 soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.00001
