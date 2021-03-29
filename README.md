@@ -23,7 +23,6 @@ n.b. - the latter serves as proof-of-principle for creating neuronal models in N
 ## Compile mod files
 ### If PN
      nrnivmodl mod
-### or
 ### If RAGP
      nrnivmodl genemods 
         
