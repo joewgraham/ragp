@@ -1,8 +1,8 @@
 # Intrinsic Cardiac Nervous System Neuronal Models
-https://senselab.med.yale.edu/ModelDB/ShowModel?model=3800, https://channelpedia.epfl.ch/, or literature as cited
+https://senselab.med.yale.edu/ModelDB/, https://channelpedia.epfl.ch/, or literature as cited in code
 
 # Description: 
-Code for right atrial ganglionic plexus (RAGP) model in NEURON and Principal Neuron model in NetPyNE simulation environments\
+Code for right atrial ganglionic plexus (RAGP) model in NEURON and Principal Neuron (PN) model in NetPyNE simulation environments\
 n.b. - the latter serves as proof-of-principle for creating neuronal models in NetPyNE
 
 # Contents
@@ -21,9 +21,9 @@ n.b. - the latter serves as proof-of-principle for creating neuronal models in N
 ### Confirm installation and location of NMOD compiler
      which nrnivmodl 
 ## Compile mod files
-    nrnivmodl mod
+   PN: nrnivmodl mod
 ### or
-    nrnivmodl genemods 
+   RAGP: nrnivmodl genemods 
         
 ## If NEURON model (RAGP)
 ### Run a simulation
