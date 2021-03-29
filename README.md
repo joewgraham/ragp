@@ -20,12 +20,10 @@ n.b. - the latter serves as proof-of-principle for creating neuronal models in N
     pip3 install neuron  
 ### Confirm installation and location of NMOD compiler
      which nrnivmodl 
-## Compile mod files
-  PN 
-    nrnivmodl mod
+## Compile mod files (PN or RAGP)
+     nrnivmodl mod
 ### or
-  RAGP
-    nrnivmodl genemods 
+     nrnivmodl genemods 
         
 ## If NEURON model (RAGP)
 ### Run a simulation
