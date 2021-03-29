@@ -7,8 +7,8 @@ n.b. - the latter serves as proof-of-principle for creating neuronal models in N
 
 # Contents
 ## Code:
-  NEURON (RAGP model): ion_channel_models.py, TBD
-  NetPyNE (PN model): init.py, cfg.py, netParams.py
+  NEURON (RAGP model): ion_channel_models.py, TBD\
+  NetPyNE (PN model): init.py, cfg.py, netParams.py\
   Analysis: TBD
 ## NMOD:
   'genemods' folder for RAGP model with mod files for ion channels selected from transcriptomic data\
