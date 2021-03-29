@@ -1,3 +1,23 @@
+# NOTE: This script is set up to test Nav1.1 models for neuron model cell_Mid, with result compiled as a 5x6 array of models 
+# x conductances in Appendix 2 of Model Documention, where full citations for below Refs. can also be found.
+
+# DESCRIPTION: This script generates a 1x6 figure corresponding to one ion channel (kinetic) model for Nav1.1, with subplots of 
+# increasing conductances (S/cm2) and varying current input (nA) within each subplot. It contributes to our analysis and selection
+# of the kinetic model for each ion channel, here Nav1.1, with in totem output a 6x5 array of m models x n conductances. 
+# This allows for comparison of conductances and current input within each model and across ion channel models, from which 
+# a viable/best ion channel model for Nav1.1 can be selected, along with the optimal conductance and amp values under which
+# APs are generated and w/o spontaneous firing. 
+
+# USAGE: To test viability of different ion channel models for a given gene where they exist. For example,
+# Scna1 (Nav1.1) has 5 kinetic models across CP, ModelDB and literature. As written here, script is meant to test a 
+# single ion channel model at a time for a given neuron model and should be run 5 times given 5 different Nav1.1 models 
+# (Berecki, Zheng, Traub, Rybak, CP) as coded below.
+# 1) Run script as is. Output: figure w/ 6 subplots as described above.
+# 2) Refer to "EDIT THIS PART TO SELECT IC MODEL" to modify code: comment out model 1 (Berecki) and 
+# uncomment the next model (Zheng). Note that 3 line edits need to be made under #EDIT THIS SEC. BASED ON IC MODEL SELECTED ABOVE.
+# Re-run script.
+# 3) Repeat (2) for each successive model. 
+
 from neuron import h
 from neuron.units import ms, mV
 
@@ -74,7 +94,7 @@ b = 6 # number of columns
 c = 1  # initialize plot counter
 fig = plt.figure(figsize=(28,4))
 
-#EDIT THIS PART BASED ON IC MODEL SELECTED ABOVE
+#EDIT THIS SEC. BASED ON IC MODEL SELECTED ABOVE
 ###############################################
 modelType = 'cell_Mid'                              # <-- DO NOT CHANGE - DEMO MODE
 channel = "Scn1a_md264834" + "_" + channelName      # <-- UPDATE THIS LINE 
