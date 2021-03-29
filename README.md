@@ -32,7 +32,7 @@ n.b. - the latter serves as proof-of-principle for creating neuronal models in N
 #### Output
     1x3 figure of subplots showing voltage (mV) v. time (ms) for transcriptomic models cell_L, cell_Mid, and
     cell_R, respectively
-    n.b.: Conductance of Nav1.1 set to 1.0 S/cm2, IClamp amp set to 0.03 nA for demonstrative purposes
+    n.b.: Conductance of Nav1.1 set to 1.0 S/cm2, IClamp amp set to 0.1 nA for demonstrative purposes
 ### Run simulation analysis with multiple conductances and/or current (nA) values for any number of genemod files
     TBD 
 #### Output
