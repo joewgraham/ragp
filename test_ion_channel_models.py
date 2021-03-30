@@ -110,11 +110,6 @@ for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:  # <-- UPDATE THIS LINE
     mylist2 = [0.01, 0.05, 1.0] #IClamp.amp values (nA)
     colors = ['r','b', 'k']
     for iclamp.amp in mylist2: 
-      
-        ## RUN SIMULATION
-        #h.finitialize(h.v_init)
-        #h.continuerun(500 * ms) #redundancy
-
         for amp, color in zip(mylist2, colors):
             iclamp.amp = amp
             h.finitialize(h.v_init * mV)
@@ -134,5 +129,6 @@ except:
     print('CREATE A SAVE DIR AND EDIT CODE')
     plt.show()
     plt.close()
+plt.savefig('name_modfilename.png')
 plt.show()
 plt.close()
