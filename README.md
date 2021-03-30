@@ -19,12 +19,14 @@ n.b. - the latter serves as proof-of-principle for creating neuronal models in N
 ## Install NEURON
     pip3 install neuron  
 ### Confirm installation and location of NMOD compiler
-     which nrnivmodl 
+     which nrnivmodl     
 ## Compile mod files
 ### If PN
      nrnivmodl mod
 ### If RAGP
-     nrnivmodl genemods 
+     nrnivmodl genemods
+## Install scikit
+     pip3 install scikit-optimize
         
 ## If NEURON model (RAGP)
 ### Run a simulation
