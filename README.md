@@ -32,14 +32,14 @@ n.b. - the latter serves as proof-of-principle for creating neuronal models in N
 ### Run a simulation
     python3 -i ion_channel_models.py
 #### Output
-    1x3 figure of subplots showing voltage (mV) v. time (ms) for transcriptomic models cell_L, cell_Mid, and
-    cell_R, respectively
-    n.b.: Conductance of Nav1.1 set to 1.0 S/cm2, IClamp amp set to 0.1 nA for demonstrative purposes
+  1x3 figure of subplots showing voltage (mV) v. time (ms) for transcriptomic models cell_L, cell_Mid, and
+  cell_R, respectively\
+  n.b.: Conductance of Nav1.1 set to 1.0 S/cm2, IClamp amp set to 0.1 nA for demonstrative purposes
 ### Run simulation analysis with multiple conductances and/or current (nA) values for any number of genemod files
-   After reading description and usage, run the following iteratively after each edit:
-     python3 -i test_channel_models.py
+  After reading description and usage, run the following iteratively after each edit:\
+    python3 -i test_channel_models.py
 #### Output
-    Figure of m genes x n conductance values, with subplots showing of voltage (mV) v. time (ms) for multiple input amps (nA)
+  Figure of m genes x n conductance values, with subplots showing of voltage (mV) v. time (ms) for multiple input amps (nA)
     
 ## If NetPyNE model (PN)
 ### Install NetPyNE
@@ -47,4 +47,4 @@ n.b. - the latter serves as proof-of-principle for creating neuronal models in N
 ### Run a simulation
     python3 -i init.py
 ### Output
-    Plot of voltage (mV) v. time (ms)
+  Plot of voltage (mV) v. time (ms)
