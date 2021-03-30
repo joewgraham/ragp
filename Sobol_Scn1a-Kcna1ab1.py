@@ -1,4 +1,5 @@
 # requires pip3 install scikit-optimize
+# NOTE: cell_Mid
 from neuron import h
 from neuron.units import ms, mV
 
@@ -41,7 +42,8 @@ soma.insert('ch_Kcnc1_md74298') #add channel suffix here
 
 #Calcium channels
 soma.insert('ch_Cacna1i_cp42') #add channel suffix here
-
+soma.insert('ch_Cacna1c_cp3') #add channel suffix here
+soma.insert('ch_Cacna1b_cp6') #add channel suffix here
 #soma.psection()
 
 v = h.Vector().record(soma(0.5)._ref_v)             # membrane potential vector
@@ -59,7 +61,9 @@ iclamp.dur = 200.0 #ms
 soma(0.5).ch_Scn1a_md264834.gNav11bar = 1.0
 soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.011 
 soma(0.5).ch_Kcnc1_md74298.gk = 0.0015
-soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.00001
+soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.0001 #0.00001
+soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001
+soma(0.5).ch_Cacna1c_cp3.gLbar = 0.0001 
 
 ########################################
 #Create Sobol sampling for 2  channels
