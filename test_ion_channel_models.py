@@ -34,7 +34,8 @@ soma.insert('pas')
 soma(0.5).pas.e = -65
 soma(0.5).pas.g = 1.8e-6
 
-#Channel conductances 
+#Channel conductances
+modelType = 'cell_Mid'                              # <-- DO NOT CHANGE - DEMO MODE 
 #EDIT THIS PART TO SELECT IC MODEL
 ###############################################
 ### Berecki et al 2019 ###
@@ -96,7 +97,6 @@ fig = plt.figure(figsize=(28,4))
 
 #EDIT THIS SEC. BASED ON IC MODEL SELECTED ABOVE
 ###############################################
-modelType = 'cell_Mid'                              # <-- DO NOT CHANGE - DEMO MODE
 channel = "Scn1a_md264834" + "_" + channelName      # <-- UPDATE THIS LINE 
 mylist1 = [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]  #Conductance values 
 
@@ -107,13 +107,13 @@ for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:  # <-- UPDATE THIS LINE
     plt.subplot(a, b, c)
     plt.rcParams.update({'font.size': 10}) 
     plt.title('Conductance= {}'.format(cond))
-    mylist2 = [0.1, 0.5, 1.0] #IClamp.amp values (nA)
+    mylist2 = [0.01, 0.05, 1.0] #IClamp.amp values (nA)
     colors = ['r','b', 'k']
     for iclamp.amp in mylist2: 
       
         ## RUN SIMULATION
-        h.finitialize(h.v_init)
-        h.continuerun(500 * ms) #redundancy
+        #h.finitialize(h.v_init)
+        #h.continuerun(500 * ms) #redundancy
 
         for amp, color in zip(mylist2, colors):
             iclamp.amp = amp
