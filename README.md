@@ -38,7 +38,7 @@ n.b. - the latter serves as proof-of-principle for creating neuronal models in N
 ### Run simulation analysis with multiple conductances and/or current (nA) values for any number of genemod files
   After reading description and usage, run the following iteratively after each edit:
 ###  
-     python3 -i test_channel_models.py
+     python3 -i test_ion_channel_models.py
 #### Output
   Figure of m genes x n conductance values, with subplots showing of voltage (mV) v. time (ms) for multiple input amps (nA)
     
