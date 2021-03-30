@@ -131,10 +131,11 @@ for soma(0.5).ch_Scn1a_md264834.gNav11bar in mylist1:  # <-- UPDATE THIS LINE
 #SAVE PLOT FOR EACH IC CONDUCTANCE MODEL
 ################################################
 try:
-    plt.savefig('PULSE/%s.png' % (channel))
+    plt.savefig('PULSE222/%s.png' % (channel))
 except:
     print('CREATE A SAVE DIR AND EDIT CODE')
     plt.show()
     plt.close()
+plt.savefig('name_modfilename.png')    
 plt.show()
 plt.close()
