@@ -120,5 +120,5 @@ for model in models:
             plt.ylabel('v (mV)')
             plt.legend(amps)
         c = c+1
-plt.savefig('name.png') # OSPARC DISPLAY        
+plt.savefig('ic_models.png') # OSPARC DISPLAY        
 plt.show()

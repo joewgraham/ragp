@@ -134,8 +134,9 @@ try:
     plt.savefig('PULSE222/%s.png' % (channel))
 except:
     print('CREATE A SAVE DIR AND EDIT CODE')
+    plt.savefig('%s.png' % (channel)) 
     plt.show()
     plt.close()
-plt.savefig('name_modfilename.png')    
+# plt.savefig('name_modfilename.png')   
 plt.show()
 plt.close()
