@@ -7,9 +7,9 @@ n.b. - the latter serves as proof-of-principle for creating neuronal models in N
 
 # Contents
 ## Code:
-  NEURON (RAGP model): ion_channel_models.py, TBD\
+  NEURON (RAGP model): ion_channel_models.py, test_ion_channel_models.py\
   NetPyNE (PN model): init.py, cfg.py, netParams.py\
-  Analysis: TBD
+  Analysis: Sobol_Scna1-Kcna1ab1.py
 ## NMOD:
   'genemods' folder for RAGP model with mod files for ion channels selected from transcriptomic data\
   ‘mod’ folder for PN model with ahp.mod, cabuff.mod, cal.mod, can.mod, kaar.mod, kdr.mod, naf.mod, SynE.mod
@@ -36,7 +36,8 @@ n.b. - the latter serves as proof-of-principle for creating neuronal models in N
     cell_R, respectively
     n.b.: Conductance of Nav1.1 set to 1.0 S/cm2, IClamp amp set to 0.1 nA for demonstrative purposes
 ### Run simulation analysis with multiple conductances and/or current (nA) values for any number of genemod files
-    TBD 
+   After reading description and usage, run the following iteratively after each edit:
+     python3 -i test_channel_models.py
 #### Output
     Figure of m genes x n conductance values, with subplots showing of voltage (mV) v. time (ms) for multiple input amps (nA)
     
