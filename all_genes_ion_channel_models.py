@@ -1,5 +1,11 @@
-# NOTE: Code generates a figure w/ voltage v. time plots sub-plots for 3 phenotypically distinct single-compartment neuron models.
-# It uses optimized values for parameters including ion channel conductances and current input for demonstrative purposes.
+# NOTE: Code generates a figure w/ voltage v. time plots sub-plots using all gene/IC models in the study and optimized conducances
+# based on testing. Total Na ch: 1; total K ch: 2; total Ca ch:6; total Hcn ch: 4
+# VARIATIONS: (nb - ** indicates tonic v. phasic dependening on conductance for a given IC model, ++ indicates non ghk Ca)
+## Na: Scn1a (5): **
+## K: Kcnc1 (3); Kcnd1 (0)
+## Ca: Cacnac1c (2 - 1 generic L type): **, Cacnag1 (2): **, ++; Cacnca1i (2)
+## Ca ghk(): 
+## Hcn: Hcn1 (3), Hcn2 (1), Hcn3 (1), Hcn4 (1) 
 
 from neuron import h
 from neuron.units import ms, mV
@@ -14,17 +20,16 @@ soma.L, soma.diam, soma.cm, soma.nseg = 30, 30, 1, 1
 soma.insert('pas')
 soma(0.5).pas.e = -65
 soma(0.5).pas.g = 1.8e-6
-
-    
+  
 ## NA ##
 soma.insert('ch_Scn1a_md264834') #(Berecki et al., 2019)
-soma(0.5).ch_Scn1a_md264834.gNav11bar = 1.0#(S/cm2) #2 SET W/ ANALYSIS
+soma(0.5).ch_Scn1a_md264834.gNav11bar = 1.0#(S/cm2) #2.01 SET W/ ANALYSIS
 
 ## K ##
 soma.insert('ch_Kcna1ab1_md80769') 
-soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #0.011 #(S/cm2) 
+soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #phasic at 0.1 nA, #0.011 tonic at 0.05nA and 0.1nA #(S/cm2) 
 soma.insert('ch_Kcnc1_md74298') 
-soma(0.5).ch_Kcnc1_md74298.gk = 0.015
+soma(0.5).ch_Kcnc1_md74298.gk = 0.011
 #soma.insert('ch_Kcnc1_cp25') 
 #soma(0.5).ch_Kcnc1_cp25.gKv3_1bar = 0.001 #(S/cm2
 #soma.insert('ch_Kcnc1_cp27') 
@@ -33,66 +38,109 @@ soma(0.5).ch_Kcnc1_md74298.gk = 0.015
 #soma.insert('ch_Kcnd1_****) ### NO MODEL; KA, channel-rapidly inactivating
 #soma(0.5).ch_Kcnd1_md74298.gk = 0.015 #(S/cm2)
 
+## CA ghk() ##
+#a
+soma.insert('ch_Cacna1a_')
+soma(0.5).ch_Cacna1a_***
+#b
+soma.insert('ch_Cacna1b_')
 
-## CA ##
-#soma.insert('ch_Cacna1a_cp5')                           #a
+#c
+soma.insert('ch_Cacna1c_')
+
+#g
+soma.insert('ch_Cacna1g_')
+
+#i1
+soma.insert('ch_Cacna1i_')
+
+
+
+
+
+
+
+
+## CA ## NON ghk()
+#soma.insert('ch_Cacna1a_cp5')                          
 #soma(0.5).ch_Cacna1a_cp5.gCav2_1bar = 0.0001 #(S/cm2) 
-soma.insert('ch_Cacna1b_cp6') #add channel suffix here  #b
-soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001 #(S/cm2)   
-soma.insert('ch_Cacna1c_cp3') #add channel suffix here  #c
-soma(0.5).ch_Cacna1c_cp3.gLbar = 0.001 #(tonic) #10e-3 (phasic) #(S/cm2)
-                                                        #d - no mod file
+#soma.insert('ch_Cacna1b_cp6') #add channel suffix here 
+#soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001 #(S/cm2)   
+#soma.insert('ch_Cacna1c_cp3') #add channel suffix here  #c
+#soma(0.5).ch_Cacna1c_cp3.gLbar = 0.001 #(tonic) #10e-3 (phasic) #(S/cm2)
+#soma.insert('ch_Cacna1c_md121060')
+#soma(0.5).ch_Cacna1c_md121060.
+#d - no mod file
 #soma.insert('ch_Cacna1g_cp41')                         #g
 #soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 0.0001 #tonic, #0.001 #phasic
-###soma.insert('ch_Cacna1g_md229585') # external ghk()
-###soma(0.5).ch_Caacna1g_md229585.pcabar  = 2.5e-4 #(cm/s)
-
-                                                        #1i
+###soma.insert('ch_Cacna1g_md229585') # external ghk() <-- UNABLE TO TEST
+###soma(0.5).ch_Caacna1g_md229585.pcabar  = 2.5e-4 #(cm/s)                                                   
 #soma.insert('ch_Cacna1i_cp42') #add channel suffix here #i
 #soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.00001 #(S/cm2) 
 #soma.insert('ch_Cacna1i_md19920')
-#soma(0.5).ch_Cacna1i_md19920.gbar = 0.001
+#soma(0.5).ch_Cacna1i_md19920.gbar = 0.0001
 
 ## HCN ##
 #soma.insert('ch_Hcn1_cp9') #<----- use this model 
-#soma(0.5).ch_Hcn1_cp9.gHCN1bar = 0.0001 #(S/cm2) 
-##soma.insert('ch_Hcn1_md229585')
-##soma(0.5).ch_Hcn1_md229585.gbar = 0.0001  #(mho/cm2)) #SET w/ ANALYSIS	
+#soma(0.5).ch_Hcn1_cp9.gHCN1bar = 0.00001 #phasic component # tonic: 0.0001 #(S/cm2) 
+#soma.insert('ch_Hcn1_md229585')
+#soma(0.5).ch_Hcn1_md229585.gbar = 0.00001  #(mho/cm2)) 
 #soma.insert('ch_Hcn1_md189154')
 #soma(0.5).ch_Hcn1_md189154.gbar = 0.0001	#(mho/cm2)
 
 #soma.insert('ch_Hcn2_cp10') 
-#soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.010
-
+#soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.001 #0.0001 - both phasic and tonic. 0.0001 doublet. 
 #soma.insert('ch_Hcn3_cp11') 
-#soma(0.5).ch_Hcn3_cp11.gHCN3bar = 0.0001 #(S/cm2)
-
+#soma(0.5).ch_Hcn3_cp11.gHCN3bar = 0.001 #(S/cm2)
 #soma.insert('ch_Hcn4_cp12') 
-#soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001
+#soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001 #or tonic 0.001
 
-    
-    # STIMULUS: CURRENT CLAMP
+
+# STIMULUS: CURRENT CLAMP
 iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 50 #ms
 iclamp.dur = 200 #ms
 tstop = 500 #ms
-iclamp.amp = 0 #[0.01, 0.03, 0.1, 1] #nA        # current input values
+iclamp.amp = 0.05 #[0.01, 0.03, 0.1, 1] #nA        # current input values
 
 v = h.Vector().record(soma(0.5)._ref_v)         # membrane potential vector
 t = h.Vector().record(h._ref_t)                 # timestamp vector
 
-    # PLOT RESULTS
-mylist1 = [1e-5, 1e-4, 1e-3, 1e-1, 1e-1, 1e-0] #[1.0, 2.0, 2.5, 5.0] # conductance values 
+## PLOT RESULTS
+#amps = [0.05]
+#fname = 'model_R'
+#h.finitialize(h.v_init * mV)
+#h.continuerun(500* ms)
+#plt.plot(t,v)
+#plt.ylim((-80,80))
+#plt.xlabel('t (ms)')
+#plt.ylabel('v (mV)')
+#plt.legend(amps) 
+#try:
+#    plt.savefig('FIGS_ICmodels/%s.png' % (fname))
+#    plt.show()
+#except:
+#    plt.show()
+
+
+
+########################################################
+################### FOR TESTING ONLY ###################
+
+
+mylist1 = [1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1e-0] #[1.0, 2.0, 2.5, 5.0] # conductance values 
 a = 1                                           # number of rows
-b = len(mylist1) #b = len(mylist1)               # number of cols
+b = len(mylist1) #b = len(mylist1)              # number of cols
 c = 1  
 fig = plt.figure(figsize=(16,4))
 colors = ['r', 'b', 'k']
 #fname = str(mylist1)
-fname = 'ch_Kcnc1_cp27'
+fname = 'ch_Hcn4_cp12' 
 
-for soma(0.5).ch_Kcnc1_cp27.gKv3_1bar in mylist1:
-    cond = soma(0.5).ch_Kcnc1_cp27.gKv3_1bar
+
+
+for soma(0.5).ch_Hcn4_cp12.gHCN4bar in mylist1:
+    cond = soma(0.5).ch_Hcn4_cp12.gHCN4bar
         
     plt.subplot(a, b, c)
     plt.rcParams.update({'font.size': 10}) 
