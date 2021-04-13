@@ -29,7 +29,7 @@ soma(0.5).ch_Scn1a_md264834.gNav11bar = 1.0#(S/cm2) #2.01 SET W/ ANALYSIS
 soma.insert('ch_Kcna1ab1_md80769') 
 soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #phasic at 0.1 nA, #0.011 tonic at 0.05nA and 0.1nA #(S/cm2) 
 soma.insert('ch_Kcnc1_md74298') 
-soma(0.5).ch_Kcnc1_md74298.gk = 0.011
+soma(0.5).ch_Kcnc1_md74298.gk = 0.015
 #soma.insert('ch_Kcnc1_cp25') 
 #soma(0.5).ch_Kcnc1_cp25.gKv3_1bar = 0.001 #(S/cm2
 #soma.insert('ch_Kcnc1_cp27') 
@@ -40,26 +40,33 @@ soma(0.5).ch_Kcnc1_md74298.gk = 0.011
 
 ## CA ghk() ##
 #a
-soma.insert('ch_Cacna1a_')
-soma(0.5).ch_Cacna1a_***
+#soma.insert('ch_Cacna1a_cp5')
+#soma(0.5).ch_Cacna1a_cp5.gCav2_1bar = 0.0001 #S/cm2
+##soma.insert('ch_Cacna1a_md229585')
+##soma(0.5).ch_Cacna1a_md229585.pcabar = 2.2e-4 #(cm/s)
 #b
-soma.insert('ch_Cacna1b_')
+soma.insert('ch_Cacna1b_cp6')
+soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 1e-4 #S/cm2
 
 #c
-soma.insert('ch_Cacna1c_')
+soma.insert('ch_Cacna1c_cp3')
+soma(0.5).ch_Cacna1c_cp3.gLbar = 1e-3 #1e-4 #S/cm2
+
+#d
+#soma.insert('ch_Cacna1d_md121090')
+#soma(0.5).ch_Cacna1d_md121090.pmax = 4.25e-7	#(cm/s)
 
 #g
-soma.insert('ch_Cacna1g_')
+#soma.insert('ch_Cacna1g_cp41')
+#soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 1e-4 #S/cm2
+#soma.insert('ch_Cacna1g_md229585')
+#soma.insert(0.5).ch_Cacna1g_md229585.pcabar = 2.5e-4 #(cm/s)
 
 #i1
-soma.insert('ch_Cacna1i_')
-
-
-
-
-
-
-
+#soma.insert('ch_Cacna1i_cp42')
+#soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 1e-4 #S/cm2
+#soma.insert('ch_Cacna1i_md19920')
+#soma(0.5).ch_Cacna1i_md19920.gbar = 0.0001 #mho/cm2
 
 ## CA ## NON ghk()
 #soma.insert('ch_Cacna1a_cp5')                          
@@ -82,16 +89,16 @@ soma.insert('ch_Cacna1i_')
 
 ## HCN ##
 #soma.insert('ch_Hcn1_cp9') #<----- use this model 
-#soma(0.5).ch_Hcn1_cp9.gHCN1bar = 0.00001 #phasic component # tonic: 0.0001 #(S/cm2) 
+#soma(0.5).ch_Hcn1_cp9.gHCN1bar = 0.0001 #phasic component # tonic: 0.0001 #(S/cm2) 
 #soma.insert('ch_Hcn1_md229585')
 #soma(0.5).ch_Hcn1_md229585.gbar = 0.00001  #(mho/cm2)) 
 #soma.insert('ch_Hcn1_md189154')
 #soma(0.5).ch_Hcn1_md189154.gbar = 0.0001	#(mho/cm2)
 
 #soma.insert('ch_Hcn2_cp10') 
-#soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.001 #0.0001 - both phasic and tonic. 0.0001 doublet. 
+#soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.0001 #0.0001 - both phasic and tonic. 0.0001 doublet. 
 #soma.insert('ch_Hcn3_cp11') 
-#soma(0.5).ch_Hcn3_cp11.gHCN3bar = 0.001 #(S/cm2)
+#soma(0.5).ch_Hcn3_cp11.gHCN3bar = 0.0001 #(S/cm2)
 #soma.insert('ch_Hcn4_cp12') 
 #soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001 #or tonic 0.001
 
@@ -107,20 +114,24 @@ v = h.Vector().record(soma(0.5)._ref_v)         # membrane potential vector
 t = h.Vector().record(h._ref_t)                 # timestamp vector
 
 ## PLOT RESULTS
-#amps = [0.05]
-#fname = 'model_R'
-#h.finitialize(h.v_init * mV)
-#h.continuerun(500* ms)
-#plt.plot(t,v)
-#plt.ylim((-80,80))
-#plt.xlabel('t (ms)')
-#plt.ylabel('v (mV)')
-#plt.legend(amps) 
-#try:
-#    plt.savefig('FIGS_ICmodels/%s.png' % (fname))
-#    plt.show()
-#except:
-#    plt.show()
+amps = [0.05]
+fname = 'cell_R_ghk'
+
+for amp in amps:
+    iclamp.amp = amp
+    h.finitialize(h.v_init * mV)
+    h.continuerun(500* ms)     
+    plt.plot(t,v)
+    plt.ylim((-80,80))
+    plt.xlabel('t (ms)')
+    plt.ylabel('v (mV)')
+    plt.legend(amps) 
+    
+try:
+    plt.savefig('FIGS_ICmodels/%s.png' % (fname))
+    plt.show()
+except:
+    plt.show()
 
 
 
@@ -135,7 +146,7 @@ c = 1
 fig = plt.figure(figsize=(16,4))
 colors = ['r', 'b', 'k']
 #fname = str(mylist1)
-fname = 'ch_Hcn4_cp12' 
+fname = 'sim_prev_min_4' 
 
 
 
