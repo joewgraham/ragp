@@ -40,17 +40,17 @@ soma(0.5).ch_Kcnc1_md74298.gk = 0.015
 
 ## CA ghk() ##
 #a
-#soma.insert('ch_Cacna1a_cp5')
-#soma(0.5).ch_Cacna1a_cp5.gCav2_1bar = 0.0001 #S/cm2
+soma.insert('ch_Cacna1a_cp5')
+soma(0.5).ch_Cacna1a_cp5.gCav2_1bar = 0.0001 #S/cm2 #TESTED
 ##soma.insert('ch_Cacna1a_md229585')
 ##soma(0.5).ch_Cacna1a_md229585.pcabar = 2.2e-4 #(cm/s)
 #b
 soma.insert('ch_Cacna1b_cp6')
-soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 1e-4 #S/cm2
+soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 1e-4 #S/cm2 #TESTED
 
 #c
-soma.insert('ch_Cacna1c_cp3')
-soma(0.5).ch_Cacna1c_cp3.gLbar = 1e-3 #1e-4 #S/cm2
+#soma.insert('ch_Cacna1c_cp3')
+#soma(0.5).ch_Cacna1c_cp3.gLbar = 1e-5 #S/cm2 #TESTED
 
 #d
 #soma.insert('ch_Cacna1d_md121090')
@@ -58,34 +58,16 @@ soma(0.5).ch_Cacna1c_cp3.gLbar = 1e-3 #1e-4 #S/cm2
 
 #g
 #soma.insert('ch_Cacna1g_cp41')
-#soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 1e-4 #S/cm2
+#soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 1e-5 #S/cm2 #TESTED
 #soma.insert('ch_Cacna1g_md229585')
 #soma.insert(0.5).ch_Cacna1g_md229585.pcabar = 2.5e-4 #(cm/s)
 
 #i1
 #soma.insert('ch_Cacna1i_cp42')
-#soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 1e-4 #S/cm2
+#soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 1e-5 #S/cm2 #TESTED
 #soma.insert('ch_Cacna1i_md19920')
-#soma(0.5).ch_Cacna1i_md19920.gbar = 0.0001 #mho/cm2
+#soma(0.5).ch_Cacna1i_md19920.gbar = 1e-5 #mho/cm2
 
-## CA ## NON ghk()
-#soma.insert('ch_Cacna1a_cp5')                          
-#soma(0.5).ch_Cacna1a_cp5.gCav2_1bar = 0.0001 #(S/cm2) 
-#soma.insert('ch_Cacna1b_cp6') #add channel suffix here 
-#soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001 #(S/cm2)   
-#soma.insert('ch_Cacna1c_cp3') #add channel suffix here  #c
-#soma(0.5).ch_Cacna1c_cp3.gLbar = 0.001 #(tonic) #10e-3 (phasic) #(S/cm2)
-#soma.insert('ch_Cacna1c_md121060')
-#soma(0.5).ch_Cacna1c_md121060.
-#d - no mod file
-#soma.insert('ch_Cacna1g_cp41')                         #g
-#soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 0.0001 #tonic, #0.001 #phasic
-###soma.insert('ch_Cacna1g_md229585') # external ghk() <-- UNABLE TO TEST
-###soma(0.5).ch_Caacna1g_md229585.pcabar  = 2.5e-4 #(cm/s)                                                   
-#soma.insert('ch_Cacna1i_cp42') #add channel suffix here #i
-#soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.00001 #(S/cm2) 
-#soma.insert('ch_Cacna1i_md19920')
-#soma(0.5).ch_Cacna1i_md19920.gbar = 0.0001
 
 ## HCN ##
 #soma.insert('ch_Hcn1_cp9') #<----- use this model 
@@ -95,8 +77,8 @@ soma(0.5).ch_Cacna1c_cp3.gLbar = 1e-3 #1e-4 #S/cm2
 #soma.insert('ch_Hcn1_md189154')
 #soma(0.5).ch_Hcn1_md189154.gbar = 0.0001	#(mho/cm2)
 
-#soma.insert('ch_Hcn2_cp10') 
-#soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.0001 #0.0001 - both phasic and tonic. 0.0001 doublet. 
+soma.insert('ch_Hcn2_cp10') 
+soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.0001 #0.0001 - both phasic and tonic. 0.0001 doublet. 
 #soma.insert('ch_Hcn3_cp11') 
 #soma(0.5).ch_Hcn3_cp11.gHCN3bar = 0.0001 #(S/cm2)
 #soma.insert('ch_Hcn4_cp12') 
@@ -108,24 +90,90 @@ iclamp = h.IClamp(soma(0.5))
 iclamp.delay = 50 #ms
 iclamp.dur = 200 #ms
 tstop = 500 #ms
-iclamp.amp = 0.05 #[0.01, 0.03, 0.1, 1] #nA        # current input values
+iclamp.amp = 0 #[0.01, 0.03, 0.1, 1] #nA        # current input values
 
 v = h.Vector().record(soma(0.5)._ref_v)         # membrane potential vector
 t = h.Vector().record(h._ref_t)                 # timestamp vector
+#mylist1 = [1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1e-0]   #conductance vals
+fname = 'models_04_genes_8_scn1a'
 
-## PLOT RESULTS
-amps = [0.05]
-fname = 'cell_R_ghk'
+#fig = plt.figure(figsize=(21,4))
+fig = plt.figure(figsize=(5,4))
+#a = 1                                           # number of rows
+#b = len(mylist1) #b = len(mylist1)               # number of cols
+#c = 1                                           # initialize plot counter
+amps = [0.01, 0.05, 0.1]
+colors = ['r', 'b', [0.4, 0.4, 0.4]]
 
-for amp in amps:
+for amp, color in zip(amps, colors):
     iclamp.amp = amp
     h.finitialize(h.v_init * mV)
-    h.continuerun(500* ms)     
-    plt.plot(t,v)
+    h.continuerun(500* ms)
+    plt.plot(t,v, color=color)
     plt.ylim((-80,80))
     plt.xlabel('t (ms)')
     plt.ylabel('v (mV)')
-    plt.legend(amps) 
+    plt.legend(amps)
+#c = c+1
+plt.savefig('FIGS_modeltypes/%s.png' % (fname))
+plt.show()
+
+#######################################
+#######################################
+for soma(0.5).ch_Cacna1i_md19920.gbar in mylist1:
+        cond = soma(0.5).ch_Cacna1i_md19920.gbar
+        
+        plt.subplot(a, b, c)
+        plt.rcParams.update({'font.size': 8}) 
+        plt.title(fname + ', ' + 'Cond. = {}'.format(cond))
+
+        amps = [0.01, 0.05, 0.1]
+        colors = ['r', 'b', 'k']
+
+        for amp, color in zip(amps, colors):
+            iclamp.amp = amp
+            h.finitialize(h.v_init * mV)
+            h.continuerun(500* ms)
+            plt.plot(t,v, color=color)
+            plt.ylim((-80,80))
+            plt.xlabel('t (ms)')
+            plt.ylabel('v (mV)')
+            plt.legend(amps)
+        c = c+1
+ 
+plt.savefig('FIGS_modeltypes/%s.png' % (fname))
+plt.show()
+
+####### END ############################################
+
+########################################################
+################### FOR TESTING ONLY ###################
+
+## PLOT RESULTS
+amps = [0.01, 0.05, 0.1, 0.5]
+colors = ['r','k','b', 'm']
+fname = ''
+
+for amp, color in zip(amps, colors):
+    iclamp.amp = amp
+    h.finitialize(h.v_init * mV)
+    h.continuerun(500* ms)
+    plt.plot(t,v, color=color)
+    plt.ylim((-80,70))
+    plt.xlabel('t (ms)')
+    plt.ylabel('v (mV)')
+    plt.legend(amps)
+c = c+1
+
+#for amp in amps:
+#    iclamp.amp = amp
+#    h.finitialize(h.v_init * mV)
+#    h.continuerun(500* ms)     
+#    plt.plot(t,v)
+#    plt.ylim((-80,80))
+#    plt.xlabel('t (ms)')
+#    plt.ylabel('v (mV)')
+#    plt.legend(amps) 
     
 try:
     plt.savefig('FIGS_ICmodels/%s.png' % (fname))
@@ -175,3 +223,24 @@ try:
     plt.show()
 except:
     plt.show()
+
+
+#################################################################################################
+## CA ## NON ghk()
+#soma.insert('ch_Cacna1a_cp5')                          
+#soma(0.5).ch_Cacna1a_cp5.gCav2_1bar = 0.0001 #(S/cm2) 
+#soma.insert('ch_Cacna1b_cp6') #add channel suffix here 
+#soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 0.0001 #(S/cm2)   
+#soma.insert('ch_Cacna1c_cp3') #add channel suffix here  #c
+#soma(0.5).ch_Cacna1c_cp3.gLbar = 0.001 #(tonic) #10e-3 (phasic) #(S/cm2)
+#soma.insert('ch_Cacna1c_md121060')
+#soma(0.5).ch_Cacna1c_md121060.
+#d - no mod file
+#soma.insert('ch_Cacna1g_cp41')                         #g
+#soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 0.0001 #tonic, #0.001 #phasic
+###soma.insert('ch_Cacna1g_md229585') # external ghk() <-- UNABLE TO TEST
+###soma(0.5).ch_Caacna1g_md229585.pcabar  = 2.5e-4 #(cm/s)                                                   
+#soma.insert('ch_Cacna1i_cp42') #add channel suffix here #i
+#soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 0.00001 #(S/cm2) 
+#soma.insert('ch_Cacna1i_md19920')
+#soma(0.5).ch_Cacna1i_md19920.gbar = 0.0001
