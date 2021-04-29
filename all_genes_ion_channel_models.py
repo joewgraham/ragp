@@ -26,14 +26,15 @@ soma.insert('ch_Scn1a_md264834') #(Berecki et al., 2019)
 soma(0.5).ch_Scn1a_md264834.gNav11bar = 1.0#(S/cm2) #2.01 SET W/ ANALYSIS
 
 ## K ##
-soma.insert('ch_Kcna1ab1_md80769') 
-soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #phasic at 0.1 nA, #0.011 tonic at 0.05nA and 0.1nA #(S/cm2) 
+#soma.insert('ch_Kcna1ab1_md80769') 
+#soma(0.5).ch_Kcna1ab1_md80769.gbar = 0.015 #phasic at 0.1 nA, #0.011 tonic at 0.05nA and 0.1nA #(S/cm2)
+
 soma.insert('ch_Kcnc1_md74298') 
-soma(0.5).ch_Kcnc1_md74298.gk = 0.015
-#soma.insert('ch_Kcnc1_cp25') 
-#soma(0.5).ch_Kcnc1_cp25.gKv3_1bar = 0.001 #(S/cm2
-#soma.insert('ch_Kcnc1_cp27') 
+soma(0.5).ch_Kcnc1_md74298.gk = 0.1 #0.015  # 0.1
+#soma.insert('ch_Kcnc1_cp27') #<-- unclear if Markov model
 #soma(0.5).ch_Kcnc1_cp27.gKv3_1bar = 0.001 #(S/cm2
+#soma.insert('ch_Kcnc1_md256632')
+#soma(0.5).ch_Kcnc1_md256632.gkbar = 0 #0.004 (S/cm2)
 
 #soma.insert('ch_Kcnd1_****) ### NO MODEL; KA, channel-rapidly inactivating
 #soma(0.5).ch_Kcnd1_md74298.gk = 0.015 #(S/cm2)
@@ -41,7 +42,7 @@ soma(0.5).ch_Kcnc1_md74298.gk = 0.015
 ## CA ghk() ##
 #a
 soma.insert('ch_Cacna1a_cp5')
-soma(0.5).ch_Cacna1a_cp5.gCav2_1bar = 0.0001 #S/cm2 #TESTED
+soma(0.5).ch_Cacna1a_cp5.gCav2_1bar = 1e-5 #0.00001 #S/cm2 #TESTED
 ##soma.insert('ch_Cacna1a_md229585')
 ##soma(0.5).ch_Cacna1a_md229585.pcabar = 2.2e-4 #(cm/s)
 #b
@@ -57,8 +58,8 @@ soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 1e-4 #S/cm2 #TESTED
 #soma(0.5).ch_Cacna1d_md121090.pmax = 4.25e-7	#(cm/s)
 
 #g
-#soma.insert('ch_Cacna1g_cp41')
-#soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 1e-5 #S/cm2 #TESTED
+soma.insert('ch_Cacna1g_cp41')
+soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 1e-5 #S/cm2 #TESTED
 #soma.insert('ch_Cacna1g_md229585')
 #soma.insert(0.5).ch_Cacna1g_md229585.pcabar = 2.5e-4 #(cm/s)
 
@@ -70,7 +71,7 @@ soma(0.5).ch_Cacna1b_cp6.gCav2_2bar = 1e-4 #S/cm2 #TESTED
 
 
 ## HCN ##
-#soma.insert('ch_Hcn1_cp9') #<----- use this model 
+soma.insert('ch_Hcn1_cp9') #<----- use this model 
 #soma(0.5).ch_Hcn1_cp9.gHCN1bar = 0.0001 #phasic component # tonic: 0.0001 #(S/cm2) 
 #soma.insert('ch_Hcn1_md229585')
 #soma(0.5).ch_Hcn1_md229585.gbar = 0.00001  #(mho/cm2)) 
@@ -81,8 +82,8 @@ soma.insert('ch_Hcn2_cp10')
 soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.0001 #0.0001 - both phasic and tonic. 0.0001 doublet. 
 #soma.insert('ch_Hcn3_cp11') 
 #soma(0.5).ch_Hcn3_cp11.gHCN3bar = 0.0001 #(S/cm2)
-#soma.insert('ch_Hcn4_cp12') 
-#soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001 #or tonic 0.001
+soma.insert('ch_Hcn4_cp12')
+soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001 #or tonic 0.001
 
 
 # STIMULUS: CURRENT CLAMP
@@ -94,8 +95,8 @@ iclamp.amp = 0 #[0.01, 0.03, 0.1, 1] #nA        # current input values
 
 v = h.Vector().record(soma(0.5)._ref_v)         # membrane potential vector
 t = h.Vector().record(h._ref_t)                 # timestamp vector
-#mylist1 = [1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1e-0]   #conductance vals
-fname = 'models_04_genes_8_scn1a'
+#mylist1 = [1e-5, 1e-4,1e-3, 1e-2, 1e-1, 1e-0]   #conductance vals
+
 
 #fig = plt.figure(figsize=(21,4))
 fig = plt.figure(figsize=(5,4))
@@ -104,6 +105,10 @@ fig = plt.figure(figsize=(5,4))
 #c = 1                                           # initialize plot counter
 amps = [0.01, 0.05, 0.1]
 colors = ['r', 'b', [0.4, 0.4, 0.4]]
+cond = 1e-1
+plt.rcParams.update({'font.size': 8}) 
+fname = 'new12genemodels_8_genes_74_Kcnc1_' + str(cond)
+plt.title(fname + ', ' + 'Cond. = {}'.format(cond))
 
 for amp, color in zip(amps, colors):
     iclamp.amp = amp
@@ -115,20 +120,23 @@ for amp, color in zip(amps, colors):
     plt.ylabel('v (mV)')
     plt.legend(amps)
 #c = c+1
-plt.savefig('FIGS_modeltypes/%s.png' % (fname))
+plt.savefig('FIGS_new12genemodel/%s.png' % (fname))
 plt.show()
 
 #######################################
 #######################################
-for soma(0.5).ch_Cacna1i_md19920.gbar in mylist1:
-        cond = soma(0.5).ch_Cacna1i_md19920.gbar
+#######################################
+#######################################
+fname = 'ch_Kcnc1_cp27_2'
+for soma(0.5).ch_Kcnc1_cp27.gKv3_1bar in mylist1:
+        cond = soma(0.5).ch_Kcnc1_cp27.gKv3_1bar
         
         plt.subplot(a, b, c)
         plt.rcParams.update({'font.size': 8}) 
         plt.title(fname + ', ' + 'Cond. = {}'.format(cond))
 
-        amps = [0.01, 0.05, 0.1]
-        colors = ['r', 'b', 'k']
+        amps = [0.01, 0.05, 0.1, 0.2]
+        colors = ['r', 'b', [0.3,0.3,0.3], 'm']
 
         for amp, color in zip(amps, colors):
             iclamp.amp = amp
@@ -141,8 +149,17 @@ for soma(0.5).ch_Cacna1i_md19920.gbar in mylist1:
             plt.legend(amps)
         c = c+1
  
-plt.savefig('FIGS_modeltypes/%s.png' % (fname))
+plt.savefig('FIGS_Kcnc1test/%s.png' % (fname))
 plt.show()
+
+
+
+
+#####################################
+
+
+
+
 
 ####### END ############################################
 
