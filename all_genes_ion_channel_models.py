@@ -71,7 +71,7 @@ soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 1e-5 #S/cm2 #TESTED
 
 
 ## HCN ##
-soma.insert('ch_Hcn1_cp9') #<----- use this model 
+#soma.insert('ch_Hcn1_cp9') #<----- use this model 
 #soma(0.5).ch_Hcn1_cp9.gHCN1bar = 0.0001 #phasic component # tonic: 0.0001 #(S/cm2) 
 #soma.insert('ch_Hcn1_md229585')
 #soma(0.5).ch_Hcn1_md229585.gbar = 0.00001  #(mho/cm2)) 
