@@ -12,7 +12,7 @@ PYRcell['secs']['soma']['geom'] = {'diam': 30, 'L': 30, 'Ra': 35.4, 'cm': 1} #12
 
 PYRcell['secs']['soma']['mechs']['pas'] = {'g': 1.8e-6, 'e': -65} 	
 #Ca
-PYRcell['secs']['soma']['mechs']['ch_Cacna1a_cp5.mod'] = {'CagCav2_1bar': 1e-5} 
+PYRcell['secs']['soma']['mechs']['ch_Cacna1a_cp5.mod'] = {'gCav2_1bar': 1e-5} 
 PYRcell['secs']['soma']['mechs']['ch_Cacna1b_cp6'] = {'gCav2_2bar':  1e-4} #0.0001
 PYRcell['secs']['soma']['mechs']['ch_Cacna1c_cp3'] = {'gLbar': 1e-5} #original 0.0001 
 PYRcell['secs']['soma']['mechs']['ch_Cacna1g_cp41'] = {'gCav3_1bar': 1e-5} 
@@ -49,5 +49,3 @@ netParams.popParams['ragp'] = {'cellType': 'PYR', 'numCells': 1}
 # Stimulation parameters
 netParams.stimSourceParams['iclamp'] = {'type': 'IClamp', 'amp': 0.1, 'dur': 200, 'delay': 200} #amp 0.1; del 100; dur 200
 netParams.stimTargetParams['iclamp->PYR'] = {'source': 'iclamp', 'conds': {'cellType': 'PYR'}, 'sec': 'soma', 'loc': 0.5}
-
-
