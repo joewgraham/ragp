@@ -3,7 +3,7 @@ from netpyne import specs, sim
 try:
     from __main__ import cfg  # import SimConfig object with params from parent module
 except:
-    from tut8_cfg_NetPar import cfg  # if no simConfig in parent module, import directly from tut8_cfg module
+    from cfg_NetPar import cfg  # if no simConfig in parent module, import directly from tut8_cfg module
 
 # Network parameters
 netParams = specs.NetParams()  # object of class NetParams to store the network parameters
