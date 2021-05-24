@@ -41,8 +41,8 @@ soma(0.5).ch_Kcnc1_md74298.gk = 0.1 #0.015  # 0.1
 
 ## CA ghk() ##
 #a
-soma.insert('ch_Cacna1a_cp5')
-soma(0.5).ch_Cacna1a_cp5.gCav2_1bar = 1e-5 #0.00001 #S/cm2 #TESTED
+#soma.insert('ch_Cacna1a_cp5')
+#soma(0.5).ch_Cacna1a_cp5.gCav2_1bar = 1e-5 #0.00001 #S/cm2 #TESTED
 ##soma.insert('ch_Cacna1a_md229585')
 ##soma(0.5).ch_Cacna1a_md229585.pcabar = 2.2e-4 #(cm/s)
 #b
@@ -58,8 +58,8 @@ soma(0.5).ch_Cacna1c_cp3.gLbar = 1e-5 #S/cm2 #TESTED
 #soma(0.5).ch_Cacna1d_md121090.pmax = 4.25e-7	#(cm/s)
 
 #g
-soma.insert('ch_Cacna1g_cp41')
-soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 1e-5 #S/cm2 #TESTED
+#soma.insert('ch_Cacna1g_cp41')
+#soma(0.5).ch_Cacna1g_cp41.gCav3_1bar = 1e-5 #S/cm2 #TESTED
 #soma.insert('ch_Cacna1g_md229585')
 #soma.insert(0.5).ch_Cacna1g_md229585.pcabar = 2.5e-4 #(cm/s)
 
@@ -71,8 +71,8 @@ soma(0.5).ch_Cacna1i_cp42.gCav3_3bar = 1e-5 #S/cm2 #TESTED
 
 
 ## HCN ##
-soma.insert('ch_Hcn1_cp9') #<----- use this model 
-soma(0.5).ch_Hcn1_cp9.gHCN1bar = 0.0001 #phasic component # tonic: 0.0001 #(S/cm2) 
+#soma.insert('ch_Hcn1_cp9') #<----- use this model 
+#soma(0.5).ch_Hcn1_cp9.gHCN1bar = 0.0001 #phasic component # tonic: 0.0001 #(S/cm2) 
 #soma.insert('ch_Hcn1_md229585')
 #soma(0.5).ch_Hcn1_md229585.gbar = 0.00001  #(mho/cm2)) 
 #soma.insert('ch_Hcn1_md189154')
@@ -80,10 +80,10 @@ soma(0.5).ch_Hcn1_cp9.gHCN1bar = 0.0001 #phasic component # tonic: 0.0001 #(S/cm
 
 soma.insert('ch_Hcn2_cp10') 
 soma(0.5).ch_Hcn2_cp10.gHCN2bar = 0.0001 #0.0001 - both phasic and tonic. 0.0001 doublet. 
-soma.insert('ch_Hcn3_cp11') 
-soma(0.5).ch_Hcn3_cp11.gHCN3bar = 0.0001 #(S/cm2)
-soma.insert('ch_Hcn4_cp12')
-soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001 #or tonic 0.001
+#soma.insert('ch_Hcn3_cp11') 
+#soma(0.5).ch_Hcn3_cp11.gHCN3bar = 0.0001 #(S/cm2)
+#soma.insert('ch_Hcn4_cp12')
+#soma(0.5).ch_Hcn4_cp12.gHCN4bar = 0.001 #or tonic 0.001
 
 
 # STIMULUS: CURRENT CLAMP
@@ -103,11 +103,11 @@ fig = plt.figure(figsize=(5,4))
 #a = 1                                           # number of rows
 #b = len(mylist1) #b = len(mylist1)               # number of cols
 #c = 1                                           # initialize plot counter
-amps = [0.08] #[0.01, 0.05, 0.1]
+amps = [0.1] #[0.01, 0.05, 0.1]å
 colors = [[0.4, 0.4, 0.4]] #['r', 'b', [0.4, 0.4, 0.4]]
 cond = 1e-1
 plt.rcParams.update({'font.size': 8}) 
-fname = 'new12genemodels_12_genes' + str(cond)
+fname = 'new12genemodel_8_genes_idx12' + str(cond)
 plt.title(fname + ', ' + 'Cond. = {}'.format(cond))
 
 for amp, color in zip(amps, colors):
@@ -120,7 +120,8 @@ for amp, color in zip(amps, colors):
     plt.ylabel('v (mV)')
     plt.legend(amps)
 #c = c+1
-plt.savefig('FIGS_new12genemodel/%s.png' % (fname))
+#plt.savefig('FIGS_new12genemodel/%s.png' % (fname))
+plt.savefig('FIGS_8_for_abstract/%s.png' % (fname))
 plt.show()
 
 #######################################
