@@ -196,11 +196,11 @@ def plot2DRate(dataFolder, batchLabel, params, data, par1, par2, val, valLabel, 
 # Function to read batch data and plot figure
 #--------------------------------------------------------------------
 def readPlot():
-    dataFolder = 'tut8_data' #'tauWeight_data'
-    batchLabel = 'tauWeight'
+    dataFolder = 'IClamp_data' #'tauWeight_data'
+    batchLabel = 'amp'
 
     params, data = readBatchData(dataFolder, batchLabel, loadAll=0, saveAll=1, vars=None, maxCombs=None)
-    plot2DRate(dataFolder, batchLabel, params, data, 'synMechTau2', 'connWeight', 'M', "'M' pop rate (Hz)")
+    plot2DRate(dataFolder, batchLabel, params, data, 'amp', 'cell1', "'M' pop rate (Hz)")
 
 
 # Main code

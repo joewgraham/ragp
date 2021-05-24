@@ -8,10 +8,11 @@ cfg.dt = 0.025              # Internal integration timestep to use
 cfg.verbose = False         # Show detailed messages
 cfg.recordTraces = {'V_soma':{'sec':'soma','loc':0.5,'var':'v'}}  # Dict with traces to record
 cfg.recordStep = 0.1        # Step size in ms to save data (eg. V traces, LFP, etc)
-cfg.filename = 'IClamp_out'       # Set file output name
+cfg.filename = 'data_IClamp'       # Set file output name
 cfg.saveJson = True
 cfg.printPopAvgRates = True
-# cfg.analysis['plotRaster'] = {'saveFig': True}                   # Plot a raster
+
+cfg.analysis['plotRaster'] = {'saveFig': True}                   # Plot a raster
 cfg.analysis['plotTraces'] = {'include': [0], 'ylim': [-85, 60], 'saveFig': True}  # Plot recorded traces for this list of cells
 
 cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net']
@@ -25,10 +26,10 @@ cfg.amp = 0.1
 cfg.addIClamp=True
 if cfg.addIClamp:
     cfg.startStimTime = 50
-    cfg.clampAmplitude=0.2
+    cfg.clampAmplitude= 0.01
     cfg.stimDur=200
     
-    cfg.IClamp0 = { 'pop': 'cell', 'sec': 'soma', 'loc': 0.5, 'start': cfg.startStimTime, 'dur': cfg.stimDur, 'amp': cfg.clampAmplitude}
+    cfg.IClamp0 = { 'pop': 'cell1', 'sec': 'soma', 'loc': 0.5, 'start': cfg.startStimTime, 'dur': cfg.stimDur, 'amp': cfg.clampAmplitude}
 
 cfg.addPreIClamp = False
 if cfg.addPreIClamp:

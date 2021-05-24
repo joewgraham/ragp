@@ -8,7 +8,7 @@ cfg.dt = 0.025              # Internal integration timestep to use
 cfg.verbose = False         # Show detailed messages
 cfg.recordTraces = {'V_soma':{'sec':'soma','loc':0.5,'var':'v'}}  # Dict with traces to record
 cfg.recordStep = 0.1        # Step size in ms to save data (eg. V traces, LFP, etc)
-cfg.filename = 'batch'       # Set file output name
+cfg.filename = 'data_IClamp'       # Set file output name
 cfg.saveJson = True
 cfg.printPopAvgRates = True
 cfg.analysis['plotRaster'] = {'saveFig': True}                   # Plot a raster
@@ -25,13 +25,13 @@ cfg.amp = 0.1
 #------------------------------------------------------------------------------
 # Current inputs 
 #------------------------------------------------------------------------------
-cfg.addIClamp=False
+cfg.addIClamp=True
 if cfg.addIClamp:
     cfg.startStimTime = 50
-    cfg.clampAmplitude=0.2
+    cfg.clampAmplitude=0.1
     cfg.stimDur=200
     
-    cfg.IClamp0 = { 'pop': 'S', 'sec': 'soma', 'loc': 0.5, 'start': 50, 'dur': 200, 'amp': cfg.clampAmplitude}
+    cfg.IClamp0 = { 'pop': 'cell1', 'sec': 'soma', 'loc': 0.5, 'start': 50, 'dur': 200, 'amp': cfg.clampAmplitude}
 
 cfg.addPreIClamp = False
 if cfg.addPreIClamp:
@@ -44,7 +44,7 @@ if cfg.addPreIClamp:
 #------------------------------------------------------------------------------
 # NetStim inputs 
 #------------------------------------------------------------------------------
-cfg.addNetStim=True
+cfg.addNetStim=False
 if cfg.addNetStim:
     
     cfg.numStims    = 200
