@@ -15,7 +15,7 @@ def changeIClamp():
 
         # Set output folder, grid method (all param combinations), and run configuration
         b.batchLabel = 'IClamp'
-        b.saveFolder = 'tut8_data_IClamp'
+        b.saveFolder = 'data_IClamp'
         b.method = 'grid'
         b.runCfg = {'type': 'mpi_bulletin',
                             'script': 'init.py',

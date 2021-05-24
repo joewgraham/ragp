@@ -19,16 +19,24 @@ cell_12_1['secs']['soma']['mechs']['pas'] = {'gl': 1.8e-6, 'el': -65}
 ##NA##
 cell_12_1['secs']['soma']['mechs']['ch_Scn1a_md264834'] = {'gNav11bar':1.0}
 ##K##
-cell_12_1['secs']['soma']['mechs']['ch_Kcna1ab1_md80769'] = {'gbar': 0.015}
+cell_12_1['secs']['soma']['mgit aechs']['ch_Kcna1ab1_md80769'] = {'gbar': 0.015}
 cell_12_1['secs']['soma']['mechs']['ch_Kcnc1_md74298'] = {'gk': 0.1}  #0.015
-
-
-
+##CA ghk()##
+cell_12_1['secs']['soma']['mechs']['ch_Cacna1a_cp5'] = {'gCav2_1bar': 1e-5}
+cell_12_1['secs']['soma']['mechs']['ch_Cacna1b_cp6'] = {'gCav2_2bar': 1e-4}
+cell_12_1['secs']['soma']['mechs']['ch_Cacna1c_cp3'] = {'gLbar': 1e-5}
+cell_12_1['secs']['soma']['mechs']['ch_Cacna1g_cp41'] = {'gCav3_1bar':1e-5}
+cell_12_1['secs']['soma']['mechs']['ch_Cacna1i_cp42'] = {'gCav3_3bar':1e-5}
+##HCN##
+cell_12_1['secs']['soma']['mechs']['ch_Hcn1_cp9'] = {'gHCN1bar':  0.0001}
+cell_12_1['secs']['soma']['mechs']['ch_Hcn2_cp10'] = {'gHCN2bar': 0.0001}
+cell_12_1['secs']['soma']['mechs']['ch_Hcn3_cp11'] = {'gHCN3bar': 0.0001 }
+cell_12_1['secs']['soma']['mechs']['ch_Hcn4_cp12'] = {'gHCN4bar': 0.001}
 
 netParams.cellParams['cellType'] = cell_12_1
 
 ## Population parameters
-#netParams.popParams['S'] = {'cellType': 'PYR', 'numCells': 20}
+netParams.popParams['cell'] = {'cellType': 'cell_12_1', 'numCells': 1}
 #netParams.popParams['M'] = {'cellType': 'PYR', 'numCells': 20}
 
 ## Synaptic mechanism parameters
