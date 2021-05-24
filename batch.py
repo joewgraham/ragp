@@ -6,19 +6,19 @@ def changeIClamp():
         params = specs.ODict()
 
         # fill in with parameters to explore and range of values (key has to coincide with a variable in simConfig)
-        # params['clampAmplitude']=[0.05, 0.1, 0.2, 0.4, 0.6]
-        params['stimDur']=[10, 100, 200, 400]
+        params['clampAmplitude']=[0.05, 0.1, 0.2, 0.4, 0.6]
+        #params['stimDur']=[10, 100, 200, 400]
         # params['startStimTime'] = [0, 100, 200]
 
         # create Batch object with parameters to modify, and specifying files to use
-        b = Batch(params=params, cfgFile='tut8_cfg_IClamp.py', netParamsFile='tut8_netParams_IClamp.py',)
+        b = Batch(params=params, cfgFile='cfg_IClamp.py', netParamsFile='netParams_IClamp.py',)
 
         # Set output folder, grid method (all param combinations), and run configuration
         b.batchLabel = 'IClamp'
-        b.saveFolder = 'tut8_data_IClamp'
+        b.saveFolder = 'data_IClamp'
         b.method = 'grid'
         b.runCfg = {'type': 'mpi_bulletin',
-                            'script': 'tut8_init.py',
+                            'script': 'init.py',
                             'skip': True}
 
         # Run batch simulations
@@ -35,14 +35,14 @@ def changeNetStims():
         # params['startStimTime'] = [0, 100, 200]
 
         # create Batch object with parameters to modify, and specifying files to use
-        b = Batch(params=params, cfgFile='tut8_cfg_NetStims.py', netParamsFile='tut8_netParams_NetStims.py',)
+        b = Batch(params=params, cfgFile='cfg_NetStims.py', netParamsFile='netParams_NetStims.py',)
 
         # Set output folder, grid method (all param combinations), and run configuration
         b.batchLabel = 'NetStims'
-        b.saveFolder = 'tut8_data_NetStims'
+        b.saveFolder = 'data_NetStims'
         b.method = 'grid'
         b.runCfg = {'type': 'mpi_bulletin',
-                            'script': 'tut8_init.py',
+                            'script': 'init.py',
                             'skip': True}
 
         # Run batch simulations
@@ -61,14 +61,14 @@ def changeCellParameters():
         # params['dimension']=[1, 10, 18, 50]
 
         # create Batch object with parameters to modify, and specifying files to use
-        b = Batch(params=params, cfgFile='tut8_cfg_CellParams.py', netParamsFile='tut8_netParams_CellParams.py',)
+        b = Batch(params=params, cfgFile='cfg_CellParams.py', netParamsFile='netParams_CellParams.py',)
 
         # Set output folder, grid method (all param combinations), and run configuration
         b.batchLabel = 'CellParams'
-        b.saveFolder = 'tut8_data_CellParams'
+        b.saveFolder = 'data_CellParams'
         b.method = 'grid'
         b.runCfg = {'type': 'mpi_bulletin',
-                            'script': 'tut8_init.py',
+                            'script': 'init.py',
                             'skip': True}
 
         # Run batch simulations
@@ -84,14 +84,14 @@ def changeNetworkParameters():
         # params['synMech']=['exc','inh']
 
         # create Batch object with parameters to modify, and specifying files to use
-        b = Batch(params=params, cfgFile='tut8_cfg_NetPar.py', netParamsFile='tut8_netParams_NetPar.py',)
+        b = Batch(params=params, cfgFile='cfg_NetPar.py', netParamsFile='netParams_NetPar.py',)
 
         # Set output folder, grid method (all param combinations), and run configuration
         b.batchLabel = 'NetPar'
-        b.saveFolder = 'tut8_data_NetPar'
+        b.saveFolder = 'data_NetPar'
         b.method = 'grid'
         b.runCfg = {'type': 'mpi_bulletin',
-                            'script': 'tut8_init.py',
+                            'script': 'init.py',
                             'skip': True}
 
         # Run batch simulations
@@ -99,7 +99,7 @@ def changeNetworkParameters():
 
 # Main code
 if __name__ == '__main__':
-        # changeIClamp()
+        changeIClamp()
         # changeNetStims()
         # changeCellParameters()
-        changeNetworkParameters()
+        # changeNetworkParameters()
