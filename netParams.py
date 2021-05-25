@@ -23,24 +23,6 @@ PYRcell['secs']['soma']['geom'] = {'diam': 30, 'L': 30, 'Ra': 35.4, 'cm':1}  # s
 
 genemod = {'Cacna1a':'ch_Cacna1a_md229585','Cacna1b':'ch_Cacna1b_cp6','Cacna1c':'ch_Cacna1c_cp3','Cacna1g':'ch_Cacna1g_md229585','Cacna1i':'ch_Cacna1i_cp42','Hcn1':'ch_Hcn1_cp9','Hcn2':'ch_Hcn2_cp10','Hcn3':'ch_Hcn3_cp11','Hcn4':'ch_Hcn4_cp12','Kcna1b1':'ch_Kcna1ab1_md80769','Kcnc1':'ch_Kcnc1_md74298','Scn1a':'ch_Scn1a_md264834'}
 
-
-# 'ch_Cacna1a_cp5'
-# 'ch_Cacna1a_md229585'
-# 'ch_Cacna1g_cp41'
-# 'ch_Cacna1g_md229585'
-# 'ch_Hcn1_cp9'
-# 'ch_Hcn1_md229585'
-
-# PYRcell['secs']['soma']['mechs']['pas'] = {'g': 1.8e-6, 'e': -65} 	
-# PYRcell['secs']['soma']['mechs']['ch_Cacna1b_cp6'] = {'gCav2_2bar': 0.0001} 
-# PYRcell['secs']['soma']['mechs']['ch_Cacna1c_cp3'] = {'gLbar': 0.0001} 		
-# PYRcell['secs']['soma']['mechs']['ch_Cacna1i_cp42'] = {'gCav3_3bar': 0.0001} 		
-# PYRcell['secs']['soma']['mechs']['ch_Scn1a_md264834'] = {'gNav11bar': 2.0} 	# 0.00001
-# PYRcell['secs']['soma']['mechs']['ch_Hcn2_cp10'] = {'gHCN2bar': 0.010}		
-# PYRcell['secs']['soma']['mechs']['ch_Hcn4_cp12'] = {'gHCN4bar': 0.001}		
-# PYRcell['secs']['soma']['mechs']['ch_Kcnc1_md74298'] = {'gk': 0.015} 		
-# PYRcell['secs']['soma']['mechs']['ch_Kcna1ab1_md80769'] = {'gbar': 0.015} 
-
 netParams.cellParams['PYR'] = PYRcell
 
 ## Population parameters
