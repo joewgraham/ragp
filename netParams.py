@@ -13,7 +13,7 @@ netParams = specs.NetParams()  # object of class NetParams to store the network 
 
 ## LOAD ALL CELL TYPES
 # from mat file
-cell_identities = = sio.loadmat('all_cellTypes.mat')['allcells_new12_unique_binary']
+cell_identities = sio.loadmat('all_cellTypes.mat')['allcells_new12_unique_binary']
 # allcells_new12_unique_binary= sio.loadmat('all_cellTypes.mat')
 # output = allcells_new12_unique_binary['allcells_new12_unique_binary'] # array
 
