@@ -14,20 +14,7 @@ netParams = specs.NetParams()  # object of class NetParams to store the network 
 ## LOAD ALL CELL TYPES
 # from mat file
 cell_identities = numpy.transpose(sio.loadmat('all_cellTypes.mat')['allcells_new12_unique_binary'])
-# allcells_new12_unique_binary= sio.loadmat('all_cellTypes.mat')
-# output = allcells_new12_unique_binary['allcells_new12_unique_binary'] # array
 
-# len(output[1]) >>> 115
-# output[1:12] >>> array of 115 celltypes
-# accesing cellType as (1:12, idx)>>> 
-# temp = output[1:12]
-# cell = temp[:, idx] # where idx  1:115  
-
-
-
-
-#sortedallcells_new12_unique_binary.keys())
-#allcells_new12_unique_binar['testdouble']
 
 ## Cell parameters/rules
 PYRcell = {'secs': {}}
