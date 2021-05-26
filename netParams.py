@@ -25,23 +25,26 @@ genemod = {'ch_Cacna1a_cp5':{'gCav2_1bar': 0.00001},  'ch_Cacna1b_cp6':{'gCav2_2
            'ch_Hcn4_cp12':{'gHCN4bar': 0.001},           'ch_Kcna1ab1_md80769':{'gbar': 0.015},
            'ch_Kcnc1_md74298':{'gk': 0.015},            'ch_Scn1a_md264834':{'gNav11bar': 2.0}}
 
+# for i, j in zip(cell,genemod):
+#     genemod[j]=i*list(genemod[j].values())
+
 ## Cell parameters/rules
-PYRcell = {'secs': {}}
-PYRcell['secs']['soma'] = {'geom': {}, 'mechs': {}}  # soma params dict
-PYRcell['secs']['soma']['geom'] = {'diam': 30, 'L': 30, 'Ra': 35.4, 'cm':1}  # soma geometry
-PYRcell['secs']['soma']['mechs']['pas'] = {'g': 1.8e-6, 'e': -65}
-netParams.cellParams['PYR'] = PYRcell
+CELL = {'secs': {}}
+CELL['secs']['soma'] = {'geom': {}, 'mechs': {}}  # soma params dict
+CELL['secs']['soma']['geom'] = {'diam': 30, 'L': 30, 'Ra': 35.4, 'cm':1}  # soma geometry
+CELL['secs']['soma']['mechs']['pas'] = {'g': 1.8e-6, 'e': -65}
+netParams.cellParams['CELL'] = CELL
 
 ## Population parameters
-netParams.popParams['S'] = {'cellType': 'PYR', 'numCells': 20}
-netParams.popParams['M'] = {'cellType': 'PYR', 'numCells': 20}
+netParams.popParams['S'] = {'cellType': 'CELL', 'numCells': 20}
+netParams.popParams['M'] = {'cellType': 'CELL', 'numCells': 20}
 
 ## Synaptic mechanism parameters
 netParams.synMechParams['exc'] = {'mod': 'Exp2Syn', 'tau1': 0.1, 'tau2': cfg.synMechTau2, 'e': 0}  # excitatory synaptic mechanism
 
 # Stimulation parameters
 netParams.stimSourceParams['bkg'] = {'type': 'NetStim', 'rate': 10, 'noise': 0.5}
-netParams.stimTargetParams['bkg->PYR'] = {'source': 'bkg', 'conds': {'cellType': 'PYR'}, 'weight': 0.01, 'delay': 5, 'synMech': 'exc'}
+netParams.stimTargetParams['bkg->CELL'] = {'source': 'bkg', 'conds': {'cellType': 'PYR'}, 'weight': 0.01, 'delay': 5, 'synMech': 'exc'}
 
 ## Cell connectivity rules
 netParams.connParams['S->M'] = {    #  S -> M label
