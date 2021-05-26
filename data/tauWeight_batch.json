@@ -1,0 +1,37 @@
+{
+    "batch": {
+        "batchLabel": "tauWeight",
+        "cfgFile": "cfg.py",
+        "evolCfg": {
+            "fitnessFunc": "removed"
+        },
+        "initCfg": {},
+        "method": "grid",
+        "netParamsFile": "netParams.py",
+        "params": [
+            {
+                "label": "synMechTau2",
+                "values": [
+                    3.0,
+                    5.0,
+                    7.0
+                ]
+            },
+            {
+                "label": "connWeight",
+                "values": [
+                    0.005,
+                    0.01,
+                    0.15
+                ]
+            }
+        ],
+        "runCfg": {
+            "script": "init.py",
+            "skip": true,
+            "type": "mpi_bulletin"
+        },
+        "saveFolder": "data",
+        "seed": null
+    }
+}
