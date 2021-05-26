@@ -20,14 +20,16 @@ cell_identities = numpy.transpose(sio.loadmat('all_cellTypes.mat')['allcells_new
 PYRcell = {'secs': {}}
 PYRcell['secs']['soma'] = {'geom': {}, 'mechs': {}}  # soma params dict
 PYRcell['secs']['soma']['geom'] = {'diam': 30, 'L': 30, 'Ra': 35.4, 'cm':1}  # soma geometry
+PYRcell['secs']['soma']['mechs']['pas'] = {'g': 1.8e-6, 'e': -65}
 
-genemod = {'Cacna1a':('ch_Cacna1a_cp5', {}),'Cacna1b':('ch_Cacna1b_cp6', {}),
-	'Cacna1c':('ch_Cacna1c_cp3', {}),'Cacna1g':('ch_Cacna1g_cp41', {}),
-	'Cacna1i':('ch_Cacna1i_cp42', {}),'Hcn1':('ch_Hcn1_cp9', {}),'Hcn2':('ch_Hcn2_cp10', {}),
-	'Hcn3':('ch_Hcn3_cp11', {}),'Hcn4':('ch_Hcn4_cp12', {}),'Kcna1b1':('ch_Kcna1ab1_md80769', {}),
-	'Kcnc1':('ch_Kcnc1_md74298', {}),'Scn1a':('ch_Scn1a_md264834', {})}
+genemod = {'Cacna1a':('ch_Cacna1a_cp5', {PYRcell['secs']['soma']['mechs']['ch_Cacna1a_cp5'] = {'gCav2_1bar': 0.00001}}),'Cacna1b':('ch_Cacna1b_cp6', {PYRcell['secs']['soma']['mechs']['ch_Cacna1b_cp6'] = {'gCav2_2bar': 0.0001}}),
+	'Cacna1c':('ch_Cacna1c_cp3', {PYRcell['secs']['soma']['mechs']['ch_Cacna1c_cp3'] = {'gLbar': 0.0001}}),'Cacna1g':('ch_Cacna1g_cp41', {PYRcell['secs']['soma']['mechs']['ch_Cacna1g_cp41'] = {'gCav3_1bar': 0.00001}}),
+	'Cacna1i':('ch_Cacna1i_cp42', {PYRcell['secs']['soma']['mechs']['ch_Cacna1i_cp42'] = {'gCav3_3bar': 0.0001}}),'Hcn1':('ch_Hcn1_cp9', {PYRcell['secs']['soma']['mechs']['ch_Hcn1_cp9'] = {'gHCN1bar': 0.00001}}),'Hcn2':('ch_Hcn2_cp10', {PYRcell['secs']['soma']['mechs']['ch_Hcn2_cp10'] = {'gHCN2bar': 0.010}}),
+	'Hcn3':('ch_Hcn3_cp11', {PYRcell['secs']['soma']['mechs']['ch_Hcn3_cp11'] = {'gHCN3bar': 0.00001}}),'Hcn4':('ch_Hcn4_cp12', {PYRcell['secs']['soma']['mechs']['ch_Hcn4_cp12'] = {'gHCN4bar': 0.001}}),'Kcna1b1':('ch_Kcna1ab1_md80769', {PYRcell['secs']['soma']['mechs']['ch_Kcna1ab1_md80769'] = {'gbar': 0.015}}),
+	'Kcnc1':('ch_Kcnc1_md74298', {PYRcell['secs']['soma']['mechs']['ch_Kcnc1_md74298'] = {'gk': 0.015}}),'Scn1a':('ch_Scn1a_md264834', {PYRcell['secs']['soma']['mechs']['ch_Scn1a_md264834'] = {'gNav11bar': 2.0}})}
 
 netParams.cellParams['PYR'] = PYRcell
+
 
 ## Population parameters
 netParams.popParams['S'] = {'cellType': 'PYR', 'numCells': 20}
