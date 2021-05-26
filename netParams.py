@@ -25,13 +25,6 @@ genemod = {'ch_Cacna1a_cp5':{'gCav2_1bar': 0.00001},  'ch_Cacna1b_cp6':{'gCav2_2
            'ch_Hcn4_cp12':{'gHCN4bar': 0.001},           'ch_Kcna1ab1_md80769':{'gbar': 0.015},
            'ch_Kcnc1_md74298':{'gk': 0.015},            'ch_Scn1a_md264834':{'gNav11bar': 2.0}}
 
-for cond, onoff in zip(genemod.values(),cell):
-    for i in cond.keys():
-        cond[i] = onoff*cond[i]
-
-for mod in genemod:
-    CEL['secs']['soma']['mechs'][mod]=genemod[mod]
-
 # for i, j in zip(cell,genemod):
 #     genemod[j]=i*list(genemod[j].values())
 
@@ -40,6 +33,14 @@ CEL = {'secs': {}}
 CEL['secs']['soma'] = {'geom': {}, 'mechs': {}}  # soma params dict
 CEL['secs']['soma']['geom'] = {'diam': 30, 'L': 30, 'Ra': 35.4, 'cm':1}  # soma geometry
 CEL['secs']['soma']['mechs']['pas'] = {'g': 1.8e-6, 'e': -65}
+
+for cond, onoff in zip(genemod.values(),cell):
+    for i in cond.keys():
+        cond[i] = onoff*cond[i]
+
+for mod in genemod:
+    CEL['secs']['soma']['mechs'][mod]=genemod[mod]
+    
 netParams.cellParams['CEL'] = CEL
 
 ## Population parameters
