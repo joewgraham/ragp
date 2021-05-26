@@ -18,7 +18,7 @@ cellnum = 53
 cell_identities = numpy.transpose(sio.loadmat('all_cellTypes.mat')['allcells_new12_unique_binary'])
 cell = cell_identities[cellnum]
 #from csv
-cell_identities = numpy.transpose(numpy.genfromtxt('allcells_new12_unique_binary.csv', delimiter=','))
+cell_identities = numpy.int_(numpy.transpose(numpy.genfromtxt('allcells_new12_unique_binary.csv', delimiter=',')))
 
 # order in genemod MUST be preserved to match cell_identities channel order
 genemod = {'Cacna1a':('ch_Cacna1a_cp5', {'gCav2_1bar': 0.00001}),  'Cacna1b':('ch_Cacna1b_cp6', {'gCav2_2bar': 0.0001}),
