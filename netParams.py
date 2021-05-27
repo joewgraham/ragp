@@ -14,7 +14,7 @@ netParams = specs.NetParams()  # object of class NetParams to store the network 
 ## LOAD ALL CELL TYPES
 #from csv
 cellnum = 53
-cell_identities = np.bool_(np.transpose(np.genfromtxt('allcells_new12_unique_binary.csv', delimiter=',')))
+cell_identities = np.transpose(np.genfromtxt('allcells_new12_unique_binary.csv', delimiter=','))
 cell = cell_identities[cellnum]
 
 # order in genemod MUST be preserved to match cell_identities channel order
@@ -33,29 +33,18 @@ CEL['secs']['soma']['geom'] = {'diam': 30, 'L': 30, 'Ra': 35.4, 'cm':1}  # soma 
 CEL['secs']['soma']['mechs']['pas'] = {'g': 1.8e-6, 'e': -65}
 
 
-for mod,onoff in zip(genemod,cell):
-     if onoff == 1:
-         CEL['secs']['soma']['mechs'][mod]=genemod[mod]
+for cond, onoff in zip(genemod.values(),cell):
+     for i in cond.keys():
+         cond[i] = onoff*cond[i]
+
+for mod in genemod:
+     CEL['secs']['soma']['mechs'][mod]=genemod[mod]
 
 
 netParams.cellParams['CEL'] = CEL
 
 ## Population parameters
-netParams.popParams['S'] = {'cellType': 'CEL', 'numCells': 20}
-netParams.popParams['M'] = {'cellType': 'CEL', 'numCells': 20}
+netParams.popParams['U'] = {'cellType': 'CEL', 'numCells': 1}
 
-## Synaptic mechanism parameters
-netParams.synMechParams['exc'] = {'mod': 'Exp2Syn', 'tau1': 0.1, 'tau2': cfg.synMechTau2, 'e': 0}  # excitatory synaptic mechanism
 
-# Stimulation parameters
-netParams.stimSourceParams['bkg'] = {'type': 'NetStim', 'rate': 10, 'noise': 0.5}
-netParams.stimTargetParams['bkg->CEL'] = {'source': 'bkg', 'conds': {'cellType': 'PYR'}, 'weight': 0.01, 'delay': 5, 'synMech': 'exc'}
 
-## Cell connectivity rules
-netParams.connParams['S->M'] = {    #  S -> M label
-    'preConds': {'pop': 'S'},       # conditions of presyn cells
-    'postConds': {'pop': 'M'},      # conditions of postsyn cells
-    'probability': 0.5,             # probability of connection
-    'weight': cfg.connWeight,       # synaptic weight
-    'delay': 5,                     # transmission delay (ms)
-    'synMech': 'exc'}               # synaptic mechanism
