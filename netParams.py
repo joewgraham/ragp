@@ -16,11 +16,9 @@ cell = cell_identities[cfg.cellnum]
 
 ## Cell parameters/rules
 CEL = {'secs': {}}
-CEL['secs']['soma'] = {'geom': {}, 'mechs': {}}  # soma params dict
-CEL['secs']['soma']['geom'] = {'diam': 30, 'L': 30, 'Ra': 35.4, 'cm':1}  # soma geometry
-CEL['secs']['soma']['mechs']['pas'] = {'g': 1.8e-6, 'e': -65}
+CEL['secs']['soma'] = {'geom': {'diam': 30, 'L': 30, 'Ra': 35.4, 'cm':1}, 'mechs': {'pas' : {'g': 1.8e-6, 'e': -65}}}
 for mod,onoff in zip(genemod,cell):
-    if onoff == 1:
+    if onoff:
         CEL['secs']['soma']['mechs'][mod]=genemod[mod]
 netParams.cellParams['CEL'] = CEL
 netParams.popParams['U'] = {'cellType': 'CEL', 'numCells': 1}
