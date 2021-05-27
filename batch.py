@@ -10,9 +10,7 @@ def batch():
         b.batchLabel = '21may27a'
         b.saveFolder = 'data'
         b.method = 'grid'
-        b.runCfg = {'type': 'mpi_bulletin',
-                            'script': 'init.py',
-                            'skip': True}
+        b.runCfg = {'type': 'mpi_bulletin', 'script': 'init.py', 'skip': True}
         b.run()
 
 batch()
