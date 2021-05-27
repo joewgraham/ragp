@@ -32,7 +32,6 @@ CEL = {'secs': {}}
 CEL['secs']['soma'] = {'geom': {}, 'mechs': {}}  # soma params dict
 CEL['secs']['soma']['geom'] = {'diam': 30, 'L': 30, 'Ra': 35.4, 'cm':1}  # soma geometry
 CEL['secs']['soma']['mechs']['pas'] = {'g': 1.8e-6, 'e': -65}
-CEL['secs']['soma']['mechs']['']
 
 for mod,onoff in zip(genemod,cell):
     if onoff == 1:
@@ -56,7 +55,7 @@ if cfg.addIClamp:
 
         # add stim source
         # netParams.stimSourceParams[key] = {'type': 'IClamp', 'delay': start, 'dur': dur, 'amp': amp}
-        netParams.stimSourceParams[key] = { 'type': 'IClamp', 
+        netParams.stimSourceParams[key] = {'type': 'IClamp', 
                                             'delay': cfg.startStimTime if cfg.startStimTime is not None else start, 
                                             'dur': cfg.stimDur if cfg.stimDur is not None else dur, 
                                             'amp': cfg.amp} #if cfg.amp is not None else amp}

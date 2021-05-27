@@ -11,9 +11,10 @@ def batchAmp():
         #params['synMechTau2'] = [3.0, 5.0, 7.0]
         #params['connWeight'] = [0.005, 0.01, 0.15]
         params['amp'] = [0.05, 0.1]
-        params['cellnum'] = range(115)
+        #params['cellnum'] = range(115)
+
         # create Batch object with parameters to modify, and specifying files to use
-        b = Batch(params=params, cfgFile='cfg.py', netParamsFile='netParams.py')
+        b = Batch(params=params, cfgFile='cfg.py', netParamsFile='netParams.py',)
 
         # Set output folder, grid method (all param combinations), and run configuration
         b.batchLabel = 'amp'

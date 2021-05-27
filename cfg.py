@@ -11,14 +11,14 @@ cfg.recordTraces = {'V_soma':{'sec':'soma','loc':0.5,'var':'v'}}  # Dict with tr
 cfg.recordStep = 0.1        # Step size in ms to save data (eg. V traces, LFP, etc)
 cfg.filename = 'output'       # Set file output name
 cfg.saveJson = True
-cfg.savePickle = True
+#cfg.savePickle = True
 cfg.printPopAvgRates = True
 cfg.analysis['plotRaster'] = {'saveFig': True}                   # Plot a raster
 cfg.analysis['plotTraces'] = {'include': [0], 'saveFig': True}  # Plot recorded traces for this list of cells
 
 cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net']
 
-cfg.hParams = {}
+
 # Variable parameters (used in netParams)quit
 #cfg.synMechTau2 = 5
 #cfg.connWeight = 0.01
