@@ -33,12 +33,9 @@ CEL['secs']['soma']['geom'] = {'diam': 30, 'L': 30, 'Ra': 35.4, 'cm':1}  # soma 
 CEL['secs']['soma']['mechs']['pas'] = {'g': 1.8e-6, 'e': -65}
 
 
-for cond, onoff in zip(genemod.values(),cell):
-     for i in cond.keys():
-         cond[i] = onoff*cond[i]
-
-for mod in genemod:
-     CEL['secs']['soma']['mechs'][mod]=genemod[mod]
+for mod,onoff in zip(genemod,cell):
+     if onoff == 1:
+         CEL['secs']['soma']['mechs'][mod]=genemod[mod]
 
 
 netParams.cellParams['CEL'] = CEL
