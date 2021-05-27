@@ -2,6 +2,7 @@ from netpyne import specs
 from netpyne.batch import Batch
 
 #def batchTauWeight():
+
 def batchAmp():
         # Create variable of type ordered dictionary (NetPyNE's customized version)
         params = specs.ODict()
@@ -10,6 +11,7 @@ def batchAmp():
         #params['synMechTau2'] = [3.0, 5.0, 7.0]
         #params['connWeight'] = [0.005, 0.01, 0.15]
         params['amp'] = [0.05, 0.1]
+        params['cellnum'] = range(115)
         # create Batch object with parameters to modify, and specifying files to use
         b = Batch(params=params, cfgFile='cfg.py', netParamsFile='netParams.py')
 
@@ -23,7 +25,6 @@ def batchAmp():
 
         # Run batch simulations
         b.run()
-
 
 # Main code
 if __name__ == '__main__':
