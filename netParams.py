@@ -34,8 +34,7 @@ CEL['secs']['soma']['mechs']['pas'] = {'g': 1.8e-6, 'e': -65}
 
 
 for mod,onoff in zip(genemod,cell):
-    if onoff == 1:
-        CEL['secs']['soma']['mechs'][mod]=genemod[mod]
+    CEL['secs']['soma']['mechs'][mod] = onoff*genemod[mod]
 
 
 netParams.cellParams['CEL'] = CEL
