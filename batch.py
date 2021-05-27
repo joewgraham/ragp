@@ -15,4 +15,4 @@ def batch():
                             'skip': True}
         b.run()
 
-batchAmp()
+batch()
