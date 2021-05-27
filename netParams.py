@@ -14,7 +14,7 @@ netParams = specs.NetParams()  # object of class NetParams to store the network 
 ## LOAD ALL CELL TYPES
 #from csv
 cellnum = 53
-cell_identities = np.int_(np.transpose(np.genfromtxt('allcells_new12_unique_binary.csv', delimiter=',')))
+cell_identities = np.transpose(np.genfromtxt('allcells_new12_unique_binary.csv', delimiter=','))
 cell = cell_identities[cellnum]
 
 # order in genemod MUST be preserved to match cell_identities channel order
@@ -33,8 +33,12 @@ CEL['secs']['soma']['geom'] = {'diam': 30, 'L': 30, 'Ra': 35.4, 'cm':1}  # soma 
 CEL['secs']['soma']['mechs']['pas'] = {'g': 1.8e-6, 'e': -65}
 
 
-for mod,onoff in zip(genemod,cell):
-    CEL['secs']['soma']['mechs'][mod] = onoff*genemod[mod]
+for cond, onoff in zip(genemod.values(),cell):
+     for i in cond.keys():
+         cond[i] = onoff*cond[i]
+
+for mod in genemod:
+     CEL['secs']['soma']['mechs'][mod]=genemod[mod]
 
 
 netParams.cellParams['CEL'] = CEL
