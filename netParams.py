@@ -14,7 +14,7 @@ netParams = specs.NetParams()  # object of class NetParams to store the network 
 ## LOAD ALL CELL TYPES
 #from csv
 cellnum = 53
-cell_identities = np.transpose(np.genfromtxt('allcells_new12_unique_binary.csv', delimiter=','))
+cell_identities = np.bool_(np.transpose(np.genfromtxt('allcells_new12_unique_binary.csv', delimiter=',')))
 cell = cell_identities[cellnum]
 
 # order in genemod MUST be preserved to match cell_identities channel order
