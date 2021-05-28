@@ -10,7 +10,7 @@ cfg.recordStep = 0.1
 cfg.filename = 'output'    
 cfg.saveJson = True
 cfg.analysis['plotTraces'] = {'include': [0], 'saveFig': True}
-cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net']
+# cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net']
 
 cfg.stim = 'IClamp'
 cfg.amp=0.1

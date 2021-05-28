@@ -23,6 +23,6 @@ for mod,onoff in zip(genemod,cell):
 netParams.cellParams['CEL'] = CEL
 netParams.popParams['U'] = {'cellType': 'CEL', 'numCells': 1}
 
-if cfg.stim = 'IClamp':
+if cfg.stim == 'IClamp':
     netParams.stimSourceParams['iclamp'] = {'type': 'IClamp', 'amp': cfg.amp, 'dur': 1e9, 'delay': 0} 
     netParams.stimTargetParams['iclamp->CEL'] = {'source': 'iclamp', 'conds': {'cellType': 'CEL'}, 'sec': 'soma', 'loc': 0.5}
