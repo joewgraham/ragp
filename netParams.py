@@ -4,6 +4,11 @@ import csv
 from cfg import cfg
 netParams = specs.NetParams()  # object of class NetParams to store the network parameters
 
+print()
+print('cfg.cellnum:', cfg.cellnum)
+print('cfg.amp:', cfg.amp)
+print()
+
 # order in genemod MUST be preserved to match cell_identities channel order
 genemod = {'ch_Cacna1a_cp5':{'gCav2_1bar': 0.00001},  'ch_Cacna1b_cp6':{'gCav2_2bar': 0.0001},
            'ch_Cacna1c_cp3':{'gLbar': 0.0001},        'ch_Cacna1g_cp41':{'gCav3_1bar': 0.00001},
